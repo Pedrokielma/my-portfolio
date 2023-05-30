@@ -1,0 +1,49 @@
+.header{
+    width: 100vw;
+    height: 110px;
+    background-color: bisque;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position:fixed;
+    padding: 40px 100px;
+    ul{
+        display:flex;
+    }
+    .sectionLeft{
+        flex: auto;
+        max-width: 464px;
+        ul{
+            display: flex;
+            justify-content: space-between;
+            min-width: 264px;
+            
+        }
+    }
+    .sectionRight{
+        flex: auto;
+        max-width: 464px;
+
+        .toggle {
+            display: block;
+            cursor: pointer;
+            div {
+              width: 20px;
+              height: 2px;
+              margin: 5px;
+              background: white;
+              transition: 0.3s ease-in;
+            }
+            &.active {
+              .line1 {
+                transform: rotate(-45deg) translate(-1px, 9px);
+              }
+              
+              .line3 {
+                transform: rotate(45deg) translate(-1px, -9px);
+              }
+            }
+          }
+    }
+
+}
