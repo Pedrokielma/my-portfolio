@@ -1,4 +1,19 @@
 .homePage{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
     background-color: #1F1F1F;
     opacity: 0.2;
+    .homePagesection{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 268px 0px 68px 0px;
+        color: white;
+        h1{
+            font-size: 90px;
+            font-weight: 400;
+            line-height: 90px;
+        }
+    }
 }

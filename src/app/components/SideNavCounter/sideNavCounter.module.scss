@@ -1,5 +1,32 @@
-.sideNavCounter{
-    height: 100vh;
-    
-    max-width: 393px;
+.sideNavCounter {
+  height: 100vh;
+  width: 393px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 200px 0px 60px 110px;
+  color: white;
+
+  .nameSection {
+    font-size: 18px;
+    font-weight: 400;
+  }
+  .counter {
+    display: flex;
+    line-height: 70px;
+    align-items: flex-start;
+
+    .currentPage {
+      font-size: 70px;
+      font-weight: 400;
+      max-width: 71px;
+    }
+    .totalPages {
+      font-size: 18px;
+      font-weight: 400;
+      max-height: 27px;
+
+      line-height: 35px;
+    }
+  }
 }

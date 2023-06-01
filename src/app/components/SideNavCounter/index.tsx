@@ -4,15 +4,20 @@ import { useState } from 'react';
 import classNames from "classnames/bind";
 
 
+interface FooProp {
+  name?: string;
+  counter: string;
+}
 
 
-
-const SideNavCounter = () => {
-
+const SideNavCounter = (props: FooProp) => {
+const {name, counter} = props;
   return (
     <div className={style.sideNavCounter}>
-      <div>
-        1/6
+      <p className={style.nameSection}>{name}</p>
+      <div className={style.counter}>
+       <p className={style.currentPage}>{counter}</p>
+       <p className={style.totalPages}>/6</p>       
       </div>
     </div>
   );

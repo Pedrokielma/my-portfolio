@@ -12,7 +12,11 @@ const HomePage: React.FC = () => {
 
   return (
    <div className={style.homePage}>
-    <SideNavCounter />
+    <SideNavCounter counter='01'/>
+    <div className={style.homePagesection}>
+        <h1>Hi, I’m <br/> Pedro <br/> Kielmanowicz</h1>
+        <p>Frontend developer</p>
+    </div>
    </div>
   );
 };
