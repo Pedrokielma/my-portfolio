@@ -1,6 +1,6 @@
 .sideNavCounter {
   height: 100vh;
-  width: 393px;
+  min-width: 393px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -19,7 +19,6 @@
     .currentPage {
       font-size: 70px;
       font-weight: 400;
-      max-width: 71px;
     }
     .totalPages {
       font-size: 18px;

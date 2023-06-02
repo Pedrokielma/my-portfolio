@@ -9,6 +9,10 @@ interface FooProp {
   counter: string;
 }
 
+const env = process.env.NEXT_PUBLIC_GIT_HUB_TOKEN;
+console.log('ENV', env);
+
+
 
 const SideNavCounter = (props: FooProp) => {
 const {name, counter} = props;
