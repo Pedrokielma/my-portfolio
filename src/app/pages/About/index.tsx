@@ -26,7 +26,7 @@ const About: React.FC = () => {
             <p>
               When you achieve a sense of new, or different, exactly at this
               moment you communicating and connecting with people on an
-              emotional level. Now that's good design.
+              emotional level. Now that{"'"}s good design.
             </p>
           </div>
           <p className={style.aboutExperience}>+6 years experience</p>
