@@ -1,7 +1,8 @@
+@import '@/app/styles/variables.scss';
 .portfolio {
   display: flex;
   height: 100vh;
-  background-color: #1f1f1f;
+  background-color: $brandColor;
   .portfolioSection {
     margin: 200px 0px 70px 0px;
     display: flex;
@@ -40,11 +41,11 @@
           flex-grow: 1;
           max-width: 100%;
           font-weight: 400;
-          font-size: 50px;
+          font-size: 44px;
           transform: rotate(-90deg);
           transform-origin: top left;
           position: absolute;
-          bottom: -40px;
+          bottom: -30px;
           left: 46px;
         }
       }

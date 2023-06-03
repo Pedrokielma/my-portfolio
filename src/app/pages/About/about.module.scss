@@ -1,0 +1,46 @@
+@import '@/app/styles/variables.scss';
+.about{ 
+    display: flex;
+    height: 100vh;
+    background-color: $brandColor;
+    .aboutSection{
+        padding: 120px 50px 70px 0px;
+        color: white;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+
+        .aboutTitle{
+            font-size: 44px;
+            font-weight: 400;
+            color: $clearWhite;
+        }
+        .aboutContent{
+            
+            color: $darkWhite;
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            
+            
+            .aboutText{
+                font-size: 17px;
+                font-weight: 400;
+                display: flex;
+                max-width: 520px;
+                gap: 20px;
+            }
+            .aboutExperience{
+                font-size: 22px;
+                font-weight: 400;
+            }
+        }
+        .aboutImage{
+            background-color: $grey;
+            width: 100%;
+            flex-grow: 1;
+
+        }
+    }
+}

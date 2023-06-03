@@ -1,8 +1,9 @@
+@import '@/app/styles/variables.scss';
 .header {
   width: 100vw;
   height: 110px;
   background-color: transparent;
-  color: white;
+  color: $clearWhite;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -43,7 +44,7 @@
         width: 40px;
         height: 2px;
         margin: 5px;
-        background: white;
+        background: $clearWhite;
         transition: 0.3s ease-in;
       }
       &.active {
@@ -64,7 +65,7 @@
   position: fixed;
   z-index: 1;
   transition: all 1s cubic-bezier(0.02, 0.01, 0.59, 1);
-  background-color: #1f1f1f;
+  background-color: $brandColor;
   right: 0;
   padding: 147px 100px 70px 147px;
   display: flex;
@@ -81,9 +82,9 @@
       width: 300;
       position: relative;
 
-      color: #787a7c;
+      color: $grey;
       &.active {
-        color: white;
+        color: $clearWhite;
         position: relative;
         display: inline-block;
       }
@@ -93,7 +94,7 @@
         position: absolute;
         bottom: 0;
         height: 1px;
-        background-color: white;
+        background-color: $clearWhite;
       }
 
       &.active::before {
@@ -107,7 +108,7 @@
     flex-direction: column;
     justify-content: end;
     text-align: end;
-    color: white;
+    color: $clearWhite;
     font-size: 17px;
     font-weight: 300;
   }
