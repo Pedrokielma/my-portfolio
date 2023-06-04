@@ -5,6 +5,7 @@ import Portfolio from './pages/Portfolio/index';
 import About from './pages/About/index';
 import Skill from './pages/Skill/index';
 import Insight from './pages/Insight/index';
+import Contact from './pages/Contact/index';
 
 //testing
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
       <About />
       <Skill/>
       <Insight/>
+      <Contact />
 
     </main>
   )

@@ -25,7 +25,7 @@ const Skill: React.FC = () => {
 
   return (
     <div className={style.skill}>
-      <SideNavCounter counter="04" />
+      <SideNavCounter counter="04" name='SERVICERS' />
       <div className={style.skillSection}>
         <div className={style.skillContent}>
           <h2 className={style.skillTitle}>My coding skills</h2>

@@ -1,16 +1,11 @@
 
 import style from "./sideNavCounter.module.scss";
-import { useState } from 'react';
-import classNames from "classnames/bind";
 
 
 interface FooProp {
   name?: string;
   counter: string;
 }
-
-const env = process.env.NEXT_PUBLIC_GIT_HUB_TOKEN;
-console.log('ENV', env);
 
 
 

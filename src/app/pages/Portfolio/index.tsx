@@ -23,8 +23,6 @@ const Portfolio = () => {
     fetchRepoData();
   }, []);
 
-  console.log("repositories", repositories);
-
   return (
     <div className={style.portfolio}>
       <SideNavCounter counter="02" name="Selected works" />

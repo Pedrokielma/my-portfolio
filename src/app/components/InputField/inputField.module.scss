@@ -1,0 +1,71 @@
+@import '@/app/styles/variables.scss';
+
+
+.inputField{ 
+    display: flex;
+    width: 100%;
+    position: relative;
+    .label{
+        justify-content: space-between;
+        color: $clearWhite;
+        display: inline-flex;
+        align-items: center;
+        font-weight: 300;
+        font-size: 15px;
+        line-height: 140%;
+        position: relative;
+        margin-bottom: 5px;
+        width: 100%;
+    }
+    .input-field {
+        width: 100%;
+        padding: 9px 15px 10px 0px;
+        font-weight: 300;
+        font-size: 15px;
+        line-height: 140%;
+        font-style: normal;
+        border-bottom: 1px solid $grey;
+        color: $clearWhite;
+        &::placeholder {
+          color: $grey;
+        }
+        &:focus-visible {
+            outline: none
+          }
+    }
+    .input-text-area {
+        height: 6rem;
+        margin-left: 2px;
+        width: 100%;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 15px;
+        line-height: 140%;
+        border-bottom: 1px solid $grey;
+        border-radius: 1rem;
+        padding: 0.5rem;
+        resize: none;
+        &::placeholder {
+          color: $grey;
+        }
+    
+        &:focus-visible {
+          outline: $brandColor auto 1px;
+        }
+      }
+
+    .error-msg {
+        color: #f56868;
+        text-align: left;
+        margin-top: 8px;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 12px;
+        line-height: 140%;
+        min-height: 12px;
+        visibility: hidden;
+        &.active {
+          visibility: visible;
+        }
+      }
+}

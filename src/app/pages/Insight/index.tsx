@@ -51,7 +51,7 @@ const Insight: React.FC = () => {
 
   return (
     <div className={style.insight}>
-      <SideNavCounter counter="05" />
+      <SideNavCounter counter="05" name='MY INSIGHTS'/>
       <div className={style.insightSection}>
         <div className={style.insightUpper}>
           <h2 className={style.insightTitle}>What’s on my mind</h2>

@@ -1,0 +1,40 @@
+@import '@/app/styles/variables.scss';
+.contact{ 
+    display: flex;
+    height: 100vh;
+    background-color: $brandColor;
+
+    .contactSection{
+        padding: 120px 50px 70px 0px;
+        flex-grow: 1;
+        display: flex;
+        
+
+        .contactContent{
+            display: flex;
+            flex-direction: column;
+            gap: 100px;
+            color: $clearWhite;
+            .contactTitle{
+                font-size: 33px;
+                max-width: 450px;
+            }
+            .contactInfoTitle{
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                font-size: 22px;
+                margin-bottom: 40px;
+
+            }
+            .info{
+                font-size: 17px;
+            }
+        }
+        .contactForm{
+            width: 200px;
+            height: 100%;
+        }
+
+    }
+}

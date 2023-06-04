@@ -10,7 +10,7 @@ const About: React.FC = () => {
 
   return (
     <div className={style.about}>
-      <SideNavCounter counter="03" />
+      <SideNavCounter counter="03" name='ABOUT ME'/>
       <div className={style.aboutSection}>
         <h2 className={style.aboutTitle}>
           I am a passionate Frontend developer
