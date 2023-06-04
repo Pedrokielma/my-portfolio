@@ -3,7 +3,8 @@ import Header from './components/Header/index';
 import HomePage from './pages/HomePage';
 import Portfolio from './pages/Portfolio/index';
 import About from './pages/About/index';
-import Skills from './pages/Skill/index';
+import Skill from './pages/Skill/index';
+import Insight from './pages/Insight/index';
 
 //testing
 export default function Home() {
@@ -13,7 +14,8 @@ export default function Home() {
       <HomePage />
       <Portfolio />
       <About />
-      <Skills/>
+      <Skill/>
+      <Insight/>
 
     </main>
   )
