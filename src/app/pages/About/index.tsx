@@ -5,11 +5,17 @@
 import SideNavCounter from "@/app/components/SideNavCounter/index";
 import style from "./about.module.scss";
 
-const About: React.FC = () => {
+interface Props {
+  id: string
+}
+
+const About = (props: Props) => {
   //   const [open, setOpen] = useState(false);
 
+  const {id} = props;
+  
   return (
-    <div className={style.about}>
+    <div id={id} className={style.about}>
       <SideNavCounter counter="03" name='ABOUT ME'/>
       <div className={style.aboutSection}>
         <h2 className={style.aboutTitle}>

@@ -3,6 +3,7 @@
 
 .inputField{ 
     display: flex;
+    flex-direction: column;
     width: 100%;
     position: relative;
     .label{
@@ -30,27 +31,25 @@
           color: $grey;
         }
         &:focus-visible {
-            outline: none
+            outline: none;
+            background-color: transparent;
           }
     }
     .input-text-area {
-        height: 6rem;
-        margin-left: 2px;
         width: 100%;
         font-style: normal;
         font-weight: 300;
         font-size: 15px;
         line-height: 140%;
         border-bottom: 1px solid $grey;
-        border-radius: 1rem;
-        padding: 0.5rem;
+        padding: 9px 15px 10px 0px;
         resize: none;
         &::placeholder {
           color: $grey;
         }
-    
         &:focus-visible {
-          outline: $brandColor auto 1px;
+          outline: none;
+          background-color: transparent;
         }
       }
 

@@ -11,13 +11,13 @@ import Contact from './pages/Contact/index';
 export default function Home() {
   return (
     <main>
-      <Header/>
-      <HomePage />
-      <Portfolio />
-      <About />
-      <Skill/>
-      <Insight/>
-      <Contact />
+      <Header />
+      <HomePage id='1'/>
+      <Portfolio id='2'/>
+      <About id='3' />
+      <Skill id='4'/>
+      <Insight id='5'/>
+      <Contact id='6'/>
 
     </main>
   )

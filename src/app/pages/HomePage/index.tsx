@@ -6,12 +6,15 @@
 import SideNavCounter from '@/app/components/SideNavCounter/index';
 import style from './homePage.module.scss';
 
+interface Props {
+  id: string
+}
 
-const HomePage: React.FC = () => {
+const HomePage = (props: Props) => {
 //   const [open, setOpen] = useState(false);
-
+const {id} = props;
   return (
-   <div className={style.homePage}>
+   <div id={id} className={style.homePage}>
     <SideNavCounter counter='01'/>
     <div className={style.homePagesection}>
         <h1>Hi, I’m <br/> Pedro <br/> Kielmanowicz</h1>

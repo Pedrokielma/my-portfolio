@@ -10,8 +10,11 @@ interface Repository {
   name: String;
   html_url: string;
 }
-
-const Portfolio = () => {
+interface Props{
+  id: string;
+}
+const Portfolio = (props: Props) => {
+  const { id } = props;
   const [repositories, setRepositories] = useState<Repository[]>([]);
 
   const fetchRepoData = async () => {
@@ -24,7 +27,7 @@ const Portfolio = () => {
   }, []);
 
   return (
-    <div className={style.portfolio}>
+    <div id={id} className={style.portfolio}>
       <SideNavCounter counter="02" name="Selected works" />
       <div className={style.portfolioSection}>
         <div className={style.projectList}>

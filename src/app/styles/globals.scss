@@ -22,14 +22,38 @@ body {
   font-family: 'Roboto', sans-serif;
   padding: 0;
   margin: 0;
-  font-family: 'Outfit', sans-serif;
   font-weight: 100;
   font-style: normal;
 }
+
+
+::-webkit-scrollbar {
+ display: none;
+}
+
 
 input{
   appearance: none;
   background-image: initial;
   background-color: initial;
   color: initial;
+  // &:focus-visible {
+  //   outline: none;
+  //   background-color: none;
+  // }
+}
+input:-internal-autofill-selected {
+  /* Override the properties to remove the white background */
+  background-image: none !important;
+  background-color: $brandColor !important;
+  color: $clearWhite !important;
+}
+
+
+textarea{
+  appearance: none;
+  background-image: initial;
+  background-color: initial;
+  color: initial;
+  border: initial;
 }

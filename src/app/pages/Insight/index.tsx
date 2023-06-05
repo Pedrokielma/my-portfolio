@@ -12,8 +12,12 @@ interface Insights {
   date: string;
   image?: string;
 }
+interface Props {
+  id: string
+}
 
-const Insight: React.FC = () => {
+const Insight = (props: Props) => {
+  const {id} = props;
   const [myInsight, setmyInsights] = useState<Insights[]>([
     {
       name: "insight1",
@@ -50,7 +54,7 @@ const Insight: React.FC = () => {
   }
 
   return (
-    <div className={style.insight}>
+    <div id={id} className={style.insight}>
       <SideNavCounter counter="05" name='MY INSIGHTS'/>
       <div className={style.insightSection}>
         <div className={style.insightUpper}>

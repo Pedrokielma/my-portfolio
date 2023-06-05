@@ -9,8 +9,12 @@ interface Skill {
   name: String;
   detail: String;
 }
+interface Props{
+  id: string;
+}
 
-const Skill: React.FC = () => {
+const Skill = (props: Props) => {
+  const{ id } = props;
   const [mySkill, setMySkill] = useState<Skill[]>([
     {name: "JavaScript", detail: "Object-oriented coding lenguage"},
     {name: "TypeScript", detail: "Object-oriented coding lenguage"},
@@ -24,7 +28,7 @@ const Skill: React.FC = () => {
   ]);
 
   return (
-    <div className={style.skill}>
+    <div id={id} className={style.skill}>
       <SideNavCounter counter="04" name='SERVICERS' />
       <div className={style.skillSection}>
         <div className={style.skillContent}>

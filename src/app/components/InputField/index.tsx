@@ -5,7 +5,6 @@ const cx = classNames.bind(style);
 
 interface FooProp {
   name?: string;
-  label?: string;
   inputType: string;
   maxlength?: number;
   error?: string;
@@ -17,7 +16,6 @@ const InputField = (props: FooProp) => {
   const { name, label, inputType, maxlength, error, value, placeholder } = props;
   return (
     <div className={style.inputField}>
-      {label && <label className={style.label}>{label}</label>}
       {inputType == "textArea" ? (
         <textarea
           className={cx(style["input-text-area"], { [style.errorField]: !!error })}

@@ -1,27 +1,40 @@
 import style from "./header.module.scss";
-import { useState } from "react";
+import { useState, useEffect, useRef  } from "react";
 import classNames from "classnames/bind";
 
 const cx = classNames.bind(style);
 
 interface HeaderLink {
-  id: number;
+  id: string;
   title: string;
   route: string;
   activeClass: boolean;
 }
 
 const headerLinks: HeaderLink[] = [
-  { id: 1, title: "Home", route: "/", activeClass: true },
-  { id: 2, title: "Portfolio", route: "/", activeClass: false },
-  { id: 3, title: "About", route: "/", activeClass: false },
-  { id: 4, title: "Services", route: "/", activeClass: false },
-  { id: 5, title: "Awards", route: "/", activeClass: false },
-  { id: 6, title: "Contacts", route: "/", activeClass: false },
+  { id: '1', title: "Home", route: "/", activeClass: false },
+  { id: '2', title: "Portfolio", route: "/", activeClass: false },
+  { id: '3', title: "About", route: "/", activeClass: false },
+  { id: '4', title: "Services", route: "/", activeClass: false },
+  { id: '5', title: "Awards", route: "/", activeClass: false },
+  { id: '6', title: "Contacts", route: "/", activeClass: false },
 ];
+
+
 
 const Header = () => {
   const [open, setOpen] = useState(false);
+
+ 
+
+  const handleRouteChange = (componentId: string) => {
+    const component = document.getElementById(componentId);
+    if (component) {
+      component.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+ 
 
   return (
     <>
@@ -65,7 +78,7 @@ const Header = () => {
                   className={cx(style.itemList, {
                     [style.active]: item.activeClass,
                   })}
-                  href={item.route}
+                  onClick={() => handleRouteChange(item.id)}
                 >
                   {item.title}
                 </a>
