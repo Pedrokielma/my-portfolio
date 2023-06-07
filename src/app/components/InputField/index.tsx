@@ -13,7 +13,7 @@ interface FooProp {
 }
 
 const InputField = (props: FooProp) => {
-  const { name, label, inputType, maxlength, error, value, placeholder } = props;
+  const { name, inputType, maxlength, error, value, placeholder } = props;
   return (
     <div className={style.inputField}>
       {inputType == "textArea" ? (
