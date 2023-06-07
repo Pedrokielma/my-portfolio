@@ -12,7 +12,6 @@ interface FooProp {
     value: string,
 }
 
-//test
 
 const InputField = (props: FooProp) => {
   const { name, inputType, maxlength, error, value, placeholder } = props;
