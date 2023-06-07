@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useInView } from 'react-intersection-observer';
 import classNames from "classnames/bind";
 
-const cx = classNames.bind(style);
 import SideNavCounter from "@/app/components/SideNavCounter/index";
-import style from "./insight.module.scss";
 import { RiArrowLeftSLine, RiArrowRightSLine } from "react-icons/ri";
 
+import style from "./insight.module.scss";
+
+const cx = classNames.bind(style);
 interface Insights {
   name: string;
   detail: string;
@@ -14,11 +16,12 @@ interface Insights {
 }
 interface Props {
   id: string
+  changeNav: (id: string) => void,
 }
 
 const Insight = (props: Props) => {
-  const {id} = props;
-  const [myInsight, setmyInsights] = useState<Insights[]>([
+  const {id, changeNav} = props;
+  const [myInsight] = useState<Insights[]>([
     {
       name: "insight1",
       detail: "lorem iponsoenague ipsem alejkdnjfnks hbjhfjks",
@@ -44,6 +47,10 @@ const Insight = (props: Props) => {
       image: "https:my/dkjflld/nskjdnkjnkd.com",
     },
   ]);
+  const { ref, inView } = useInView({
+    threshold: 0.5,
+  });
+
 
   const isOdd = (number: number) => {
     if(number % 2 == 0){
@@ -53,8 +60,14 @@ const Insight = (props: Props) => {
     }
   }
 
+  useEffect(() => {
+    if(inView){
+      changeNav(id)
+    }
+  }, [inView]);
+
   return (
-    <div id={id} className={style.insight}>
+    <div ref={ref} id={id} className={style.insight}>
       <SideNavCounter counter="05" name='MY INSIGHTS'/>
       <div className={style.insightSection}>
         <div className={style.insightUpper}>

@@ -1,7 +1,5 @@
-import { useState } from "react";
-// import classNames from "classnames/bind";
-
-// const cx = classNames.bind(style);
+import { useState, useEffect } from "react";
+import { useInView } from 'react-intersection-observer';
 import SideNavCounter from "@/app/components/SideNavCounter/index";
 import style from "./skill.module.scss";
 
@@ -11,11 +9,17 @@ interface Skill {
 }
 interface Props{
   id: string;
+  changeNav: (id: string) => void,
 }
 
 const Skill = (props: Props) => {
-  const{ id } = props;
-  const [mySkill, setMySkill] = useState<Skill[]>([
+  const{ id, changeNav } = props;
+  const { ref, inView } = useInView({
+    threshold: 0.5,
+  });
+
+
+  const [mySkill] = useState<Skill[]>([
     {name: "JavaScript", detail: "Object-oriented coding lenguage"},
     {name: "TypeScript", detail: "Object-oriented coding lenguage"},
     {name: "React.js", detail: "Frontend framework to webdevelopment" },
@@ -27,8 +31,17 @@ const Skill = (props: Props) => {
 
   ]);
 
+
+
+
+  useEffect(() => {
+    if(inView){
+      changeNav(id)
+    }
+  }, [inView]);
+
   return (
-    <div id={id} className={style.skill}>
+    <div ref={ref} id={id} className={style.skill}>
       <SideNavCounter counter="04" name='SERVICERS' />
       <div className={style.skillSection}>
         <div className={style.skillContent}>

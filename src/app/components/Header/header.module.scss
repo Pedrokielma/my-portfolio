@@ -95,7 +95,9 @@
         bottom: 0;
         height: 1px;
         background-color: $clearWhite;
+        transition: width 0.5s ease-out;
       }
+
 
       &.active::before {
         width: 45%;

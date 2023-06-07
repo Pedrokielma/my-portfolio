@@ -1,7 +1,5 @@
-// import { useState } from 'react';
-// import classNames from "classnames/bind";
-
-// const cx = classNames.bind(style);
+import { useEffect } from "react";
+import { useInView } from 'react-intersection-observer';
 import SideNavCounter from "@/app/components/SideNavCounter/index";
 import InputField from '@/app/components/InputField/index';
 
@@ -9,11 +7,14 @@ import style from "./contact.module.scss";
 
 interface Props{
   id: string;
+  changeNav: (id: string) => void,
 }
 
 const Contact  = (props: Props) => {
-  const{id} = props;
-  //   const [open, setOpen] = useState(false);
+  const{id, changeNav} = props;
+  const { ref, inView } = useInView({
+    threshold: 0.5,
+  });
 
  const validateEmail = (email : string) => {
     return email.match(
@@ -26,8 +27,15 @@ const Contact  = (props: Props) => {
     
   }
 
+  useEffect(() => {
+    if(inView){
+      changeNav(id)
+    }
+  }, [inView]);
+
+
   return (
-    <div id={id} className={style.contact}>
+    <div ref={ref} id={id} className={style.contact}>
       <SideNavCounter counter="06" name="GET IN TOUCH" />
       <div className={style.contactSection}>
         <div className={style.contactContent}>
