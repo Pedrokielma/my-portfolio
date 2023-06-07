@@ -10,6 +10,7 @@ interface Props {
 }
 
 const HomePage = (props: Props) => {
+
 const {id, changeNav} = props;
 const { ref, inView } = useInView({
   threshold: 0.5,
@@ -21,7 +22,7 @@ useEffect(() => {
   }
 }, [inView]);
 
-  return (
+
    <div ref={ref} id={id} className={style.homePage}>
     <SideNavCounter counter='01'/>
     <div className={style.homePagesection}>
