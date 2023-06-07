@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import SideNavCounter from "@/app/components/SideNavCounter/index";
 import { fetchRepositories } from "../action";
-
+import { useInView } from 'react-intersection-observer';
 import style from "./portfolio.module.scss";
 
 interface Repository {
@@ -12,10 +12,14 @@ interface Repository {
 }
 interface Props{
   id: string;
+  changeNav: (id: string) => void,
 }
 const Portfolio = (props: Props) => {
-  const { id } = props;
+  const { id, changeNav } = props;
   const [repositories, setRepositories] = useState<Repository[]>([]);
+  const { ref, inView } = useInView({
+    threshold: 0.5,
+  });
 
   const fetchRepoData = async () => {
     const userName = "Pedrokielma";
@@ -26,8 +30,15 @@ const Portfolio = (props: Props) => {
     fetchRepoData();
   }, []);
 
+  useEffect(() => {
+    if(inView){
+      changeNav(id)
+    }
+  }, [inView]);
+
+  
   return (
-    <div id={id} className={style.portfolio}>
+    <div ref={ref} id={id} className={style.portfolio}>
       <SideNavCounter counter="02" name="Selected works" />
       <div className={style.portfolioSection}>
         <div className={style.projectList}>

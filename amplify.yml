@@ -1,0 +1,18 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - yarn install
+    build:
+      commands:
+        - yarn run build
+        - echo "NEXT_PUBLIC_GIT_HUB_API=https://api.github.com/users" >> .env
+        - echo "NEXT_PUBLIC_GIT_HUB_TOKEN=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" >> .env
+  artifacts:
+    baseDirectory: .next
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*

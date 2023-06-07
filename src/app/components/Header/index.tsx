@@ -1,6 +1,6 @@
-import style from "./header.module.scss";
-import { useState, useEffect, useRef  } from "react";
+import { useState  } from "react";
 import classNames from "classnames/bind";
+import style from "./header.module.scss";
 
 const cx = classNames.bind(style);
 
@@ -8,21 +8,24 @@ interface HeaderLink {
   id: string;
   title: string;
   route: string;
-  activeClass: boolean;
+}
+interface Props{
+  activeLink: string
 }
 
 const headerLinks: HeaderLink[] = [
-  { id: '1', title: "Home", route: "/", activeClass: false },
-  { id: '2', title: "Portfolio", route: "/", activeClass: false },
-  { id: '3', title: "About", route: "/", activeClass: false },
-  { id: '4', title: "Services", route: "/", activeClass: false },
-  { id: '5', title: "Awards", route: "/", activeClass: false },
-  { id: '6', title: "Contacts", route: "/", activeClass: false },
+  { id: '1', title: "Home", route: "/" },
+  { id: '2', title: "Portfolio", route: "/" },
+  { id: '3', title: "About", route: "/" },
+  { id: '4', title: "Services", route: "/" },
+  { id: '5', title: "Awards", route: "/" },
+  { id: '6', title: "Contacts", route: "/" },
 ];
 
 
 
-const Header = () => {
+const Header = (props: Props) => {
+  const { activeLink } = props
   const [open, setOpen] = useState(false);
 
  
@@ -76,7 +79,7 @@ const Header = () => {
               <li key={index}>
                 <a
                   className={cx(style.itemList, {
-                    [style.active]: item.activeClass,
+                    [style.active]: item.id === activeLink,
                   })}
                   onClick={() => handleRouteChange(item.id)}
                 >

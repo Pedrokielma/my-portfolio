@@ -1,19 +1,29 @@
 
-// import { useState } from 'react';
-// import classNames from "classnames/bind";
-
-// const cx = classNames.bind(style);
+import { useEffect } from 'react';
 import SideNavCounter from '@/app/components/SideNavCounter/index';
+import { useInView } from 'react-intersection-observer';
 import style from './homePage.module.scss';
 
 interface Props {
   id: string
+  changeNav: (id: string) => void,
 }
 
 const HomePage = (props: Props) => {
-const {id} = props;
-  return (
-   <div id={id} className={style.homePage}>
+
+const {id, changeNav} = props;
+const { ref, inView } = useInView({
+  threshold: 0.5,
+});
+
+useEffect(() => {
+  if(inView){
+    changeNav(id)
+  }
+}, [inView]);
+
+
+   <div ref={ref} id={id} className={style.homePage}>
     <SideNavCounter counter='01'/>
     <div className={style.homePagesection}>
         <h1>Hi, I’m <br/> Pedro <br/> Kielmanowicz</h1>

@@ -1,21 +1,30 @@
-// import { useState } from 'react';
-// import classNames from "classnames/bind";
-
-// const cx = classNames.bind(style);
+import { useEffect } from 'react';
 import SideNavCounter from "@/app/components/SideNavCounter/index";
+import { useInView } from 'react-intersection-observer';
+
 import style from "./about.module.scss";
 
 interface Props {
-  id: string
+  id: string,
+  changeNav: (id: string) => void,
 }
 
 const About = (props: Props) => {
-  //   const [open, setOpen] = useState(false);
+  const {id, changeNav} = props;
+  const { ref, inView } = useInView({
+    threshold: 0.5,
+  });
 
-  const {id} = props;
+
+
+  useEffect(() => {
+    if(inView){
+      changeNav(id)
+    }
+  }, [inView]);
   
   return (
-    <div id={id} className={style.about}>
+    <div ref={ref} id={id} className={style.about}>
       <SideNavCounter counter="03" name='ABOUT ME'/>
       <div className={style.aboutSection}>
         <h2 className={style.aboutTitle}>

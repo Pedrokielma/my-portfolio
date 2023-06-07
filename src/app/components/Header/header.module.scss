@@ -87,6 +87,7 @@
         color: $clearWhite;
         position: relative;
         display: inline-block;
+        transition: all 5s ease-out;
       }
       &.active::before,
       &.active::after {
@@ -95,11 +96,25 @@
         bottom: 0;
         height: 1px;
         background-color: $clearWhite;
+        
       }
+
 
       &.active::before {
         width: 45%;
         left: 0;
+        animation: borderArrival 0.5s forwards;
+        @keyframes borderArrival {
+          0% {
+            width: 0;
+            right: 0;
+          }
+          100% {
+            width: 45%;
+            right: auto;
+            left: 0;
+          }
+        }
       }
     }
   }
