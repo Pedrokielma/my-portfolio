@@ -37,10 +37,6 @@ input{
   background-image: initial;
   background-color: initial;
   color: initial;
-  // &:focus-visible {
-  //   outline: none;
-  //   background-color: none;
-  // }
 }
 input:-internal-autofill-selected {
   /* Override the properties to remove the white background */

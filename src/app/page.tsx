@@ -8,7 +8,7 @@ import Skill from './pages/Skill/index';
 import Insight from './pages/Insight/index';
 import Contact from './pages/Contact/index';
 
-//testing
+
 export default function Home() {
   const [activeLink, setActiveLink] = useState('')
 

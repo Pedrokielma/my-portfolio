@@ -16,16 +16,6 @@ const Contact  = (props: Props) => {
     threshold: 0.5,
   });
 
- const validateEmail = (email : string) => {
-    return email.match(
-      // eslint-disable-next-line no-useless-escape
-      /^\w+([\.\/+-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-    );
-  };
-
-  const handleChange = () =>{
-    
-  }
 
   useEffect(() => {
     if(inView){
