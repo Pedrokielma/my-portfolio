@@ -12,6 +12,7 @@ interface FooProp {
     value: string,
 }
 
+
 const InputField = (props: FooProp) => {
   const { name, inputType, maxlength, error, value, placeholder } = props;
   return (

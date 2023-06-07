@@ -1,9 +1,9 @@
 .homePage{
     width: 100vw;
-    height: 100vh;
+    height: 100vh; 
+    background-image: url('../../../../public/images/tie-dye.png');
+    background-size: cover;
     display: flex;
-    background-color: #1F1F1F;
-    opacity: 0.2;
     .homePagesection{
         display: flex;
         flex-direction: column;
