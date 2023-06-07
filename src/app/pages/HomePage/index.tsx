@@ -11,7 +11,6 @@ interface Props {
 }
 
 const HomePage = (props: Props) => {
-//   const [open, setOpen] = useState(false);
 const {id} = props;
   return (
    <div id={id} className={style.homePage}>
