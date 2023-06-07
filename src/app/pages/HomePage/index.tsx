@@ -22,7 +22,7 @@ useEffect(() => {
   }
 }, [inView]);
 
-
+return (
    <div ref={ref} id={id} className={style.homePage}>
     <SideNavCounter counter='01'/>
     <div className={style.homePagesection}>
