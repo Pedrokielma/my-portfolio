@@ -7,6 +7,8 @@ frontend:
     build:
       commands:
         - yarn run build
+        - echo "NEXT_PUBLIC_GIT_HUB_API=${NEXT_PUBLIC_GIT_HUB_API}" >> .env
+        - echo "NEXT_PUBLIC_GIT_HUB_TOKEN=${NEXT_PUBLIC_GIT_HUB_TOKEN}" >> .env
   artifacts:
     baseDirectory: .next
     files:
