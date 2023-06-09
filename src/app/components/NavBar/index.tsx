@@ -53,10 +53,6 @@ const NavBar = (props: Props) => {
             );
           })}
         </ul>
-        <div className={style.contactInfo}>
-          <p className={style.contactItem}>+34635077704</p>
-          <p className={style.contactItem}>peterkielma@gmail.com</p>
-        </div>
       </div>
   );
 };

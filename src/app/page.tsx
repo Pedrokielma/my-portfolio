@@ -21,27 +21,40 @@ export default function Home() {
     setBlackHeader(isBlack);
   };
   const closeNav = () => {
-    if(openNav){
-      setOpenNav(false)
+    if (openNav) {
+      setOpenNav(false);
     }
-  }
+  };
 
   return (
     <>
-    <main onClick={()=>{closeNav()}}>
-      <Header openNav={openNav} setOpenNav={setOpenNav} activeLink={activeLink} blackHeader={blackHeader} />
-      <HomePage
-        changeHeaderColor={changeHeaderColor}
-        changeNav={changeNav}
-        id="1"
+      <main
+        onClick={() => {
+          closeNav();
+        }}
+      >
+        <Header
+          openNav={openNav}
+          setOpenNav={setOpenNav}
+          activeLink={activeLink}
+          blackHeader={blackHeader}
+        />
+        <HomePage
+          changeHeaderColor={changeHeaderColor}
+          changeNav={changeNav}
+          id="1"
+        />
+        <Portfolio changeNav={changeNav} id="2" />
+        <About changeNav={changeNav} id="3" />
+        <Skill changeNav={changeNav} id="4" />
+        <Insight changeNav={changeNav} id="5" />
+        <Contact changeNav={changeNav} id="6" />
+      </main>
+      <NavBar
+        openNav={openNav}
+        setOpenNav={setOpenNav}
+        activeLink={activeLink}
       />
-      <Portfolio changeNav={changeNav} id="2" />
-      <About changeNav={changeNav} id="3" />
-      <Skill changeNav={changeNav} id="4" />
-      <Insight changeNav={changeNav} id="5" />
-      <Contact changeNav={changeNav} id="6" />
-    </main>
-    <NavBar openNav={openNav} setOpenNav={setOpenNav} activeLink={activeLink} blackHeader={blackHeader}/>
     </>
   );
 }

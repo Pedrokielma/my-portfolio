@@ -2,7 +2,7 @@
 
 .navBar {
     height: 100vh;
-    max-width: 647px;
+    width: 647px;
     position: fixed;
     z-index: 1;
     transition: all 1s cubic-bezier(0.02, 0.01, 0.59, 1);
@@ -19,14 +19,14 @@
     .list {
       display: flex;
       flex-direction: column;
-  
       gap: 30px;
+      font-size: 40px;
+      font-weight: 500;
       .itemList {
         font-size: 30px;
         width: 300;
         position: relative;
         cursor: pointer;
-  
         color: $pink;
         &.active {
           color: $darkWhite;
@@ -60,14 +60,5 @@
           }
         }
       }
-    }
-    .contactInfo {
-      display: flex;
-      flex-direction: column;
-      justify-content: end;
-      text-align: end;
-      color: $pink;
-      font-size: 17px;
-      font-weight: 300;
     }
   }

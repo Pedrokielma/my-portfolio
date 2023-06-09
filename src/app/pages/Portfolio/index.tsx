@@ -41,18 +41,31 @@ const Portfolio = (props: Props) => {
       <SideNavCounter counter="02" name="Selected works" />
       <div className={style.portfolioSection}>
         <div className={style.projectList}>
-          {repositories?.map(
-            (repo, index) =>
-              repo.stargazers_count != 0 && (
-                <a href={repo.html_url} className={style.item} key={repo.id}>
-                  <p className={style.number}>
-                    {String(index + 1).padStart(2, "0")}
-                  </p>
-
-                  <p className={style.name}>{repo.name}</p>
-                </a>
-              )
-          )}
+          {repositories
+            ?.filter((repo) => repo.stargazers_count !== 0)
+            .map(
+              (repo, index) =>
+                repo.stargazers_count != 0 && (
+                  <div key={repo.id} className={style.itemCard}>
+                    <a
+                      href={repo.html_url}
+                      className={style.item}
+                      
+                    >
+                      <p className={style.number}>
+                        {String(index + 1).padStart(2, "0")}
+                      </p>
+                      <p className={style.name}>{repo.name}</p>
+                      <p className={style.description}>
+                        Lorem ipsum dolor sit amet consectetur. Vitae laoreet
+                        viverra dapibus adipiscing consectetur enim. Facilisis
+                        dolor placerat mauris nulla aliquet tempus et. Diam
+                        morbi et ut felis et sit massa vivamus.{" "}
+                      </p>
+                    </a>
+                  </div>
+                )
+            )}
         </div>
       </div>
     </div>

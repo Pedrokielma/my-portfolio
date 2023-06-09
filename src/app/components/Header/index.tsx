@@ -52,11 +52,16 @@ const Header = (props: Props) => {
           <div
             className={cx(style.toggle, {
               [style.active]: openNav,
+              [style.black]: blackHeader,
             })}
             onClick={() => setOpenNav(!openNav)}
           >
-            <div className={style.line1}></div>
-            <div className={style.line3}></div>
+            <div className={cx(style.line1, {
+              [style.black]: blackHeader,
+            })}></div>
+            <div className={cx(style.line2, {
+              [style.black]: blackHeader,
+            })}></div>
           </div>
         </div>
       </header>
