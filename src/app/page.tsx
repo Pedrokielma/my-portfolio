@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Header from "./components/Header/index";
+import NavBar from "./components/NavBar/index";
 import HomePage from "./pages/HomePage";
 import Portfolio from "./pages/Portfolio/index";
 import About from "./pages/About/index";
@@ -11,6 +12,7 @@ import Contact from "./pages/Contact/index";
 export default function Home() {
   const [activeLink, setActiveLink] = useState("");
   const [blackHeader, setBlackHeader] = useState(true);
+  const [openNav, setOpenNav] = useState(false);
 
   const changeNav = (id: string) => {
     setActiveLink(id);
@@ -18,10 +20,16 @@ export default function Home() {
   const changeHeaderColor = (isBlack: boolean) => {
     setBlackHeader(isBlack);
   };
+  const closeNav = () => {
+    if(openNav){
+      setOpenNav(false)
+    }
+  }
 
   return (
-    <main>
-      <Header activeLink={activeLink} blackHeader={blackHeader} />
+    <>
+    <main onClick={()=>{closeNav()}}>
+      <Header openNav={openNav} setOpenNav={setOpenNav} activeLink={activeLink} blackHeader={blackHeader} />
       <HomePage
         changeHeaderColor={changeHeaderColor}
         changeNav={changeNav}
@@ -33,5 +41,7 @@ export default function Home() {
       <Insight changeNav={changeNav} id="5" />
       <Contact changeNav={changeNav} id="6" />
     </main>
+    <NavBar openNav={openNav} setOpenNav={setOpenNav} activeLink={activeLink} blackHeader={blackHeader}/>
+    </>
   );
 }

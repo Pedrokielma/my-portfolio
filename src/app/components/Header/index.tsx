@@ -12,20 +12,14 @@ interface HeaderLink {
 interface Props {
   activeLink: string;
   blackHeader: boolean;
+  openNav: boolean;
+  setOpenNav: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const headerLinks: HeaderLink[] = [
-  { id: "1", title: "Home", route: "/" },
-  { id: "2", title: "Portfolio", route: "/" },
-  { id: "3", title: "About", route: "/" },
-  { id: "4", title: "Services", route: "/" },
-  { id: "5", title: "Awards", route: "/" },
-  { id: "6", title: "Contacts", route: "/" },
-];
+
 
 const Header = (props: Props) => {
-  const { activeLink, blackHeader } = props;
-  const [open, setOpen] = useState(false);
+  const { blackHeader, openNav, setOpenNav } = props;
 
   const handleRouteChange = (componentId: string) => {
     const component = document.getElementById(componentId);
@@ -38,60 +32,34 @@ const Header = (props: Props) => {
     <>
       <header className={cx(style.header, { [style.black]: blackHeader })}>
         <div className={style.sectionLeft}>
-          <ul>
-            <li>
-              <a className={style.logo}>
-                PEDRO <br />
-                KIELMA
-              </a>
-            </li>
-            <li>
-              <a href="#">peterkielma@gmail.com</a>
-            </li>
-          </ul>
+          <a onClick={()=> {handleRouteChange('1')}} className={style.logo}>
+            PEDRO <br />
+            KIELMA
+          </a>
         </div>
-        <div className={style.sectionRight}>
-          <ul className={style.sectionRight}>
+        <div className={
+        cx(style.sectionRight, {
+          [style.none]: openNav,
+        })}>
+          <ul className={style.midiaLink}>
             <li>
-              <a>Behance</a>
+              <a >Linkedin</a>
             </li>
             <li>
-              <a href="#">Instagram</a>
+              <a href="#">Github</a>
             </li>
           </ul>
           <div
             className={cx(style.toggle, {
-              [style.active]: open,
+              [style.active]: openNav,
             })}
-            onClick={() => setOpen(!open)}
+            onClick={() => setOpenNav(!openNav)}
           >
             <div className={style.line1}></div>
             <div className={style.line3}></div>
           </div>
         </div>
       </header>
-      <div className={cx(style.navBar, { [style.active]: !open })}>
-        <ul className={style.list}>
-          {headerLinks.map((item, index) => {
-            return (
-              <li key={index}>
-                <a
-                  className={cx(style.itemList, {
-                    [style.active]: item.id === activeLink,
-                  })}
-                  onClick={() => handleRouteChange(item.id)}
-                >
-                  {item.title}
-                </a>
-              </li>
-            );
-          })}
-        </ul>
-        <div className={style.contactInfo}>
-          <p className={style.contactItem}>+34635077704</p>
-          <p className={style.contactItem}>peterkielma@gmail.com</p>
-        </div>
-      </div>
     </>
   );
 };
