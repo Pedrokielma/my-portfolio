@@ -1,81 +1,78 @@
-@import '@/app/styles/variables.scss';
+@import "@/app/styles/variables.scss";
 
-.insight{ 
+.insight {
+  display: flex;
+  height: 100vh;
+  background-color: $grey;
+  .insightSection {
     display: flex;
-    height: 100vh;
-    background-color: $brandColor;
-    .insightSection{
+    flex-direction: column;
+    padding: 120px 50px 70px 0px;
+    flex-grow: 1;
+    overflow-x: auto;
+    .insightUpper {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      .insightTitle {
+        color: $pink;
+        font-size: 44px;
+        font-weight: 400;
+        line-height: 55px;
+      }
+      .buttonsList {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        .leftButton {
+          color: $pink;
+          padding: 10px;
+          border-radius: 50%;
+          border: 1px solid $pink;
+          font-size: 25px;
+        }
+        .rightButton {
+          color: $pink;
+          padding: 10px;
+          border-radius: 50%;
+          border: 1px solid $pink;
+          font-size: 25px;
+        }
+      }
+    }
+    .insightList {
+      display: flex;
+      flex-grow: 1;
+      gap: 20px;
+      overflow-x: auto;
+      .insightItem {
+        height: 100%;
+        min-width: 300px;
         display: flex;
         flex-direction: column;
-        padding: 120px 50px 70px 0px;
-        flex-grow: 1;
-        overflow-x: auto;
-        .insightUpper{
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 40px;
-            .insightTitle{
-                color: $clearWhite;
-                font-size: 44px;
-                font-weight: 400;
-                line-height: 55px;
-            }
-            .buttonsList{
-                display: flex;
-                align-items: center;
-                gap: 20px;
-                .leftButton{
-                    color: $clearWhite;
-                    padding: 10px;
-                    border-radius: 50%;
-                    border: 1px solid $grey;
-                    font-size: 25px;
+        gap: 20px;
 
-                }
-                .rightButton{
-                    color: $clearWhite;
-                    padding: 10px;
-                    border-radius: 50%;
-                    border: 1px solid $grey;
-                    font-size: 25px;
-
-                }
-            }
+        .image {
+          background-color: $pink;
+          height: 55%;
+          &.big {
+            height: 75%;
+          }
         }
-        .insightList{
-            display: flex;
-            flex-grow: 1;
-            gap: 20px;
-            overflow-x: auto;
-            .insightItem{
-                height: 100%;
-                min-width: 300px;
-                display: flex;
-                flex-direction: column;
-                gap: 20px;
-
-                .image{
-                    background-color: $grey;
-                    height: 55%;
-                    &.big{
-                        height: 75%
-                    }
-                }
-                .content{
-                    display: flex;
-                    flex-direction: column;
-                    gap: 10px;
-                    .date{
-                        color: $grey;
-                        font-size: 17px;
-                    }
-                    .detail{
-                        color: $clearWhite;
-                        font-size: 22px;
-                    }
-                }
-            }
+        .content {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          .date {
+            color: $pink;
+            font-size: 17px;
+          }
+          .detail {
+            color: $pink;
+            font-size: 22px;
+          }
         }
-
+      }
     }
+  }
 }

@@ -1,34 +1,46 @@
-
-import { useEffect } from 'react';
-import SideNavCounter from '@/app/components/SideNavCounter/index';
-import { useInView } from 'react-intersection-observer';
-import style from './homePage.module.scss';
+import { useEffect } from "react";
+import SideNavCounter from "@/app/components/SideNavCounter/index";
+import { useInView } from "react-intersection-observer";
+import style from "./homePage.module.scss";
 
 interface Props {
-  id: string
-  changeNav: (id: string) => void,
+  id: string;
+  changeNav: (id: string) => void;
+  changeHeaderColor: (isBlack: boolean) => void;
 }
 
 const HomePage = (props: Props) => {
-const {id, changeNav} = props;
-const { ref, inView } = useInView({
-  threshold: 0.5,
-});
+  const { id, changeNav, changeHeaderColor } = props;
 
-useEffect(() => {
-  if(inView){
-    changeNav(id)
-  }
-}, [inView]);
+  const { ref: myRef, inView: componentInView } = useInView({
+    threshold: 0.5,
+  });
+
+  const { ref: blackHeader, inView: isBlackHeader } = useInView({
+    threshold: 0.05,
+  });
+
+  useEffect(() => {
+    if (componentInView) {
+      changeNav(id);
+    }
+  }, [componentInView]);
+
+  useEffect(() => {
+    changeHeaderColor(isBlackHeader);
+  }, [isBlackHeader]);
 
   return (
-   <div ref={ref} id={id} className={style.homePage}>
-    <SideNavCounter counter='01'/>
-    <div className={style.homePagesection}>
-        <h1>Hi, I’m <br/> Pedro <br/> Kielmanowicz</h1>
-        <p>Frontend developer</p>
+    <div ref={myRef} id={id} className={style.homePage}>
+      <SideNavCounter counter="01" />
+      <div ref={blackHeader} className={style.homePagesection}>
+        <h1>
+          <span className={style.hi}>Hi, I’m</span>{" "}
+          <span className={style.name}>Pedro Kielma</span>{" "}
+        </h1>
+        <p className={style.subTitle}>Frontend developer</p>
+      </div>
     </div>
-   </div>
   );
 };
 

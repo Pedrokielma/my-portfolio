@@ -1,4 +1,4 @@
-import { useState  } from "react";
+import { useState } from "react";
 import classNames from "classnames/bind";
 import style from "./header.module.scss";
 
@@ -9,43 +9,41 @@ interface HeaderLink {
   title: string;
   route: string;
 }
-interface Props{
-  activeLink: string
+interface Props {
+  activeLink: string;
+  blackHeader: boolean;
 }
 
 const headerLinks: HeaderLink[] = [
-  { id: '1', title: "Home", route: "/" },
-  { id: '2', title: "Portfolio", route: "/" },
-  { id: '3', title: "About", route: "/" },
-  { id: '4', title: "Services", route: "/" },
-  { id: '5', title: "Awards", route: "/" },
-  { id: '6', title: "Contacts", route: "/" },
+  { id: "1", title: "Home", route: "/" },
+  { id: "2", title: "Portfolio", route: "/" },
+  { id: "3", title: "About", route: "/" },
+  { id: "4", title: "Services", route: "/" },
+  { id: "5", title: "Awards", route: "/" },
+  { id: "6", title: "Contacts", route: "/" },
 ];
 
-
-
 const Header = (props: Props) => {
-  const { activeLink } = props
+  const { activeLink, blackHeader } = props;
   const [open, setOpen] = useState(false);
-
- 
 
   const handleRouteChange = (componentId: string) => {
     const component = document.getElementById(componentId);
     if (component) {
-      component.scrollIntoView({ behavior: 'smooth' });
+      component.scrollIntoView({ behavior: "smooth" });
     }
   };
 
- 
-
   return (
     <>
-      <header className={style.header}>
+      <header className={cx(style.header, { [style.black]: blackHeader })}>
         <div className={style.sectionLeft}>
           <ul>
             <li>
-              <a>Pedro</a>
+              <a className={style.logo}>
+                PEDRO <br />
+                KIELMA
+              </a>
             </li>
             <li>
               <a href="#">peterkielma@gmail.com</a>
@@ -90,9 +88,8 @@ const Header = (props: Props) => {
           })}
         </ul>
         <div className={style.contactInfo}>
-            <p className={style.contactItem}>+34635077704</p>
-            <p className={style.contactItem}>peterkielma@gmail.com</p>
-
+          <p className={style.contactItem}>+34635077704</p>
+          <p className={style.contactItem}>peterkielma@gmail.com</p>
         </div>
       </div>
     </>

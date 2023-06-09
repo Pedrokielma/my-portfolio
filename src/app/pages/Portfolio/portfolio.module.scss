@@ -2,12 +2,12 @@
 .portfolio {
   display: flex;
   height: 100vh;
-  background-color: $brandColor;
+  background-color: $grey;
   .portfolioSection {
     margin: 120px 0px 70px 0px;
     display: flex;
     align-items: center;
-    border-left: solid grey 1px;
+    border-left: solid pink 1px;
     flex-grow: 1;
     overflow-x: auto;
     overflow-y: hidden;
@@ -19,7 +19,7 @@
       position: relative;
 
       .item {
-        border-right: solid grey 1px;
+        border-right: solid pink 1px;
         width: 400px;
         height: 100%;
         padding: 40px;
@@ -27,7 +27,7 @@
         align-items: end;
         position: relative;
         &:hover {
-          background-color: grey;
+          background-color: pink;
         }
 
         .number {

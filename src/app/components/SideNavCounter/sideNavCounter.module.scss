@@ -1,3 +1,5 @@
+@import "@/app/styles/variables.scss";
+
 .sideNavCounter {
   height: 100vh;
   min-width: 393px;
@@ -5,7 +7,7 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 120px 0px 60px 110px;
-  color: white;
+  color: $pink;
 
   .nameSection {
     font-size: 18px;
@@ -16,9 +18,13 @@
     line-height: 70px;
     align-items: flex-start;
 
+    &.black {
+      color: $black;
+    }
+
     .currentPage {
       font-size: 70px;
-      font-weight: 400;
+      font-weight: 600;
     }
     .totalPages {
       font-size: 18px;

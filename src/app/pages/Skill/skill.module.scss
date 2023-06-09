@@ -3,7 +3,7 @@
 .skill {
   display: flex;
   height: 100vh;
-  background-color: $brandColor;
+  background-color: $grey;
 
   .skillSection {
     display: flex;
@@ -17,7 +17,7 @@
       .skillTitle {
         font-size: 44px;
         font-weight: 400;
-        color: $clearWhite;
+        color: $pink;
       }
       .skillTable {
         display: grid;
@@ -34,7 +34,7 @@
           .name {
             font-size: 22px;
             font-weight: 400;
-            color: $clearWhite;
+            color: $pink;
           }
           .detail {
             font-size: 17px;
@@ -46,7 +46,7 @@
     }
     .skillImage {
       flex-grow: 1;
-      background-color: $grey;
+      background-color: $pink;
       height: 100%;
       min-width: 200px;
     }

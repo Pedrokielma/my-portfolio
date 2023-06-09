@@ -1,9 +1,9 @@
-@import '@/app/styles/variables.scss';
+@import "@/app/styles/variables.scss";
 .header {
   width: 100vw;
   height: 110px;
   background-color: transparent;
-  color: $clearWhite;
+  color: $pink;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -12,6 +12,9 @@
   font-size: 17px;
   font-weight: 400;
   z-index: 2;
+  &.black {
+    color: $black;
+  }
   ul {
     display: flex;
   }
@@ -21,7 +24,13 @@
     ul {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       min-width: 264px;
+      .logo {
+        font-size: 25px;
+        font-weight: 900;
+        line-height: 30px;
+      }
     }
   }
   .sectionRight {
@@ -44,7 +53,7 @@
         width: 40px;
         height: 2px;
         margin: 5px;
-        background: $clearWhite;
+        background: $pink;
         transition: 0.3s ease-in;
       }
       &.active {
@@ -65,7 +74,7 @@
   position: fixed;
   z-index: 1;
   transition: all 1s cubic-bezier(0.02, 0.01, 0.59, 1);
-  background-color: $brandColor;
+  background-color: $grey;
   right: 0;
   padding: 147px 100px 70px 147px;
   display: flex;
@@ -82,9 +91,9 @@
       width: 300;
       position: relative;
 
-      color: $grey;
+      color: $pink;
       &.active {
-        color: $clearWhite;
+        color: $pink;
         position: relative;
         display: inline-block;
         transition: all 5s ease-out;
@@ -95,10 +104,8 @@
         position: absolute;
         bottom: 0;
         height: 1px;
-        background-color: $clearWhite;
-        
+        background-color: $pink;
       }
-
 
       &.active::before {
         width: 45%;
@@ -118,12 +125,12 @@
       }
     }
   }
-  .contactInfo{
+  .contactInfo {
     display: flex;
     flex-direction: column;
     justify-content: end;
     text-align: end;
-    color: $clearWhite;
+    color: $pink;
     font-size: 17px;
     font-weight: 300;
   }

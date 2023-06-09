@@ -2,7 +2,7 @@
 .about{ 
     display: flex;
     height: 100vh;
-    background-color: $brandColor;
+    background-color: $grey;
     .aboutSection{
         padding: 120px 50px 70px 0px;
         color: white;
@@ -14,7 +14,7 @@
         .aboutTitle{
             font-size: 44px;
             font-weight: 400;
-            color: $clearWhite;
+            color: $pink;
         }
         .aboutContent{
             
@@ -37,7 +37,7 @@
             }
         }
         .aboutImage{
-            background-color: $grey;
+            background-color: $pink;
             width: 100%;
             flex-grow: 1;
 
