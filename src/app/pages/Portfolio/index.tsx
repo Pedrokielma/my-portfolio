@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import SideNavCounter from "@/app/components/SideNavCounter/index";
+import RoundButton from "@/app/components/RoundButton/index";
 import { fetchRepositories } from "../action";
 import { useInView } from "react-intersection-observer";
 import style from "./portfolio.module.scss";
-
 interface Repository {
   id: number;
   stargazers_count: number;
@@ -38,7 +38,7 @@ const Portfolio = (props: Props) => {
 
   return (
     <div ref={myRef} id={id} className={style.portfolio}>
-      <SideNavCounter counter="02" name="Selected works" />
+      <SideNavCounter counter="02" name="SELECTED WORKS" />
       <div className={style.portfolioSection}>
         <div className={style.projectList}>
           {repositories
@@ -50,6 +50,7 @@ const Portfolio = (props: Props) => {
                     <a
                       href={repo.html_url}
                       className={style.item}
+                      target="_blank"
                       
                     >
                       <p className={style.number}>
@@ -62,6 +63,10 @@ const Portfolio = (props: Props) => {
                         dolor placerat mauris nulla aliquet tempus et. Diam
                         morbi et ut felis et sit massa vivamus.{" "}
                       </p>
+                      <div className={style.roundButton}>
+                      <RoundButton size='small' content='VIEW' />
+
+                      </div>
                     </a>
                   </div>
                 )

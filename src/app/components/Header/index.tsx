@@ -4,11 +4,6 @@ import style from "./header.module.scss";
 
 const cx = classNames.bind(style);
 
-interface HeaderLink {
-  id: string;
-  title: string;
-  route: string;
-}
 interface Props {
   activeLink: string;
   blackHeader: boolean;
@@ -43,10 +38,10 @@ const Header = (props: Props) => {
         })}>
           <ul className={style.midiaLink}>
             <li>
-              <a >Linkedin</a>
+              <a href="https://www.linkedin.com/in/pedro-kielmanowicz/" target="_blank">Linkedin</a>
             </li>
             <li>
-              <a href="#">Github</a>
+              <a href="https://github.com/Pedrokielma" target="_blank">Github</a>
             </li>
           </ul>
           <div

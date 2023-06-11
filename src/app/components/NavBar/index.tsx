@@ -20,8 +20,7 @@ const navLinks: NavLink[] = [
   { id: "2", title: "Portfolio", route: "/" },
   { id: "3", title: "About", route: "/" },
   { id: "4", title: "Services", route: "/" },
-  { id: "5", title: "Awards", route: "/" },
-  { id: "6", title: "Contacts", route: "/" },
+  { id: "5", title: "Contacts", route: "/" },
 ];
 
 const NavBar = (props: Props) => {

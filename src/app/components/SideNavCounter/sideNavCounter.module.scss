@@ -1,4 +1,6 @@
 @import "@/app/styles/variables.scss";
+@import '@/app/styles/mixins.scss';
+
 
 .sideNavCounter {
   height: 100vh;
@@ -8,10 +10,13 @@
   justify-content: space-between;
   padding: 120px 0px 60px 110px;
   color: $pink;
+  @include respond-to("tablet") {
+    display: none;
+  }
 
   .nameSection {
-    font-size: 18px;
-    font-weight: 400;
+    font-size: 20px;
+    font-weight: 700;
   }
   .counter {
     display: flex;

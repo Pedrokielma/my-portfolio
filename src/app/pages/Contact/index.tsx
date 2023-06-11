@@ -23,10 +23,9 @@ const Contact  = (props: Props) => {
     }
   }, [inView]);
 
-
   return (
     <div ref={ref} id={id} className={style.contact}>
-      <SideNavCounter counter="06" name="GET IN TOUCH" />
+      <SideNavCounter counter="05" name="GET IN TOUCH" />
       <div className={style.contactSection}>
         <div className={style.contactContent}>
         <h2 className={style.contactTitle}>

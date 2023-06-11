@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import SideNavCounter from "@/app/components/SideNavCounter/index";
+import RoundButton from "@/app/components/RoundButton/index";
 import { useInView } from "react-intersection-observer";
+
 import style from "./homePage.module.scss";
 
 interface Props {
@@ -39,6 +41,9 @@ const HomePage = (props: Props) => {
           <span className={style.name}>Pedro Kielma</span>{" "}
         </h1>
         <p className={style.subTitle}>Frontend developer</p>
+      </div>
+      <div className={style.roundButton}>
+      <RoundButton size='big' content="LET'S TALK" />
       </div>
     </div>
   );

@@ -47,8 +47,7 @@ export default function Home() {
         <Portfolio changeNav={changeNav} id="2" />
         <About changeNav={changeNav} id="3" />
         <Skill changeNav={changeNav} id="4" />
-        <Insight changeNav={changeNav} id="5" />
-        <Contact changeNav={changeNav} id="6" />
+        <Contact changeNav={changeNav} id="5" />
       </main>
       <NavBar
         openNav={openNav}
