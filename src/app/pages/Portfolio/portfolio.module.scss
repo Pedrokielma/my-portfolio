@@ -2,51 +2,106 @@
 .portfolio {
   display: flex;
   height: 100vh;
-  background-color: $brandColor;
+  background-color: $grey;
+  background-image: url(../../../../public/images/frosted-canvas.png);
+  background-size: cover;
   .portfolioSection {
     margin: 120px 0px 70px 0px;
     display: flex;
     align-items: center;
-    border-left: solid grey 1px;
+    border-left: solid $pink 1px;
     flex-grow: 1;
     overflow-x: auto;
     overflow-y: hidden;
 
     .projectList {
-      color: white;
+      color: $pink;
       display: flex;
       height: 100%;
       position: relative;
 
-      .item {
-        border-right: solid grey 1px;
-        width: 400px;
-        height: 100%;
-        padding: 40px;
-        display: flex;
-        align-items: end;
-        position: relative;
+
+      .itemCard{
+        border-right: solid $pink 1px;
+        
+        
+
         &:hover {
-          background-color: grey;
+         
+          background-color: rgba(255, 214, 251, 0.4);
+          .item{
+            flex-direction: column;
+            align-items: normal;
+            transition: all 1s ease-in;
+            display: flex;
+            justify-content: end;
+            
+            .description{
+              display: flex;
+              color: $white;
+              font-family: 'Crimson Pro', serif;
+              font-size: 17px;
+              font-weight: 400;
+              transition: transform 0.5s ease;
+              transform: none;
+              margin-top: 20px;
+            }
+            .number {
+             position: static;
+             transition: transform left 0.5s ease;
+              transform: none;
+            }
+            .name {
+              position: static;
+              width: auto;
+              line-height: 65px;
+              transition: transform left  0.5s ease;
+              transform: none;
+              max-height: 132px;
+              
+            }
+            .roundButton{
+              display: flex;
+              justify-content: end;
+              transition: transform 0.5s ease;
+              transform: none;
+            }
+          }
         }
 
-        .number {
-          transform: rotate(-90deg);
-          font-weight: 400;
-          font-size: 22px;
-          position: absolute;
-          bottom: 33px;
-        }
-        .name {
-          flex-grow: 1;
-          max-width: 100%;
-          font-weight: 400;
-          font-size: 44px;
-          transform: rotate(-90deg);
-          transform-origin: top left;
-          position: absolute;
-          bottom: -30px;
-          left: 46px;
+        .item {
+          width: 400px;
+          height: 100%;
+          padding: 40px;
+          display: flex;
+          align-items: end;
+          position: relative;
+  
+          .number {
+            transform: rotate(-90deg);
+            font-weight: 400;
+            font-size: 22px;
+            position: absolute;
+            bottom: 33px;
+          }
+          .name {
+            flex-grow: 1;
+            width: 450px;
+            font-weight: 500;
+            font-size: 60px;
+            transform: rotate(-90deg);
+            transform-origin: top left;
+            position: absolute;
+            bottom: -55px;
+            left: 46px;
+          }
+          .description{
+            display: none;
+          }
+          .roundButton{
+            display: none;
+          }
+  
         }
       }
     }

@@ -1,9 +1,11 @@
-@import '@/app/styles/variables.scss';
+@import "@/app/styles/variables.scss";
+@import '@/app/styles/mixins.scss';
+
 .header {
   width: 100vw;
   height: 110px;
   background-color: transparent;
-  color: $clearWhite;
+  color: $pink;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -12,16 +14,17 @@
   font-size: 17px;
   font-weight: 400;
   z-index: 2;
-  ul {
-    display: flex;
+  transition: 0.3s ease-in-out;
+  &.black {
+    color: $black;
   }
   .sectionLeft {
     flex: auto;
     max-width: 464px;
-    ul {
-      display: flex;
-      justify-content: space-between;
-      min-width: 264px;
+    .logo {
+      font-size: 25px;
+      font-weight: 900;
+      line-height: 30px;
     }
   }
   .sectionRight {
@@ -31,100 +34,53 @@
     justify-content: space-between;
     margin-left: 50px;
     align-items: center;
-    ul {
+    &.none{
+      ul{
+        color: transparent;
+
+      transition: 0.3s ease-in;
+        a{
+          cursor: default;      
+        }
+      }
+    }
+   
+    .midiaLink {
       display: flex;
       justify-content: space-between;
       max-width: 184px;
+      font-size: 17px;
+      font-weight: 500;
+      gap: 50px;
     }
-
     .toggle {
       display: block;
+      
+     
       cursor: pointer;
       div {
         width: 40px;
-        height: 2px;
+        height: 5px;
         margin: 5px;
-        background: $clearWhite;
         transition: 0.3s ease-in;
+        background-color: $pink;
+        &.black {
+          background-color: $black;
+        }
       }
+      
       &.active {
         .line1 {
           transform: rotate(-45deg) translate(5px, 10px);
+          background-color: $green;
         }
 
-        .line3 {
+        .line2 {
           transform: rotate(45deg) translate(5px, -10px);
+          background-color: $green;
         }
       }
     }
   }
 }
-.navBar {
-  height: 100vh;
-  max-width: 647px;
-  position: fixed;
-  z-index: 1;
-  transition: all 1s cubic-bezier(0.02, 0.01, 0.59, 1);
-  background-color: $brandColor;
-  right: 0;
-  padding: 147px 100px 70px 147px;
-  display: flex;
-  &.active {
-    right: -80%;
-  }
-  .list {
-    display: flex;
-    flex-direction: column;
 
-    gap: 30px;
-    .itemList {
-      font-size: 30px;
-      width: 300;
-      position: relative;
-
-      color: $grey;
-      &.active {
-        color: $clearWhite;
-        position: relative;
-        display: inline-block;
-        transition: all 5s ease-out;
-      }
-      &.active::before,
-      &.active::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        height: 1px;
-        background-color: $clearWhite;
-        
-      }
-
-
-      &.active::before {
-        width: 45%;
-        left: 0;
-        animation: borderArrival 0.5s forwards;
-        @keyframes borderArrival {
-          0% {
-            width: 0;
-            right: 0;
-          }
-          100% {
-            width: 45%;
-            right: auto;
-            left: 0;
-          }
-        }
-      }
-    }
-  }
-  .contactInfo{
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    text-align: end;
-    color: $clearWhite;
-    font-size: 17px;
-    font-weight: 300;
-  }
-}

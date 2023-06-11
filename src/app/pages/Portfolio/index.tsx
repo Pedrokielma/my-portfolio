@@ -1,23 +1,23 @@
 import { useState, useEffect } from "react";
 import SideNavCounter from "@/app/components/SideNavCounter/index";
+import RoundButton from "@/app/components/RoundButton/index";
 import { fetchRepositories } from "../action";
-import { useInView } from 'react-intersection-observer';
+import { useInView } from "react-intersection-observer";
 import style from "./portfolio.module.scss";
-
 interface Repository {
   id: number;
   stargazers_count: number;
   name: String;
   html_url: string;
 }
-interface Props{
+interface Props {
   id: string;
-  changeNav: (id: string) => void,
+  changeNav: (id: string) => void;
 }
 const Portfolio = (props: Props) => {
   const { id, changeNav } = props;
   const [repositories, setRepositories] = useState<Repository[]>([]);
-  const { ref, inView } = useInView({
+  const { ref: myRef, inView: componentInView } = useInView({
     threshold: 0.5,
   });
 
@@ -31,27 +31,46 @@ const Portfolio = (props: Props) => {
   }, []);
 
   useEffect(() => {
-    if(inView){
-      changeNav(id)
+    if (componentInView) {
+      changeNav(id);
     }
-  }, [inView]);
+  }, [componentInView]);
 
-  
   return (
-    <div ref={ref} id={id} className={style.portfolio}>
-      <SideNavCounter counter="02" name="Selected works" />
+    <div ref={myRef} id={id} className={style.portfolio}>
+      <SideNavCounter counter="02" name="SELECTED WORKS" />
       <div className={style.portfolioSection}>
         <div className={style.projectList}>
-          {repositories?.map(
-            (repo, index) =>
-              repo.stargazers_count != 0 && (
-                <a href={repo.html_url} className={style.item} key={repo.id}>
-                  <p className={style.number}>{String(index + 1).padStart(2, "0")}</p>
+          {repositories
+            ?.filter((repo) => repo.stargazers_count !== 0)
+            .map(
+              (repo, index) =>
+                repo.stargazers_count != 0 && (
+                  <div key={repo.id} className={style.itemCard}>
+                    <a
+                      href={repo.html_url}
+                      className={style.item}
+                      target="_blank"
+                      
+                    >
+                      <p className={style.number}>
+                        {String(index + 1).padStart(2, "0")}
+                      </p>
+                      <p className={style.name}>{repo.name}</p>
+                      <p className={style.description}>
+                        Lorem ipsum dolor sit amet consectetur. Vitae laoreet
+                        viverra dapibus adipiscing consectetur enim. Facilisis
+                        dolor placerat mauris nulla aliquet tempus et. Diam
+                        morbi et ut felis et sit massa vivamus.{" "}
+                      </p>
+                      <div className={style.roundButton}>
+                      <RoundButton size='small' content='VIEW' />
 
-                  <p className={style.name}>{repo.name}</p>
-                </a>
-              )
-          )}
+                      </div>
+                    </a>
+                  </div>
+                )
+            )}
         </div>
       </div>
     </div>

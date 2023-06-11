@@ -1,14 +1,17 @@
-$brandColor: #1F1F1F;
+$grey: #777777;
 $white: #ffffff;
-$clearWhite: #F3F3F3;
-$darkWhite: #DBDBDB;
-$grey: #787a7c;
-
+$pink: #ffd6fb;
+$darkWhite: #F3F3F3;
+$black: black;
+$green: #E3F88F;
+$blue: #266DCC;
 
 :export {
-    brandColor: $brandColor;
-    white: $white;
-    clearWhite: $clearWhite;
-    darkWhite: $darkWhite;
-    grey: $grey;
+  grey: $grey;
+  white: $white;
+  darkWhite: $darkWhite;
+  pink: $pink;
+  black: $black;
+  green: $green;
+  blue: $blue;
 }

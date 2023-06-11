@@ -1,0 +1,45 @@
+@import "@/app/styles/variables.scss";
+@import '@/app/styles/mixins.scss';
+
+.roundButton {
+  height: 195px;
+  width: 195px;
+  border-radius: 50%;
+  background-color: $green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: $grey;
+  .content {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    font-size: 18px;
+    font-weight: 400;
+    .contentChar {
+        width: 11px;
+      position: absolute;
+      left: 44%;
+      top: 6px;
+      transform-origin: 0 102px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+}
+&.small{
+    height: 100px;
+  width: 100px;
+  .content {
+    font-size: 11px !important;
+    font-weight: 400;
+      .contentChar {
+          position: absolute;
+          left: 44%;
+          top: 6px;
+          transform-origin: 0 54px;
+        }
+  }
+}
+}

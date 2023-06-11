@@ -1,0 +1,65 @@
+@import "@/app/styles/variables.scss";
+@import '@/app/styles/mixins.scss';
+
+.navBar {
+    height: 100vh;
+    width: 647px;
+    position: fixed;
+    z-index: 1;
+    transition: all 1s cubic-bezier(0.02, 0.01, 0.59, 1);
+    background-image: url("../../../../public/images/frosted-canvas.png");
+    background-size: cover;
+    background-color: $blue;
+    right: 0;
+    top: 0;
+    padding: 147px 100px 70px 147px;
+    display: flex;
+    &.active {
+      right: -80%;
+    }
+    .list {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      font-size: 40px;
+      font-weight: 500;
+      .itemList {
+        font-size: 30px;
+        width: 300;
+        position: relative;
+        cursor: pointer;
+        color: $pink;
+        &.active {
+          color: $darkWhite;
+          position: relative;
+          display: inline-block;
+          transition: all 1s ease-out;
+        }
+        &.active::before,
+        &.active::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          height: 1px;
+          background-color: $pink;
+        }
+  
+        &.active::before {
+          width: 45%;
+          left: 0;
+          animation: borderArrival 0.5s forwards;
+          @keyframes borderArrival {
+            0% {
+              width: 0;
+              right: 0;
+            }
+            100% {
+              width: 45%;
+              right: auto;
+              left: 0;
+            }
+          }
+        }
+      }
+    }
+  }

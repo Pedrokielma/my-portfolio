@@ -1,100 +1,65 @@
-import { useState  } from "react";
+import { useState } from "react";
 import classNames from "classnames/bind";
 import style from "./header.module.scss";
 
 const cx = classNames.bind(style);
 
-interface HeaderLink {
-  id: string;
-  title: string;
-  route: string;
+interface Props {
+  activeLink: string;
+  blackHeader: boolean;
+  openNav: boolean;
+  setOpenNav: React.Dispatch<React.SetStateAction<boolean>>;
 }
-interface Props{
-  activeLink: string
-}
-
-const headerLinks: HeaderLink[] = [
-  { id: '1', title: "Home", route: "/" },
-  { id: '2', title: "Portfolio", route: "/" },
-  { id: '3', title: "About", route: "/" },
-  { id: '4', title: "Services", route: "/" },
-  { id: '5', title: "Awards", route: "/" },
-  { id: '6', title: "Contacts", route: "/" },
-];
 
 
 
 const Header = (props: Props) => {
-  const { activeLink } = props
-  const [open, setOpen] = useState(false);
-
- 
+  const { blackHeader, openNav, setOpenNav } = props;
 
   const handleRouteChange = (componentId: string) => {
     const component = document.getElementById(componentId);
     if (component) {
-      component.scrollIntoView({ behavior: 'smooth' });
+      component.scrollIntoView({ behavior: "smooth" });
     }
   };
 
- 
-
   return (
     <>
-      <header className={style.header}>
+      <header className={cx(style.header, { [style.black]: blackHeader })}>
         <div className={style.sectionLeft}>
-          <ul>
-            <li>
-              <a>Pedro</a>
-            </li>
-            <li>
-              <a href="#">peterkielma@gmail.com</a>
-            </li>
-          </ul>
+          <a onClick={()=> {handleRouteChange('1')}} className={style.logo}>
+            PEDRO <br />
+            KIELMA
+          </a>
         </div>
-        <div className={style.sectionRight}>
-          <ul className={style.sectionRight}>
+        <div className={
+        cx(style.sectionRight, {
+          [style.none]: openNav,
+        })}>
+          <ul className={style.midiaLink}>
             <li>
-              <a>Behance</a>
+              <a href="https://www.linkedin.com/in/pedro-kielmanowicz/" target="_blank">Linkedin</a>
             </li>
             <li>
-              <a href="#">Instagram</a>
+              <a href="https://github.com/Pedrokielma" target="_blank">Github</a>
             </li>
           </ul>
           <div
             className={cx(style.toggle, {
-              [style.active]: open,
+              [style.active]: openNav,
+              [style.black]: blackHeader,
             })}
-            onClick={() => setOpen(!open)}
+            onClick={() => setOpenNav(!openNav)}
           >
-            <div className={style.line1}></div>
-            <div className={style.line3}></div>
+            <div className={cx(style.line1, {
+              [style.black]: blackHeader,
+            })}></div>
+            <div className={cx(style.line2, {
+              [style.black]: blackHeader,
+            })}></div>
           </div>
         </div>
       </header>
-      <div className={cx(style.navBar, { [style.active]: !open })}>
-        <ul className={style.list}>
-          {headerLinks.map((item, index) => {
-            return (
-              <li key={index}>
-                <a
-                  className={cx(style.itemList, {
-                    [style.active]: item.id === activeLink,
-                  })}
-                  onClick={() => handleRouteChange(item.id)}
-                >
-                  {item.title}
-                </a>
-              </li>
-            );
-          })}
-        </ul>
-        <div className={style.contactInfo}>
-            <p className={style.contactItem}>+34635077704</p>
-            <p className={style.contactItem}>peterkielma@gmail.com</p>
-
-        </div>
-      </div>
     </>
   );
 };
