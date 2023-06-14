@@ -9,10 +9,11 @@ interface Props {
   id: string;
   changeNav: (id: string) => void;
   changeHeaderColor: (isBlack: boolean) => void;
+  handleRouteChange: (id: string) => void;
 }
 
 const HomePage = (props: Props) => {
-  const { id, changeNav, changeHeaderColor } = props;
+  const { id, changeNav, changeHeaderColor, handleRouteChange } = props;
 
   const { ref: myRef, inView: componentInView } = useInView({
     threshold: 0.5,
@@ -33,7 +34,7 @@ const HomePage = (props: Props) => {
   }, [isBlackHeader]);
 
   return (
-    <div ref={myRef} id={id} className={style.homePage}>
+    <section ref={myRef} id={id} className={style.homePage}>
       <SideNavCounter counter="01" />
       <div ref={blackHeader} className={style.homePagesection}>
         <h1>
@@ -42,10 +43,10 @@ const HomePage = (props: Props) => {
         </h1>
         <p className={style.subTitle}>Frontend developer</p>
       </div>
-      <div className={style.roundButton}>
+      <div className={style.roundButton} onClick={()=>{handleRouteChange('5')}}>
       <RoundButton size='big' content="LET'S TALK" />
       </div>
-    </div>
+    </section>
   );
 };
 

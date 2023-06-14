@@ -20,9 +20,12 @@ const RoundButton = (props: Props) => {
             style={
                 content.length > 5 ?   {
               transform: `rotate(${index * 10}deg)`,
-            } : 
+            } : char === 'I' || index == 0 ?
             {
-                transform: `rotate(${(index + 2) * 10}deg)`,
+                transform: `rotate(${(index + 2) * 12}deg)`,
+              } :
+            {
+                transform: `rotate(${(index + 2) * 11}deg)`,
               }
         }
             className={style.contentChar}

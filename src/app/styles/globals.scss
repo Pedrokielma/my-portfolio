@@ -18,7 +18,9 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
-
+html{
+  scroll-snap-type: y mandatory;
+}
 body {
   font-family: "Red Hat Display", sans-serif;
   padding: 0;
@@ -26,11 +28,19 @@ body {
   font-weight: 100;
   font-style: normal;
 }
+.page{
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+section{
+  overflow-y: scroll;
+  scroll-snap-align: start;
+  scroll-snap-type: y mandatory;
+}
 
 ::-webkit-scrollbar {
   display: none;
 }
-
 input {
   appearance: none;
   background-image: initial;

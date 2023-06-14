@@ -9,19 +9,14 @@ interface Props {
   blackHeader: boolean;
   openNav: boolean;
   setOpenNav: React.Dispatch<React.SetStateAction<boolean>>;
+  handleRouteChange: (id: string)=> void;
 }
 
 
 
 const Header = (props: Props) => {
-  const { blackHeader, openNav, setOpenNav } = props;
+  const { blackHeader, openNav, setOpenNav, handleRouteChange } = props;
 
-  const handleRouteChange = (componentId: string) => {
-    const component = document.getElementById(componentId);
-    if (component) {
-      component.scrollIntoView({ behavior: "smooth" });
-    }
-  };
 
   return (
     <>
@@ -33,9 +28,7 @@ const Header = (props: Props) => {
           </a>
         </div>
         <div className={
-        cx(style.sectionRight, {
-          [style.none]: openNav,
-        })}>
+        style.sectionRight }>
           <ul className={style.midiaLink}>
             <li>
               <a href="https://www.linkedin.com/in/pedro-kielmanowicz/" target="_blank">Linkedin</a>
@@ -44,6 +37,8 @@ const Header = (props: Props) => {
               <a href="https://github.com/Pedrokielma" target="_blank">Github</a>
             </li>
           </ul>
+        </div>
+      </header>
           <div
             className={cx(style.toggle, {
               [style.active]: openNav,
@@ -58,8 +53,6 @@ const Header = (props: Props) => {
               [style.black]: blackHeader,
             })}></div>
           </div>
-        </div>
-      </header>
     </>
   );
 };

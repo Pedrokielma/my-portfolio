@@ -41,7 +41,7 @@ const Skill = (props: Props) => {
   }, [inView]);
 
   return (
-    <div ref={ref} id={id} className={style.skill}>
+    <section ref={ref} id={id} className={style.skill}>
       <SideNavCounter counter="04" name='SERVICERS' />
       <div className={style.skillSection}>
         <div className={style.skillContent}>
@@ -57,7 +57,7 @@ const Skill = (props: Props) => {
         </div>
         <div className={style.skillImage} />
       </div>
-    </div>
+    </section>
   );
 };
 

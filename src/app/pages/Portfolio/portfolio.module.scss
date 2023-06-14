@@ -3,17 +3,48 @@
   display: flex;
   height: 100vh;
   background-color: $grey;
-  background-image: url(../../../../public/images/frosted-canvas.png);
   background-size: cover;
+  position: relative;
   .portfolioSection {
-    margin: 120px 0px 70px 0px;
+    margin: 120px 0px 130px 0px;
     display: flex;
     align-items: center;
     border-left: solid $pink 1px;
     flex-grow: 1;
     overflow-x: auto;
     overflow-y: hidden;
+    scroll-snap-type: mandatory;
+    scroll-snap-points-x: repeat(3rem);
+    scroll-snap-type: x mandatory;
 
+    .buttonsList {
+        position: absolute;
+        bottom: 70px;
+        right: 70px;
+        display: flex;
+        gap: 20px;
+        .leftButton {
+          color: $green;
+          padding: 10px;
+          border-radius: 50%;
+          border: 1px solid $green;
+          font-size: 25px;
+          cursor: pointer;
+        }
+        .rightButton {
+          color: $green;
+          padding: 10px;
+          border-radius: 50%;
+          border: 1px solid $green;
+          font-size: 25px;
+          cursor: pointer;
+        }
+        .isDisabled{
+          opacity: 0.5;
+          cursor: not-allowed;
+          
+        }
+      }
     .projectList {
       color: $pink;
       display: flex;
@@ -23,11 +54,9 @@
 
       .itemCard{
         border-right: solid $pink 1px;
-        
-        
-
+        scroll-snap-align: start;
+  
         &:hover {
-         
           background-color: rgba(255, 214, 251, 0.4);
           .item{
             flex-direction: column;
