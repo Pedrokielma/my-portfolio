@@ -16,7 +16,7 @@ const SideNavCounter = (props: FooProp) => {
       <p className={style.nameSection}>{name}</p>
       <div className={cx(style.counter, { [style.black]: counter === "01" })}>
         <p className={style.currentPage}>{counter}</p>
-        <p className={style.totalPages}>/6</p>
+        <p className={style.totalPages}>/5</p>
       </div>
     </div>
   );

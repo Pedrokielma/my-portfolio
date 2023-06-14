@@ -6,8 +6,8 @@ import HomePage from "./pages/HomePage";
 import Portfolio from "./pages/Portfolio/index";
 import About from "./pages/About/index";
 import Skill from "./pages/Skill/index";
-import Insight from "./pages/Insight/index";
 import Contact from "./pages/Contact/index";
+
 
 export default function Home() {
   const [activeLink, setActiveLink] = useState("");
@@ -26,6 +26,13 @@ export default function Home() {
     }
   };
 
+  const handleRouteChange = (componentId: string) => {
+    const component = document.getElementById(componentId);
+    if (component) {
+      component.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <>
       <main
@@ -38,16 +45,20 @@ export default function Home() {
           setOpenNav={setOpenNav}
           activeLink={activeLink}
           blackHeader={blackHeader}
+          handleRouteChange={handleRouteChange}
         />
+        <div className="page">
         <HomePage
           changeHeaderColor={changeHeaderColor}
           changeNav={changeNav}
           id="1"
+          handleRouteChange={handleRouteChange}
         />
         <Portfolio changeNav={changeNav} id="2" />
         <About changeNav={changeNav} id="3" />
         <Skill changeNav={changeNav} id="4" />
         <Contact changeNav={changeNav} id="5" />
+        </div>
       </main>
       <NavBar
         openNav={openNav}

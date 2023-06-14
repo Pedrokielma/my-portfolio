@@ -2,8 +2,8 @@
 @import '@/app/styles/mixins.scss';
 
 .roundButton {
-  height: 195px;
-  width: 195px;
+  height: 150px;
+  width: 150px;
   border-radius: 50%;
   background-color: $green;
   display: flex;
@@ -11,6 +11,7 @@
   align-items: center;
   position: relative;
   color: $grey;
+  cursor: pointer;
   .content {
     height: 100%;
     width: 100%;
@@ -23,9 +24,6 @@
       left: 44%;
       top: 6px;
       transform-origin: 0 102px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
 }
 &.small{

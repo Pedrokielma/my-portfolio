@@ -24,7 +24,7 @@ const About = (props: Props) => {
   }, [inView]);
   
   return (
-    <div ref={ref} id={id} className={style.about}>
+    <section ref={ref} id={id} className={style.about}>
       <SideNavCounter counter="03" name='ABOUT ME'/>
       <div className={style.aboutSection}>
         <h2 className={style.aboutTitle}>
@@ -48,7 +48,7 @@ const About = (props: Props) => {
         </div>
         <div className={style.aboutImage}></div>
       </div>
-    </div>
+    </section>
   );
 };
 
