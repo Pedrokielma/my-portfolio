@@ -1,34 +1,35 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
 import SideNavCounter from "@/app/components/SideNavCounter/index";
-import { useInView } from 'react-intersection-observer';
+import Button from "@/app/components/ContactButtons/index";
+import { useInView } from "react-intersection-observer";
+
 
 import style from "./about.module.scss";
+import ContactButtons from "@/app/components/ContactButtons/index";
 
 interface Props {
-  id: string,
-  changeNav: (id: string) => void,
+  id: string;
+  changeNav: (id: string) => void;
 }
 
 const About = (props: Props) => {
-  const {id, changeNav} = props;
+  const { id, changeNav } = props;
   const { ref, inView } = useInView({
     threshold: 0.5,
   });
 
-
-
   useEffect(() => {
-    if(inView){
-      changeNav(id)
+    if (inView) {
+      changeNav(id);
     }
   }, [inView]);
-  
+
   return (
     <section ref={ref} id={id} className={style.about}>
-      <SideNavCounter counter="03" name='ABOUT ME'/>
+      <SideNavCounter counter="03" name="ABOUT ME" />
       <div className={style.aboutSection}>
         <h2 className={style.aboutTitle}>
-          I am a passionate Frontend developer
+          Love for the surf, coding, and all things outdoors.
         </h2>
         <div className={style.aboutContent}>
           <div className={style.aboutText}>
@@ -44,9 +45,17 @@ const About = (props: Props) => {
               emotional level. Now that{"'"}s good design.
             </p>
           </div>
-          <p className={style.aboutExperience}>+6 years experience</p>
+          <div className={style.buttons}>
+            <ContactButtons>Resume</ContactButtons>
+          </div>
         </div>
-        <div className={style.aboutImage}></div>
+        <div className={style.aboutMidia}>
+          <div className={style.aboutImage}>
+          </div>
+          <div className={style.aboutVideo}>
+          <iframe width='100%' height='100%' src="https://www.youtube.com/embed/iIiy3WHA1PM?mute=1" title="YouTube video player"    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; allowfullscreen;" ></iframe>
+          </div>
+        </div>
       </div>
     </section>
   );

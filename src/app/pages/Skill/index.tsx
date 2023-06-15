@@ -45,7 +45,7 @@ const Skill = (props: Props) => {
       <SideNavCounter counter="04" name='SERVICERS' />
       <div className={style.skillSection}>
         <div className={style.skillContent}>
-          <h2 className={style.skillTitle}>My coding skills</h2>
+          <h2 className={style.skillTitle}>My set of skills to bring exceptional ideas to life.</h2>
           <div className={style.skillTable}>
           {mySkill?.map((item, index)=>(
               <div key={index} className={style.item}>
@@ -55,7 +55,6 @@ const Skill = (props: Props) => {
           ))}
           </div>
         </div>
-        <div className={style.skillImage} />
       </div>
     </section>
   );

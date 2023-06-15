@@ -1,46 +1,53 @@
-@import '@/app/styles/variables.scss';
-.about{ 
+@import "@/app/styles/variables.scss";
+.about {
+  display: flex;
+  height: 100vh;
+  background-color: $grey;
+  .aboutSection {
+    padding: 120px 50px 70px 0px;
+    color: white;
+    flex-grow: 1;
     display: flex;
-    height: 100vh;
-    background-color: $grey;
-    .aboutSection{
-        padding: 120px 50px 70px 0px;
-        color: white;
-        flex-grow: 1;
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
+    flex-direction: column;
+    gap: 40px;
 
-        .aboutTitle{
-            font-size: 44px;
-            font-weight: 400;
-            color: $pink;
-        }
-        .aboutContent{
-            
-            color: $darkWhite;
-            display: flex;
-            justify-content: space-between;
-            align-items: end;
-            
-            
-            .aboutText{
-                font-size: 17px;
-                font-weight: 400;
-                display: flex;
-                max-width: 520px;
-                gap: 20px;
-            }
-            .aboutExperience{
-                font-size: 22px;
-                font-weight: 400;
-            }
-        }
-        .aboutImage{
-            background-color: $pink;
-            width: 100%;
-            flex-grow: 1;
-
-        }
+    .aboutTitle {
+      font-size: 50px;
+      font-weight: 500;
+      color: $pink;
     }
+    .aboutContent {
+      color: $darkWhite;
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      font-family: 'Crimson Pro', serif;
+
+      .aboutText {
+        font-size: 17px;
+        font-weight: 400;
+        display: flex;
+        max-width: 520px;
+        gap: 20px;
+        
+      }
+    }
+    .aboutMidia {
+      display: flex;
+      width: 100%;
+      flex-grow: 1;
+      gap: 20px;
+      justify-content: space-between;
+      .aboutImage {
+        background-image: url("../../../../public/images/profile-image.png");
+        background-size: cover;
+        height: 100%;
+        width: 35%;
+      }
+      .aboutVideo {
+        height: 100%;
+        width: 55%;
+      }
+    }
+  }
 }
