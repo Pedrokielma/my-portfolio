@@ -28,7 +28,7 @@ const ContactButtons = (props: Props) => {
           <FiMail />
         </a>
       </div>
-      <a href='../../../../public/PedroResume.pdf' download className={style.button}>{children}</a>
+      <a href='./PedroResume.pdf' download className={style.button}>{children}</a>
     </div>
   );
 };

@@ -41,6 +41,9 @@ const HomePage = (props: Props) => {
           <span className={style.hi}>Hi, I’m</span>{" "}
           <span className={style.name}>Pedro Kielma</span>{" "}
         </h1>
+        <div className={style.roundButtonResponsive} onClick={()=>{handleRouteChange('5')}}>
+      <RoundButton size='small' content="LET'S TALK" />
+      </div>
         <p className={style.subTitle}>Frontend developer</p>
       </div>
       <div className={style.roundButton} onClick={()=>{handleRouteChange('5')}}>
