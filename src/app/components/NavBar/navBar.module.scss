@@ -17,6 +17,13 @@
     &.active {
       right: -80%;
     }
+    @include respond-to("tablet") {
+      padding: 147px 50px 70px 50px;
+      width: 100%;
+      &.active {
+        right: -100%;
+      }
+    }
     .list {
       display: flex;
       flex-direction: column;

@@ -26,7 +26,7 @@ const Contact  = (props: Props) => {
 
   return (
     <section ref={ref} id={id} className={style.contact}>
-      <SideNavCounter counter="05" name="GET IN TOUCH" />
+      <SideNavCounter counter="05" name="Contact" />
       <div className={style.contactSection}>
         <h2 className={style.contactTitle}>
        {"Let's talk!"}
