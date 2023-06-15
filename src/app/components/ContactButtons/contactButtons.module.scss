@@ -1,0 +1,30 @@
+@import '@/app/styles/variables.scss';
+
+.contactButtons{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 111px;
+    .iconLinks{
+        display: flex;
+        justify-content: space-between;
+        font-size: 24px;
+        color: $green
+        
+    }
+    .button {
+        background-color: $green;
+        border-radius: 8px;
+        color: $grey;
+        cursor: pointer;
+        flex-shrink: 0;
+        padding: 10px 15px;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 135%;
+        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

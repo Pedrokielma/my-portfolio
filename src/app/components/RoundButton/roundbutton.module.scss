@@ -16,14 +16,14 @@
     height: 100%;
     width: 100%;
     position: absolute;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 400;
     .contentChar {
         width: 11px;
       position: absolute;
       left: 44%;
       top: 6px;
-      transform-origin: 0 102px;
+      transform-origin: 0 80px;
     }
 }
 &.small{
