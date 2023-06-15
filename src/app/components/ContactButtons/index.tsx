@@ -22,13 +22,15 @@ const ContactButtons = (props: Props) => {
           <BsLinkedin />
         </a>
         <a href="https://github.com/Pedrokielma" target="_blank">
-          <BsGithub  />
+          <BsGithub />
         </a>
         <a href="mailto:peterkielma@gmail.com">
           <FiMail />
         </a>
       </div>
-      <a href='./PedroResume.pdf' download className={style.button}>{children}</a>
+      <a href='/PedroResume.pdf' target="_blank"  download='"resume.pdf' className={style.button}>
+        {children}
+      </a>
     </div>
   );
 };
