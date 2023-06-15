@@ -42,7 +42,7 @@ const Skill = (props: Props) => {
 
   return (
     <section ref={ref} id={id} className={style.skill}>
-      <SideNavCounter counter="04" name='SERVICERS' />
+      <SideNavCounter counter="04" name='Skills' />
       <div className={style.skillSection}>
         <div className={style.skillContent}>
           <h2 className={style.skillTitle}>My set of skills to bring exceptional ideas to life.</h2>

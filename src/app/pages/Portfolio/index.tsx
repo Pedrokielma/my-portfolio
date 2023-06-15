@@ -76,7 +76,7 @@ const Portfolio = (props: Props) => {
 
   return (
     <section ref={myRef} id={id} className={style.portfolio}>
-      <SideNavCounter counter="02" name="SELECTED WORKS" />
+      <SideNavCounter counter="02" name="Selected works" />
       <div
         ref={projectListRef}
         onScroll={() => {

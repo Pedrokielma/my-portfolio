@@ -26,7 +26,7 @@ const About = (props: Props) => {
 
   return (
     <section ref={ref} id={id} className={style.about}>
-      <SideNavCounter counter="03" name="ABOUT ME" />
+      <SideNavCounter counter="03" name="About me" />
       <div className={style.aboutSection}>
         <h2 className={style.aboutTitle}>
           Love for the surf, coding, and all things outdoors.

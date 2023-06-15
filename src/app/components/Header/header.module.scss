@@ -22,6 +22,9 @@
   .sectionLeft {
     flex: auto;
     max-width: 464px;
+    @include respond-to("tablet") {
+      display: none;
+    }
     .logo {
       font-size: 25px;
       font-weight: 900;
@@ -35,6 +38,9 @@
     justify-content: space-between;
     margin-left: 50px;
     align-items: center;
+    @include respond-to("tablet") {
+      display: none;
+    }
    
    
     .midiaLink {
