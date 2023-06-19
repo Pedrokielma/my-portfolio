@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import SideNavCounter from "@/app/components/SideNavCounter/index";
-import Button from "@/app/components/ContactButtons/index";
 import { useInView } from "react-intersection-observer";
-
+import ContactButtons from "@/app/components/ContactButtons/index";
 
 import style from "./about.module.scss";
-import ContactButtons from "@/app/components/ContactButtons/index";
+
+
 
 interface Props {
   id: string;

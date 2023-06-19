@@ -27,12 +27,22 @@ body {
   margin: 0;
   font-weight: 100;
   font-style: normal;
+  background-color: $grey;
 }
 
 section{
   overflow-y: scroll;
   scroll-snap-align: start;
   scroll-snap-type: y mandatory;
+  overflow: hidden;
+max-width: 1426px;
+margin: auto;
+}
+h2{
+  color: $pink;
+  font-size: 44px;
+  line-height: 50px;
+  font-weight: 500;
 }
 
 ::-webkit-scrollbar {
