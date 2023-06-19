@@ -34,7 +34,9 @@ const HomePage = (props: Props) => {
   }, [isBlackHeader]);
 
   return (
-    <section ref={myRef} id={id} className={style.homePage}>
+    <div ref={myRef} id={id} className={style.homePage}>
+
+    <section >
       <SideNavCounter counter="01" />
       <div ref={blackHeader} className={style.homePagesection}>
         <h1>
@@ -50,6 +52,7 @@ const HomePage = (props: Props) => {
       <RoundButton size='big' content="LET'S TALK" />
       </div>
     </section>
+    </div>
   );
 };
 
