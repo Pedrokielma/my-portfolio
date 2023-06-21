@@ -15,9 +15,13 @@
   font-weight: 400;
   z-index: 1;
   transition: 0.3s ease-in-out;
-  &.black {
+  &.transparent {
     color: $black;
     background-color: transparent;
+  }
+  &.black{
+    background-color: transparent;
+    color: $pink;
   }
   .sectionLeft {
     flex: auto;

@@ -15,6 +15,9 @@ const ContactButtons = (props: Props) => {
   return (
     <div className={style.contactButtons}>
       <div className={style.iconLinks}>
+        <a href="mailto:peterkielma@gmail.com">
+          <FiMail />
+        </a>
         <a
           href="https://www.linkedin.com/in/pedro-kielmanowicz/"
           target="_blank"
@@ -23,9 +26,6 @@ const ContactButtons = (props: Props) => {
         </a>
         <a href="https://github.com/Pedrokielma" target="_blank">
           <BsGithub />
-        </a>
-        <a href="mailto:peterkielma@gmail.com">
-          <FiMail />
         </a>
       </div>
       <a href='/PedroResume.pdf' target="_blank"  download='"resume.pdf' className={style.button}>

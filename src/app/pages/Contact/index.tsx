@@ -6,13 +6,19 @@ import ContactButtons from "@/app/components/ContactButtons/index";
 
 import style from "./contact.module.scss";
 
+interface HeaderColor{
+  transparent: boolean
+  black: boolean
+}
 interface Props{
   id: string;
   changeNav: (id: string) => void,
+  headerColor: HeaderColor,
+  setHeaderColor: (isBlack: HeaderColor) => void;
 }
 
 const Contact  = (props: Props) => {
-  const{id, changeNav} = props;
+  const{id, changeNav, headerColor, setHeaderColor} = props;
   const { ref, inView } = useInView({
     threshold: 0.5,
   });
@@ -24,7 +30,12 @@ const Contact  = (props: Props) => {
     }
   }, [inView]);
 
+  useEffect(() => {
+    setHeaderColor({ ...headerColor, black: inView });
+  }, [inView]);
+
   return (
+    <div className={style.contactBackground}>
     <section ref={ref} id={id} className={style.contact}>
       <SideNavCounter counter="05" name="Contact" />
       <div className={style.contactSection}>
@@ -42,6 +53,7 @@ const Contact  = (props: Props) => {
          </div>
       </div>
     </section>
+    </div>
   );
 };
 
