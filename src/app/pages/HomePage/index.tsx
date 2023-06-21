@@ -5,23 +5,26 @@ import { useInView } from "react-intersection-observer";
 
 import style from "./homePage.module.scss";
 
+interface HeaderColor{
+  transparent: boolean
+  black: boolean
+}
 interface Props {
   id: string;
+  headerColor: HeaderColor,
   changeNav: (id: string) => void;
-  changeHeaderColor: (isBlack: boolean) => void;
+  setHeaderColor: (isBlack: HeaderColor) => void;
   handleRouteChange: (id: string) => void;
 }
 
 const HomePage = (props: Props) => {
-  const { id, changeNav, changeHeaderColor, handleRouteChange } = props;
+  const { id, changeNav, setHeaderColor, handleRouteChange, headerColor } = props;
 
   const { ref: myRef, inView: componentInView } = useInView({
     threshold: 0.5,
   });
 
-  const { ref: blackHeader, inView: isBlackHeader } = useInView({
-    threshold: 0.05,
-  });
+
 
   useEffect(() => {
     if (componentInView) {
@@ -30,15 +33,15 @@ const HomePage = (props: Props) => {
   }, [componentInView]);
 
   useEffect(() => {
-    changeHeaderColor(isBlackHeader);
-  }, [isBlackHeader]);
+    setHeaderColor({ ...headerColor, transparent: componentInView });
+  }, [componentInView]);
 
   return (
     <div ref={myRef} id={id} className={style.homePage}>
 
     <section >
       <SideNavCounter counter="01" />
-      <div ref={blackHeader} className={style.homePagesection}>
+      <div className={style.homePagesection}>
         <h1>
           <span className={style.hi}>Hi, I’m</span>{" "}
           <span className={style.name}>Pedro Kielma</span>{" "}
