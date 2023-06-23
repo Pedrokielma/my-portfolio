@@ -18,8 +18,9 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
-html{
+html {
   scroll-snap-type: y mandatory;
+  overflow-x: hidden;
 }
 body {
   font-family: "Red Hat Display", sans-serif;
@@ -30,15 +31,15 @@ body {
   background-color: $grey;
 }
 
-section{
+section {
   overflow-y: scroll;
   scroll-snap-align: start;
   scroll-snap-type: y mandatory;
   overflow: hidden;
-max-width: 1426px;
-margin: auto;
+  max-width: 1426px;
+  margin: auto;
 }
-h2{
+h2 {
   color: $pink;
   font-size: 50px;
   line-height: 50px;
@@ -68,6 +69,6 @@ textarea {
   color: initial;
   border: initial;
 }
-a{
+a {
   cursor: pointer;
 }
