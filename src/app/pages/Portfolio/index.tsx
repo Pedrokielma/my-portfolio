@@ -9,6 +9,11 @@ import classNames from "classnames/bind";
 const cx = classNames.bind(style);
 
 import style from "./portfolio.module.scss";
+
+interface HeaderColor {
+  transparent: boolean;
+  black: boolean;
+}
 interface Repository {
   id: number;
   stargazers_count: number;
@@ -19,15 +24,16 @@ interface Repository {
 interface Props {
   id: string;
   changeNav: (id: string) => void;
+  setHeaderColor: (isBlack: HeaderColor) => void;
 }
 const Portfolio = (props: Props) => {
-  const { id, changeNav } = props;
+  const { id, changeNav, setHeaderColor } = props;
   const [repositories, setRepositories] = useState<Repository[]>([]);
   const [isScrollLeftDisabled, setIsScrollLeftDisabled] = useState(true);
   const [isScrollRightDisabled, setIsScrollRightDisabled] = useState(false);
 
   const projectListRef = useRef<HTMLDivElement>(null);
-  const { ref: myRef, inView: componentInView,  } = useInView({
+  const { ref: myRef, inView: componentInView } = useInView({
     threshold: 0.5,
   });
 
@@ -36,25 +42,24 @@ const Portfolio = (props: Props) => {
     const data: Repository[] = await fetchRepositories(userName);
     setRepositories(data);
   };
-  
+
   const handleScroll = (scrollAmount?: number) => {
     let element = projectListRef?.current;
     if (scrollAmount) {
       element?.scrollBy({ left: scrollAmount, behavior: "smooth" });
     }
   };
-  
+
   const validateDisableButton = () => {
     let element = projectListRef.current;
     let clientArea = element?.clientWidth;
     let scrollableArea = element?.scrollWidth;
     let totalArea =
-    clientArea && scrollableArea ? scrollableArea - clientArea : null;
+      clientArea && scrollableArea ? scrollableArea - clientArea : null;
     let current = element?.scrollLeft;
     if (totalArea && current && clientArea && scrollableArea) {
       let isDisabled = totalArea - current;
-      ;
-      console.log('clientArea >= scrollableArea', clientArea >= scrollableArea)
+      console.log("clientArea >= scrollableArea", clientArea >= scrollableArea);
       if (isDisabled < 30) {
         setIsScrollRightDisabled(true);
       } else {
@@ -69,20 +74,15 @@ const Portfolio = (props: Props) => {
   };
   useEffect(() => {
     fetchRepoData();
-    validateDisableButton()
+    validateDisableButton();
   }, []);
 
   useEffect(() => {
     if (componentInView) {
       changeNav(id);
+      setHeaderColor({ black: false, transparent: false });
     }
   }, [componentInView]);
-
-  // console.log('repositories', repositories?.map((item, index) => ({
-  //   name: item.name,
-  //   index: index,
-  //   description: item.description,
-  // })), repositories);
 
   return (
     <section ref={myRef} id={id} className={style.portfolio}>
@@ -109,10 +109,10 @@ const Portfolio = (props: Props) => {
                       <p className={style.number}>
                         {String(index + 1).padStart(2, "0")}
                       </p>
-                      <p className={style.name}>{repo.name.replace( '_', "-")}</p>
-                      <p className={style.description}>
-                      {repo.description}
+                      <p className={style.name}>
+                        {repo.name.replace("_", "-")}
                       </p>
+                      <p className={style.description}>{repo.description}</p>
                       <div className={style.roundButton}>
                         <RoundButton size="small" content="VIEW" />
                       </div>

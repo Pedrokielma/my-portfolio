@@ -3,6 +3,10 @@ import { useInView } from 'react-intersection-observer';
 import SideNavCounter from "@/app/components/SideNavCounter/index";
 import style from "./skill.module.scss";
 
+interface HeaderColor {
+  transparent: boolean;
+  black: boolean;
+}
 interface Skill {
   name: String;
   detail: String;
@@ -10,10 +14,11 @@ interface Skill {
 interface Props{
   id: string;
   changeNav: (id: string) => void,
+  setHeaderColor: (isBlack: HeaderColor) => void;
 }
 
 const Skill = (props: Props) => {
-  const{ id, changeNav } = props;
+  const{ id, changeNav, setHeaderColor } = props;
   const { ref, inView } = useInView({
     threshold: 0.5,
   });
@@ -37,8 +42,10 @@ const Skill = (props: Props) => {
   useEffect(() => {
     if(inView){
       changeNav(id)
+      setHeaderColor({ black: false, transparent: false });
     }
   }, [inView]);
+
 
   return (
     <section ref={ref} id={id} className={style.skill}>

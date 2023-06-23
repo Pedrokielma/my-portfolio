@@ -8,26 +8,23 @@ import About from "./pages/About/index";
 import Skill from "./pages/Skill/index";
 import Contact from "./pages/Contact/index";
 
-interface HeaderColor{
-  transparent:boolean,
-  black: boolean,
+interface HeaderColor {
+  transparent: boolean;
+  black: boolean;
 }
-
 
 export default function Home() {
   const [activeLink, setActiveLink] = useState("");
-  const [headerColor, setHeaderColor] = useState<HeaderColor>(
-    {
-      transparent: true,
-      black: false,
-    }
-  );
+  const [headerColor, setHeaderColor] = useState<HeaderColor>({
+    transparent: true,
+    black: false,
+  });
   const [openNav, setOpenNav] = useState(false);
 
   const changeNav = (id: string) => {
     setActiveLink(id);
   };
-  
+
   const closeNav = () => {
     if (openNav) {
       setOpenNav(false);
@@ -56,17 +53,28 @@ export default function Home() {
           handleRouteChange={handleRouteChange}
         />
         <div className="page">
-        <HomePage
-          setHeaderColor={setHeaderColor}
-          headerColor={headerColor}
-          changeNav={changeNav}
-          id="1"
-          handleRouteChange={handleRouteChange}
-        />
-        <Portfolio changeNav={changeNav} id="2" />
-        <About changeNav={changeNav} id="3" />
-        <Skill changeNav={changeNav} id="4" />
-        <Contact changeNav={changeNav} id="5" headerColor={headerColor} setHeaderColor={setHeaderColor}/>
+          <HomePage
+            setHeaderColor={setHeaderColor}
+            headerColor={headerColor}
+            changeNav={changeNav}
+            id="1"
+            handleRouteChange={handleRouteChange}
+          />
+          <Portfolio
+            changeNav={changeNav}
+            id="2"
+            setHeaderColor={setHeaderColor}
+          />
+          <About changeNav={changeNav} id="3" 
+            setHeaderColor={setHeaderColor}/>
+          <Skill changeNav={changeNav} id="4"
+            setHeaderColor={setHeaderColor} />
+          <Contact
+            changeNav={changeNav}
+            id="5"
+            headerColor={headerColor}
+            setHeaderColor={setHeaderColor}
+          />
         </div>
       </main>
       <NavBar
