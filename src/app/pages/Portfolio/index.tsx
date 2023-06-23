@@ -31,6 +31,7 @@ const Portfolio = (props: Props) => {
   const [repositories, setRepositories] = useState<Repository[]>([]);
   const [isScrollLeftDisabled, setIsScrollLeftDisabled] = useState(true);
   const [isScrollRightDisabled, setIsScrollRightDisabled] = useState(false);
+  const [isScrolling, setIsScrolling] = useState(false);
 
   const projectListRef = useRef<HTMLDivElement>(null);
   const { ref: myRef, inView: componentInView } = useInView({
@@ -84,8 +85,10 @@ const Portfolio = (props: Props) => {
     }
   }, [componentInView]);
 
+
   return (
-    <section ref={myRef} id={id} className={style.portfolio}>
+    <div ref={myRef} id={id} className={style.portfolioBackground}>
+    <section  className={style.portfolio}>
       <SideNavCounter counter="02" name="Selected works" />
       <div
         ref={projectListRef}
@@ -147,6 +150,7 @@ const Portfolio = (props: Props) => {
         </div>
       </div>
     </section>
+    </div>
   );
 };
 

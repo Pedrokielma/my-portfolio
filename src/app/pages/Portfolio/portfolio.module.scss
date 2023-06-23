@@ -1,23 +1,26 @@
-@import '@/app/styles/variables.scss';
-.portfolio {
-  display: flex;
-  height: 100vh;
-  background-color: $grey;
-  background-size: cover;
-  position: relative;
-  .portfolioSection {
-    margin: 120px 0px 130px 0px;
-    display: flex;
-    align-items: center;
-    border-left: solid $pink 1px;
-    flex-grow: 1;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-snap-type: mandatory;
-    scroll-snap-points-x: repeat(3rem);
-    scroll-snap-type: x mandatory;
+@import "@/app/styles/variables.scss";
 
-    .buttonsList {
+.portfolioBackground {
+  background-color: $grey;
+  width: 100vw;
+
+  .portfolio {
+    display: flex;
+    height: 100vh;
+    position: relative;
+    .portfolioSection {
+      margin: 120px 0px 130px 0px;
+      display: flex;
+      align-items: center;
+      border-left: solid $pink 1px;
+      flex-grow: 1;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: mandatory;
+      scroll-snap-points-x: repeat(3rem);
+      scroll-snap-type: x mandatory;
+
+      .buttonsList {
         position: absolute;
         bottom: 45px;
         right: 70px;
@@ -39,99 +42,118 @@
           font-size: 25px;
           cursor: pointer;
         }
-        .isDisabled{
+        .isDisabled {
           opacity: 0.5;
           cursor: not-allowed;
-          
         }
       }
-    .projectList {
-      color: $pink;
-      display: flex;
-      height: 100%;
-      position: relative;
+      .projectList {
+        color: $pink;
+        display: flex;
+        height: 100%;
+        position: relative;
+        scroll-behavior: smooth;
 
+        .itemCard {
+          border-right: solid $pink 1px;
+          scroll-snap-align: start;
+          will-change: transform;
+          -webkit-backface-visibility: hidden;
+          --tw-transform: none;
+          --tw-rotate: 0;
+          --tw-scale-x: 1;
+          --tw-scale-y: 1;
+          --tw-hue-rotate: 0;
+          --tw-brightness: 1;
+          --tw-contrast: 1;
+          --tw-blur: 0;
 
-      .itemCard{
-        border-right: solid $pink 1px;
-        scroll-snap-align: start;
-  
-        &:hover {
-          background-color: rgba(255, 214, 251, 0.4);
-          .item{
-            flex-direction: column;
-            align-items: normal;
-            transition: all 1s ease-in;
-            display: flex;
-            justify-content: end;
-            
-            .description{
-              display: flex;
-              color: $white;
-              font-family: 'Crimson Pro', serif;
-              font-size: 17px;
-              font-weight: 400;
-              transition: transform 0.5s ease;
-              transform: none;
-              margin-top: 20px;
-            }
-            .number {
-             position: static;
-             transition: transform left 0.5s ease;
-              transform: none;
-            }
-            .name {
-              position: static;
-              width: auto;
-              line-height: 65px;
-              transition: transform left  0.5s ease;
-              transform: none;
-              max-height: 132px;
-              
-            }
-            .roundButton{
+          &:hover {
+            scroll-snap-align: start;
+            will-change: transform;
+            -webkit-backface-visibility: hidden;
+            --tw-transform: none;
+            --tw-rotate: 0;
+            --tw-scale-x: 1;
+            --tw-scale-y: 1;
+            --tw-hue-rotate: 0;
+            --tw-brightness: 1;
+            --tw-contrast: 1;
+            --tw-blur: 0;
+            background-color: rgba(255, 214, 251, 0.4);
+            .item {
+              flex-direction: column;
+              align-items: normal;
+              transition: all 1s ease-in;
               display: flex;
               justify-content: end;
-              transition: transform 0.5s ease;
-              transform: none;
+
+              .description {
+                display: flex;
+                color: $white;
+                font-family: "Crimson Pro", serif;
+                font-size: 17px;
+                font-weight: 400;
+                transition: transform 0.5s ease;
+                transform: none;
+                margin-top: 20px;
+              }
+              .number {
+                position: static;
+                transition: transform left 0.5s ease;
+                transform: none;
+              }
+              .name {
+                position: static;
+                width: auto;
+                line-height: 65px;
+                transition: transform left 0.5s ease;
+                transform: none;
+                max-height: 132px;
+              }
+              .roundButton {
+                display: flex;
+                justify-content: end;
+                transition: transform 0.5s ease;
+                transform: none;
+              }
             }
           }
-        }
 
-        .item {
-          width: 400px;
-          height: 100%;
-          padding: 40px;
-          display: flex;
-          align-items: end;
-          position: relative;
-  
-          .number {
-            transform: rotate(-90deg);
-            font-weight: 400;
-            font-size: 22px;
-            position: absolute;
-            bottom: 33px;
+          .item {
+            width: 400px;
+            height: 100%;
+            padding: 40px;
+            display: flex;
+            align-items: end;
+            position: relative;
+
+            .number {
+              transform: rotate(-90deg);
+              font-weight: 400;
+              font-size: 22px;
+              position: absolute;
+              bottom: 33px;
+            }
+            .name {
+              text-transform: uppercase;
+              flex-grow: 1;
+              width: 450px;
+              font-weight: 500;
+              font-size: 60px;
+              transform: rotate(-90deg);
+              transform-origin: top left;
+              position: absolute;
+              bottom: -55px;
+              left: 46px;
+            }
+            .description {
+              display: none;
+            }
+            .roundButton {
+              display: none;
+            }
           }
-          .name {
-            text-transform: uppercase;
-            flex-grow: 1;
-            width: 450px;
-            font-weight: 500;
-            font-size: 60px;
-            transform: rotate(-90deg);
-            transform-origin: top left;
-            position: absolute;
-            bottom: -55px;
-            left: 46px;
-          }
-          .description{
-            display: none;
-          }
-          .roundButton{
-            display: none;
-          }
-  
         }
       }
     }

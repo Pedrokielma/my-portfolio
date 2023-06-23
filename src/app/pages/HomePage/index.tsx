@@ -32,36 +32,36 @@ const HomePage = (props: Props) => {
     }
   }, [componentInView]);
 
-
-  
   return (
     <div ref={myRef} id={id} className={style.homePage}>
-      <section>
-        <SideNavCounter counter="01" />
-        <div className={style.homePagesection}>
-          <h1>
-            <span className={style.hi}>Hi, I’m</span>{" "}
-            <span className={style.name}>Pedro Kielma</span>{" "}
-          </h1>
+      <div className={style.backgroundImage}>
+      </div>
+        <section>
+          <SideNavCounter counter="01" />
+          <div className={style.homePagesection}>
+            <h1>
+              <span className={style.hi}>Hi, I’m</span>{" "}
+              <span className={style.name}>Pedro Kielma</span>{" "}
+            </h1>
+            <div
+              className={style.roundButtonResponsive}
+              onClick={() => {
+                handleRouteChange("5");
+              }}
+            >
+              <RoundButton size="small" content="LET'S TALK" />
+            </div>
+            <p className={style.subTitle}>Frontend developer</p>
+          </div>
           <div
-            className={style.roundButtonResponsive}
+            className={style.roundButton}
             onClick={() => {
               handleRouteChange("5");
             }}
           >
-            <RoundButton size="small" content="LET'S TALK" />
+            <RoundButton size="big" content="LET'S TALK" />
           </div>
-          <p className={style.subTitle}>Frontend developer</p>
-        </div>
-        <div
-          className={style.roundButton}
-          onClick={() => {
-            handleRouteChange("5");
-          }}
-        >
-          <RoundButton size="big" content="LET'S TALK" />
-        </div>
-      </section>
+        </section>
     </div>
   );
 };
