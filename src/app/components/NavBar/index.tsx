@@ -17,10 +17,10 @@ interface Props {
 
 const navLinks: NavLink[] = [
   { id: "1", title: "Home", route: "/" },
-  { id: "2", title: "Portfolio", route: "/" },
-  { id: "3", title: "About", route: "/" },
-  { id: "4", title: "Services", route: "/" },
-  { id: "5", title: "Contacts", route: "/" },
+  { id: "2", title: "Selected works", route: "/" },
+  { id: "3", title: "About me", route: "/" },
+  { id: "4", title: "Skills", route: "/" },
+  { id: "5", title: "Contact", route: "/" },
 ];
 
 const NavBar = (props: Props) => {
