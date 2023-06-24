@@ -57,75 +57,13 @@
         .itemCard {
           border-right: solid $pink 1px;
           scroll-snap-align: start;
-          will-change: transform;
-          -webkit-backface-visibility: hidden;
-          --tw-transform: none;
-          --tw-rotate: 0;
-          --tw-scale-x: 1;
-          --tw-scale-y: 1;
-          --tw-hue-rotate: 0;
-          --tw-brightness: 1;
-          --tw-contrast: 1;
-          --tw-blur: 0;
-
-          &:hover {
-            scroll-snap-align: start;
-            will-change: transform;
-            -webkit-backface-visibility: hidden;
-            --tw-transform: none;
-            --tw-rotate: 0;
-            --tw-scale-x: 1;
-            --tw-scale-y: 1;
-            --tw-hue-rotate: 0;
-            --tw-brightness: 1;
-            --tw-contrast: 1;
-            --tw-blur: 0;
-            background-color: rgba(255, 214, 251, 0.4);
-            .item {
-              flex-direction: column;
-              align-items: normal;
-              transition: all 1s ease-in;
-              display: flex;
-              justify-content: end;
-
-              .description {
-                display: flex;
-                color: $white;
-                font-family: "Crimson Pro", serif;
-                font-size: 17px;
-                font-weight: 400;
-                transition: transform 0.5s ease;
-                transform: none;
-                margin-top: 20px;
-              }
-              .number {
-                position: static;
-                transition: transform left 0.5s ease;
-                transform: none;
-              }
-              .name {
-                position: static;
-                width: auto;
-                line-height: 65px;
-                transition: transform left 0.5s ease;
-                transform: none;
-                max-height: 132px;
-              }
-              .roundButton {
-                display: flex;
-                justify-content: end;
-                transition: transform 0.5s ease;
-                transform: none;
-              }
-            }
-          }
-
+          
           .item {
             width: 400px;
             height: 100%;
             padding: 40px;
             display: flex;
-            align-items: end;
+            align-items: flex-end;
             position: relative;
 
             .number {
@@ -140,18 +78,142 @@
               flex-grow: 1;
               width: 450px;
               font-weight: 500;
-              font-size: 60px;
+              font-size: 44px;
               transform: rotate(-90deg);
-              transform-origin: top left;
               position: absolute;
-              bottom: -55px;
-              left: 46px;
+              top: 173px;
+              right: 80px;
             }
+
             .description {
               display: none;
             }
             .roundButton {
               display: none;
+            }
+          }
+          &:hover {
+            transition: all 0.2s ease-in-out;
+            background-color: rgba(255, 214, 251, 0.4);
+            .item {
+              flex-direction: column;
+              align-items: normal;
+              display: flex;
+              justify-content: flex-end;
+
+              .description {
+                display: flex;
+                color: $white;
+                font-family: "Crimson Pro", serif;
+                font-size: 17px;
+                font-weight: 400;
+                transform: none;
+                margin-top: 20px;
+                animation: hover-zoom .2s linear;
+              }
+              @keyframes hover-zoom {
+                0% {
+                  transform: scale(0);
+                }
+                100% {
+                  transform: scale(1);
+                }
+              }
+              .number {
+                position: static;
+                transform: none;
+                animation: hover-number .2s linear;
+              }
+              @keyframes hover-number {
+                0% {
+                  transform: translateX(0px) translateY(173px);
+                }
+                50% {
+                  transform: translateX(0%) translateY(50%);
+                }
+                100% {
+                  transform: translateX(0%) translateY(0%);
+                }
+              }
+
+              .name {
+                position: static;
+                transform: none;
+                animation: hover-name .2s ease-in forwards;
+                // transition: transform 0.5s linear;
+              }
+              @keyframes hover-name {
+                0% {
+                  transform: rotate(-90deg) translateX(0px) translateY(-173px);
+
+                  max-height: 0;
+                  width: 450px;
+                }
+                50% {
+                  transform: rotate(-45deg) translateX(initial)
+                    translateY(initial);
+                }
+                100% {
+                  transform: rotate(0deg) translateX(0%);
+                  max-height: 132px;
+                  width: auto;
+                }
+              }
+              .roundButton {
+                display: flex;
+                justify-content: end;
+              }
+            }
+          }
+          &:not(:hover) {
+            .item {
+              .name {
+                animation: unhover-name .2s linear;
+              }
+              @keyframes unhover-name {
+                0% {
+                  transform: rotate(0deg) translateX(0px) translateY(0px);
+                  max-height: 132px;
+                  width: auto;
+                }
+                50% {
+                  transform: rotate(-45deg) translateX(initial)
+                    translateY(initial);
+                  max-height: 132px;
+                  width: auto;
+                }
+                100% {
+                  transform: rotate(-90deg) translateX(0%);
+                  width: auto;
+                }
+              }
+              .number {
+                animation: unhover-number .2s linear;
+              }
+              @keyframes unhover-number {
+                0% {
+                  transform: rotate(0deg) translateX(0px) translateY(-600%);
+                }
+                50% {
+                  transform: translateX(0px) translateY(0px);
+                }
+                100% {
+                  transform: rotate(-90deg);
+                }
+              }
+              // evaluating to if will use
+              // .description {
+              //   transform: none;
+              //   animation: hover-zoom 1s ease-in;
+              // }
+              // @keyframes unhover-zoom {
+              //   0% {
+              //     transform: scale(1);
+              //   }
+              //   100% {
+              //     transform: scale(0);
+              //   }
+              // }
             }
           }
         }
