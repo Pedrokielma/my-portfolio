@@ -15,48 +15,54 @@ $animation-duration: 10s;
   width: 100vw;
   height: 100vh;
   position: relative;
+  background-image: url("../../../../public/images/tie-dye.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1;
 
   .backgroundImage{
-
-    background: url("../../../../public/images/tie-dye.jpeg");
+    background-image: url("../../../../public/images/tie-dye.jpeg");
     background-repeat: no-repeat;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    animation: zoom infinite linear $animation-duration;
     background-size: cover;
-    backface-visibility: hidden; /* Added property */
-    transform: translateZ(0); /* Added property */
-    z-index: -1;
-
-    // &::after {
-    //   content: "";
-    //   position: absolute;
-    //   top: 100%;
-    //   left: 0;
-    //   width: 100%;
-    //   height: 100%;
-    //   background-image: url('#{$bg-url}');
-    //   animation: zoom infinite linear $animation-duration;
-    // }
-  }
-
-  @keyframes zoom {
-    0% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.2);
-    }
-    100% {
-      transform: scale(1);
-    }
+    
+    &.inView{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      animation: zoom infinite linear $animation-duration;
+      background-size: cover;
+      backface-visibility: hidden; /* Added property */
+      
   
-    // background-size: cover;
-  
-  }
+      // &::after {
+      //   content: "";
+      //   position: absolute;
+      //   top: 100%;
+      //   left: 0;
+      //   width: 100%;
+      //   height: 100%;
+      //   background-image: url('#{$bg-url}');
+      //   animation: zoom infinite linear $animation-duration;
+      // }
+    }
+    
+    @keyframes zoom {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+      100% {
+        transform: scale(1);
+      }
+    
+      // background-size: cover;
+    
+    }
+    }
   section {
     display: flex;
     align-items: end;

@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import SideNavCounter from "@/app/components/SideNavCounter/index";
 import RoundButton from "@/app/components/RoundButton/index";
 import { useInView } from "react-intersection-observer";
+import classNames from "classnames/bind";
+const cx = classNames.bind(style);
 
 import style from "./homePage.module.scss";
 
@@ -34,7 +36,9 @@ const HomePage = (props: Props) => {
 
   return (
     <div ref={myRef} id={id} className={style.homePage}>
-      <div className={style.backgroundImage}>
+      <div  className={cx(style.backgroundImage, {
+          [style.inView]: componentInView,
+        })} >
       </div>
         <section>
           <SideNavCounter counter="01" />
