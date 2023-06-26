@@ -11,8 +11,9 @@
   align-items: center;
   position: relative;
   color: $grey;
-  cursor: pointer;
+ 
   .content {
+     cursor: pointer;
     height: 100%;
     width: 100%;
     position: absolute;

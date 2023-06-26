@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, LegacyRef } from "react";
 import SideNavCounter from "@/app/components/SideNavCounter/index";
 import RoundButton from "@/app/components/RoundButton/index";
 import { fetchRepositories } from "../action";
@@ -26,12 +26,13 @@ interface Props {
   changeNav: (id: string) => void;
   setHeaderColor: (isBlack: HeaderColor) => void;
 }
+
+
 const Portfolio = (props: Props) => {
   const { id, changeNav, setHeaderColor } = props;
   const [repositories, setRepositories] = useState<Repository[]>([]);
   const [isScrollLeftDisabled, setIsScrollLeftDisabled] = useState(true);
   const [isScrollRightDisabled, setIsScrollRightDisabled] = useState(false);
-  const [isScrolling, setIsScrolling] = useState(false);
 
   const projectListRef = useRef<HTMLDivElement>(null);
   const { ref: myRef, inView: componentInView } = useInView({
@@ -44,6 +45,9 @@ const Portfolio = (props: Props) => {
     setRepositories(data);
   };
 
+ 
+
+  
   const handleScroll = (scrollAmount?: number) => {
     let element = projectListRef?.current;
     if (scrollAmount) {
@@ -60,7 +64,6 @@ const Portfolio = (props: Props) => {
     let current = element?.scrollLeft;
     if (totalArea && current && clientArea && scrollableArea) {
       let isDisabled = totalArea - current;
-      console.log("clientArea >= scrollableArea", clientArea >= scrollableArea);
       if (isDisabled < 30) {
         setIsScrollRightDisabled(true);
       } else {
@@ -88,68 +91,78 @@ const Portfolio = (props: Props) => {
 
   return (
     <div ref={myRef} id={id} className={style.portfolioBackground}>
-    <section  className={style.portfolio}>
-      <SideNavCounter counter="02" name="Selected works" />
-      <div
-        ref={projectListRef}
-        onScroll={() => {
-          validateDisableButton();
-        }}
-        className={style.portfolioSection}
-      >
-        <div className={style.projectList}>
-          {repositories
-            ?.filter((repo) => repo.stargazers_count !== 0)
-            .map(
-              (repo, index) =>
-                repo.stargazers_count != 0 && (
-                  <div key={repo.id} className={style.itemCard}>
-                    <a
-                      href={repo.html_url}
-                      className={style.item}
-                      target="_blank"
-                    >
-                      <p className={style.number}>
-                        {String(index + 1).padStart(2, "0")}
-                      </p>
-                      <p className={style.name}>
-                        {repo.name.replace("_", "-")}
-                      </p>
-                      <p className={style.description}>{repo.description}</p>
-                      <div className={style.roundButton}>
-                        <RoundButton size="small" content="VIEW" />
-                      </div>
-                    </a>
-                  </div>
-                )
-            )}
-        </div>
-        <div className={style.buttonsList}>
-          <div
-            onClick={() => {
-              handleScroll(-350);
-            }}
-            className={cx(style.leftButton, {
-              [style.isDisabled]: isScrollLeftDisabled,
-            })}
-          >
-            {" "}
-            <RiArrowLeftSLine />
+      <section className={style.portfolio}>
+        <SideNavCounter counter="02" name="Selected works" />
+        <div
+          ref={projectListRef}
+          onScroll={() => {
+            validateDisableButton();
+          }}
+          className={style.portfolioSection}
+        >
+          <p className={style.titleSection}>Selected works</p>
+
+          <div className={style.projectList}>
+            {repositories
+              ?.filter((repo) => repo.stargazers_count !== 0)
+              .map(
+                (repo, index) =>
+                  repo.stargazers_count != 0 && (
+                        <div  className={style.itemCard}>
+                          <a
+                            href={repo.html_url}
+                            className={style.item}
+                            target="_blank"
+                          >
+                            <p className={style.number}>
+                              {String(index + 1).padStart(2, "0")}
+                            </p>
+                            <p className={style.name}>
+                              {repo.name.replace("_", "-")}
+                            </p>
+                            <p className={style.description}>
+                              {repo.description}
+                            </p>
+                            <div className={style.roundButton}>
+                              <RoundButton size="small" content="VIEW" />
+                            </div>
+                          </a>
+                        </div>
+                  )
+              )}
           </div>
-          <div
-            onClick={() => {
-              handleScroll(350);
-            }}
-            className={cx(style.rightButton, {
-              [style.isDisabled]: isScrollRightDisabled,
-            })}
-          >
-            {" "}
-            <RiArrowRightSLine />
+          <div className={style.bottomSection}>
+            <div className={style.counter}>
+              <p className={style.currentPage}>01</p>
+              <p className={style.totalPages}>/5</p>
+            </div>
+            <div className={style.buttonsList}>
+              <div
+                onClick={() => {
+                  handleScroll(-350);
+                }}
+                className={cx(style.leftButton, {
+                  [style.isDisabled]: isScrollLeftDisabled,
+                })}
+              >
+                {" "}
+                <RiArrowLeftSLine />
+              </div>
+              <div
+                onClick={() => {
+                  handleScroll(350);
+                }}
+                className={cx(style.rightButton, {
+                  [style.isDisabled]: isScrollRightDisabled,
+                })}
+              >
+                {" "}
+                <RiArrowRightSLine />
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
     </div>
   );
 };

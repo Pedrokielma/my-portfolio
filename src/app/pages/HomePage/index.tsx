@@ -42,20 +42,30 @@ const HomePage = (props: Props) => {
       </div>
         <section>
           <SideNavCounter counter="01" />
-          <div className={style.homePagesection}>
+
+          <div className={style.homePageSection}>
+            <div className={style.homePageContent}>
             <h1>
               <span className={style.hi}>Hi, I’m</span>{" "}
               <span className={style.name}>Pedro Kielma</span>{" "}
             </h1>
+            <div className={style.subTitle}>
+            <div className={style.pinkLine}/>
+            <p className={style.subTitleText}>Front-end developer</p>
+            </div>
             <div
               className={style.roundButtonResponsive}
               onClick={() => {
                 handleRouteChange("5");
               }}
             >
-              <RoundButton size="small" content="LET'S TALK" />
+              <RoundButton size="big" content="LET'S TALK" />
             </div>
-            <p className={style.subTitle}>Frontend developer</p>
+            </div>
+            <div className={style.counter}>
+          <p className={style.currentPage}>01</p>
+          <p className={style.totalPages}>/5</p>
+          </div>
           </div>
           <div
             className={style.roundButton}
