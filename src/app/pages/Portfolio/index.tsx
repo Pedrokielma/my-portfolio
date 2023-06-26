@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef  } from "react";
+import { useState, useEffect, useRef } from "react";
 import SideNavCounter from "@/app/components/SideNavCounter/index";
 import PortfolioCard from "@/app/components/PortfolioCard/index";
 import { fetchRepositories } from "../action";
@@ -26,9 +26,9 @@ interface Props {
   setHeaderColor: (isBlack: HeaderColor) => void;
 }
 
-interface  CardInView {
-  [key: number]: boolean; 
-}  
+interface CardInView {
+  [key: number]: boolean;
+}
 
 const Portfolio = (props: Props) => {
   const { id, changeNav, setHeaderColor } = props;
@@ -48,9 +48,6 @@ const Portfolio = (props: Props) => {
     setRepositories(data);
   };
 
- 
-
-  
   const handleScroll = (scrollAmount?: number) => {
     let element = projectListRef?.current;
     if (scrollAmount) {
@@ -91,7 +88,6 @@ const Portfolio = (props: Props) => {
     }
   }, [componentInView]);
 
-
   return (
     <div ref={myRef} id={id} className={style.portfolioBackground}>
       <section className={style.portfolio}>
@@ -111,14 +107,14 @@ const Portfolio = (props: Props) => {
               .map(
                 (repo, index) =>
                   repo.stargazers_count != 0 && (
-                          <PortfolioCard
-                        index={index}
-                        name={repo.name}
-                        description={repo.description}
-                        html_url={repo.html_url}
-                        cardInView={cardInView}
-                        setCardInView={setCardInView}
-                      />
+                    <PortfolioCard
+                      index={index}
+                      name={repo.name}
+                      description={repo.description}
+                      html_url={repo.html_url}
+                      cardInView={cardInView}
+                      setCardInView={setCardInView}
+                    />
                   )
               )}
           </div>
@@ -128,13 +124,16 @@ const Portfolio = (props: Props) => {
               <p className={style.totalPages}>/5</p>
             </div>
             <div className={style.indexCounter}>
-            {
-            cardInView.map((item, index) => (
-              <div key={index}>
-
-              </div>
-            ))}
-
+              {cardInView.map((item, index) => {
+                return (
+                  <div
+                    key={index}
+                    className={cx(style.itemCard, {
+                      [style.inView]: Object.values(item)[0],
+                    })}
+                  ></div>
+                );
+              })}
             </div>
             <div className={style.buttonsList}>
               <div
