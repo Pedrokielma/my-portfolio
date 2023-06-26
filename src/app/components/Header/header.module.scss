@@ -15,6 +15,12 @@
   font-weight: 400;
   z-index: 1;
   transition: 0.3s ease-in-out;
+  @include respond-to("tablet") {
+    padding: 40px 50px;
+  }
+  @include respond-to("mobile") {
+    padding: 40px 20px;
+  }
   &.transparent {
     color: $black;
     background-color: transparent;
@@ -26,9 +32,7 @@
   .sectionLeft {
     flex: auto;
     max-width: 464px;
-    @include respond-to("tablet") {
-      display: none;
-    }
+   
     .logo {
       font-size: 25px;
       font-weight: 900;
@@ -68,10 +72,13 @@
   @include respond-to("tablet") {
     padding: 40px 50px;
   }
+  @include respond-to("mobile") {
+    padding: 40px 20px;
+  }
   div {
     width: 40px;
-    height: 5px;
-    margin: 5px;
+    height: 3px;
+    margin: 8px;
     transition: 0.3s ease-in;
     background-color: $pink;
     

@@ -15,13 +15,13 @@ $animation-duration: 10s;
   width: 100vw;
   height: 100vh;
   position: relative;
-  background-image: url("../../../../public/images/tie-dye.jpeg");
+  background-image: url("../../../../public/images/tie-dye.png");
   background-repeat: no-repeat;
   background-size: cover;
-  z-index: -1;
+  z-index: 0;
 
   .backgroundImage{
-    background-image: url("../../../../public/images/tie-dye.jpeg");
+    background-image: url("../../../../public/images/tie-dye.png");
     background-repeat: no-repeat;
     background-size: cover;
     
@@ -70,41 +70,94 @@ $animation-duration: 10s;
     height: 100vh;
     position: relative;
 
-    .homePagesection {
+    .homePageSection{
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 0px 0px 68px 0px;
-      min-height: 60%;
-      color: white;
-      @include respond-to("tablet") {
-        gap: 20px;
-        padding: 0px 20px 20px 20px;
-      }
-      h1 {
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 0px 0px 68px 0px;
+        min-height: 60%;
+        flex-grow: 1;
+        
+        @include respond-to("tablet") {
+          gap: 20px;
+          padding: 0px 50px 20px 50px;
+        }
+        @include respond-to("mobile") {
+          padding: 0px 20px 20px 20px;
+        }
+      .homePageContent {
         display: flex;
         flex-direction: column;
+        gap: 20px;
+        color: white;
+        h1 {
+          display: flex;
+          flex-direction: column;
+          line-height: 70px;
+          color: $black;
+          .hi {
+            font-size: 40px;
+            font-weight: 600;
+          }
+          .name {
+            font-size: 70px;
+            font-weight: 700;
+          }
+        }
+        .subTitle {
+          position: relative;
+          color: $black;
+          font-size: 30px;
+          font-weight: 400;
+          width: fit-content;
+          z-index: 0;
+          line-height: 15px;
+  
+          .pinkLine{
+            position:absolute;
+            background-color: $pink;
+            width: 100%;
+            height: 85%;
+            z-index: 0;
+          }
+          .subTitleText{
+            position: relative;
+            z-index: 1;
+          }
+        }
+        .roundButtonResponsive {
+          display: none;
+          @include respond-to("tablet") {
+            display: flex;
+            justify-content: end;
+            margin-top: 17px;
+          }
+          @include respond-to("mobile") {
+            display: none;
+          }
+        }
+      }
+      .counter {
+        display: none;
         line-height: 70px;
+        align-items: flex-start;
         color: $black;
-        .hi {
-          font-size: 40px;
+        @include respond-to("tablet") {
+          display: flex;
+        }
+        @include respond-to("mobile") {
+          display: none;
+        }
+    
+        .currentPage {
+          font-size: 70px;
           font-weight: 600;
         }
-        .name {
-          font-size: 70px;
-          font-weight: 700;
-        }
-      }
-      .subTitle {
-        color: $black;
-        font-size: 30px;
-        font-weight: 600;
-      }
-      .roundButtonResponsive {
-        display: none;
-        @include respond-to("mobile") {
-          display: flex;
-          justify-content: end;
+        .totalPages {
+          font-size: 18px;
+          font-weight: 400;
+          max-height: 27px;
+          line-height: 35px;
         }
       }
     }
@@ -114,9 +167,10 @@ $animation-duration: 10s;
       padding: 0px 70px 184px 0px;
       justify-content: center;
       flex-grow: 1;
-      @include respond-to("mobile") {
+      @include respond-to("tablet") {
         display: none;
       }
     }
+   
   }
 }
