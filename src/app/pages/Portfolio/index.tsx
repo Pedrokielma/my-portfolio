@@ -1,10 +1,9 @@
-import { useState, useEffect, LegacyRef } from "react";
+import { useState, useEffect, useRef  } from "react";
 import SideNavCounter from "@/app/components/SideNavCounter/index";
-import RoundButton from "@/app/components/RoundButton/index";
+import PortfolioCard from "@/app/components/PortfolioCard/index";
 import { fetchRepositories } from "../action";
 import { useInView } from "react-intersection-observer";
 import { RiArrowLeftSLine, RiArrowRightSLine } from "react-icons/ri";
-import { useRef } from "react";
 import classNames from "classnames/bind";
 const cx = classNames.bind(style);
 
@@ -27,12 +26,16 @@ interface Props {
   setHeaderColor: (isBlack: HeaderColor) => void;
 }
 
+interface  CardInView {
+  [key: number]: boolean; 
+}  
 
 const Portfolio = (props: Props) => {
   const { id, changeNav, setHeaderColor } = props;
   const [repositories, setRepositories] = useState<Repository[]>([]);
   const [isScrollLeftDisabled, setIsScrollLeftDisabled] = useState(true);
   const [isScrollRightDisabled, setIsScrollRightDisabled] = useState(false);
+  const [cardInView, setCardInView] = useState<CardInView[]>([]);
 
   const projectListRef = useRef<HTMLDivElement>(null);
   const { ref: myRef, inView: componentInView } = useInView({
@@ -108,26 +111,14 @@ const Portfolio = (props: Props) => {
               .map(
                 (repo, index) =>
                   repo.stargazers_count != 0 && (
-                        <div  className={style.itemCard}>
-                          <a
-                            href={repo.html_url}
-                            className={style.item}
-                            target="_blank"
-                          >
-                            <p className={style.number}>
-                              {String(index + 1).padStart(2, "0")}
-                            </p>
-                            <p className={style.name}>
-                              {repo.name.replace("_", "-")}
-                            </p>
-                            <p className={style.description}>
-                              {repo.description}
-                            </p>
-                            <div className={style.roundButton}>
-                              <RoundButton size="small" content="VIEW" />
-                            </div>
-                          </a>
-                        </div>
+                          <PortfolioCard
+                        index={index}
+                        name={repo.name}
+                        description={repo.description}
+                        html_url={repo.html_url}
+                        cardInView={cardInView}
+                        setCardInView={setCardInView}
+                      />
                   )
               )}
           </div>
@@ -135,6 +126,15 @@ const Portfolio = (props: Props) => {
             <div className={style.counter}>
               <p className={style.currentPage}>01</p>
               <p className={style.totalPages}>/5</p>
+            </div>
+            <div className={style.indexCounter}>
+            {
+            cardInView.map((item, index) => (
+              <div key={index}>
+
+              </div>
+            ))}
+
             </div>
             <div className={style.buttonsList}>
               <div
