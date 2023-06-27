@@ -1,7 +1,8 @@
 import style from "./portfolioCard.module.scss";
 import { useState, useEffect } from "react";
 import classNames from "classnames/bind";
-import RoundButton from "@/app/components/RoundButton/index";
+import { BsLinkedin, BsGithub } from "react-icons/bs";
+import { IoMdOpen } from "react-icons/io";
 import { useInView } from "react-intersection-observer";
 const cx = classNames.bind(style);
 
@@ -59,8 +60,17 @@ const PortfolioCard = (props: Prop) => {
         <p className={style.name}>{name.replace("_", "-")}</p>
         </div>
         <p className={style.description}>{description}</p>
-        <div className={style.roundButton}>
-          <RoundButton size="small" content="VIEW" />
+        <div className={style.linkButtons}>
+          {/* <RoundButton size="small" content="VIEW" /> */}
+        <a href="https://github.com/Pedrokielma" target="_blank">
+          <BsGithub />
+        </a>
+          <a
+          href="https://www.linkedin.com/in/pedro-kielmanowicz/"
+          target="_blank"
+        >
+          <IoMdOpen />
+        </a>
         </div>
       </a>
     </div>

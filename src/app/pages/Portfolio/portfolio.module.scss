@@ -9,8 +9,8 @@
     display: flex;
     height: 100vh;
     position: relative;
-   
-    .titleSection{
+
+    .titleSection {
       display: none;
       position: absolute;
       top: 110px;
@@ -20,10 +20,10 @@
       text-transform: uppercase;
       @include respond-to("tablet") {
         display: block;
-       }
-       @include respond-to("mobile") {
+      }
+      @include respond-to("mobile") {
         display: none;
-       }
+      }
     }
 
     .portfolioSection {
@@ -39,12 +39,12 @@
       scroll-snap-type: x mandatory;
 
       @include respond-to("tablet") {
-       margin: 160px 50px 130px 50px;
-       border-left: none;
+        margin: 160px 50px 130px 50px;
+        border-left: none;
       }
       @include respond-to("mobile") {
         margin: 160px 20px 130px 20px;
-       }
+      }
       .projectList {
         color: $pink;
         display: flex;
@@ -55,10 +55,9 @@
         @include respond-to("tablet") {
           display: flex;
           gap: 20px;
-          
-         }
+        }
       }
-      .bottomSection{
+      .bottomSection {
         display: flex;
         justify-content: flex-end;
         position: relative;
@@ -69,11 +68,12 @@
         @include respond-to("tablet") {
           display: flex;
           justify-content: space-between;
-          width: 90%;
+          width: calc(100% - 100px);
         }
         @include respond-to("mobile") {
           display: flex;
           justify-content: center;
+          width: calc(100% - 40px);
         }
         .counter {
           display: none;
@@ -86,7 +86,7 @@
           @include respond-to("mobile") {
             display: none;
           }
-      
+
           .currentPage {
             font-size: 70px;
             font-weight: 600;
@@ -98,28 +98,44 @@
             line-height: 35px;
           }
         }
-        .indexCounter{
+        .indexCounter {
           position: absolute;
           width: fit-content;
           height: fit-content;
-          display: flex;
+          display: none;
+          align-items: center;
           gap: 5px;
-          top: -27px;
-          .itemCard{
+
+          @include respond-to("tablet") {
+            display: flex;
+            top: 5%;
+            right: 50%;
+          }
+          @include respond-to("mobile") {
+            display: flex;
+            bottom: 0px;
+            right: auto;
+          }
+
+          .itemCard {
             height: 10px;
             width: 10px;
             border-radius: 50%;
             border: 1px solid $green;
-            &.inView{
+            &.inView {
               background-color: $green;
+              height: 11px;
+              width: 11px;
             }
           }
         }
         .buttonsList {
-          
           display: flex;
           gap: 20px;
           align-items: center;
+          @include respond-to("mobile") {
+            gap: 80px;
+          }
           .leftButton {
             color: $green;
             padding: 12px;
