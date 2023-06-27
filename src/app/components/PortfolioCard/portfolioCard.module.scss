@@ -15,12 +15,13 @@
     display: flex;
     position: relative;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     flex-grow: 1;
+    gap: 20px;
 
     .linkButtons {
         display: none;
-        gap: 20px;
+        gap: 17px;
         font-size: 16px;
         color: $black;
        justify-content: flex-end;
@@ -42,8 +43,8 @@
 
       .item {
         flex-direction: column;
-       
         width: calc(100vw - 102px);
+        justify-content: space-between;
         
         @include respond-to("mobile") {
           width: calc(100vw - 42px);
@@ -57,7 +58,6 @@
           font-size: 16px;
           font-weight: 400;
           transform: none;
-          margin-top: 20px;
           animation: hover-zoom 0.2s linear;
         }
         @keyframes hover-zoom {
@@ -135,6 +135,7 @@
             font-size: 22px;
             position: absolute;
             bottom: 33px;
+            left: 40px;
           }
           .name {
             text-transform: uppercase;
@@ -170,52 +171,55 @@
           font-size: 17px;
           font-weight: 400;
           transform: none;
-          margin-top: 20px;
           animation: hover-zoom 0.2s linear;
         }
-        @keyframes hover-zoom {
-          0% {
-            transform: scale(0);
-          }
-          100% {
-            transform: scale(1);
-          }
+        .mainInfo{
+            width: 100%;
+            @keyframes hover-zoom {
+              0% {
+                transform: scale(0);
+              }
+              100% {
+                transform: scale(1);
+              }
+            }
+            .number {
+              position: static;
+              transform: none;
+              animation: hover-number .2s linear;
+            }
+            @keyframes hover-number {
+              0% {
+                transform: translateX(0px) translateY(173px);
+              }
+              50% {
+                transform: translateX(0%) translateY(50%);
+              }
+              100% {
+                transform: translateX(0%) translateY(0%);
+              }
+            }
         }
-        .number {
-          position: static;
-          transform: none;
-          animation: hover-number 0.2s linear;
-        }
-        @keyframes hover-number {
-          0% {
-            transform: translateX(0px) translateY(173px);
-          }
-          50% {
-            transform: translateX(0%) translateY(50%);
-          }
-          100% {
-            transform: translateX(0%) translateY(0%);
-          }
-        }
+
 
         .name {
           position: static;
           transform: none;
-          animation: hover-name 0.2s ease-in forwards;
+          animation: hover-name .2s ease-in forwards;
         }
         @keyframes hover-name {
           0% {
-            transform: rotate(-90deg) translateX(0px) translateY(-173px);
+            transform: rotate(-90deg) translateX(0px) translateY(-100px);
 
-            max-height: 0;
-            width: 450px;
+            max-height: 120px;
+            width: auto;
           }
           50% {
             transform: rotate(-45deg) translateX(initial) translateY(initial);
           }
           100% {
             transform: rotate(0deg) translateX(0%);
-            max-height: 132px;
+            max-height: 120px;
             width: auto;
           }
         }
