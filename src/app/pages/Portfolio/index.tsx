@@ -120,7 +120,7 @@ const Portfolio = (props: Props) => {
           </div>
           <div className={style.bottomSection}>
             <div className={style.counter}>
-              <p className={style.currentPage}>01</p>
+              <p className={style.currentPage}>02</p>
               <p className={style.totalPages}>/5</p>
             </div>
             <div className={style.indexCounter}>
