@@ -13,18 +13,36 @@
   .item {
     padding: 40px;
     display: flex;
-    align-items: flex-end;
     position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+
+    .linkButtons {
+        display: none;
+        gap: 20px;
+        font-size: 16px;
+        color: $black;
+       justify-content: flex-end;
+        width: 100%;
+
+        a{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: $green;
+          border-radius: 50%;
+          height: 40px;
+        width: 40px;
+        }
+      }
     
   }
   @include respond-to("tablet") {
 
       .item {
         flex-direction: column;
-        align-items: end;
-        display: flex;
-        justify-content: space-between;
-        flex-grow: 1;
+       
         width: calc(100vw - 102px);
         
         @include respond-to("mobile") {
@@ -92,22 +110,8 @@
         }
         
         .linkButtons {
-          display: flex;
-          
-          gap: 20px;
-          font-size: 16px;
-          color: $black;
-          align-items: center;
-          a{
             display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: $green;
-            border-radius: 50%;
-            height: 40px;
-          width: 40px;
           }
-        }
       }
 
     &.inView {
@@ -157,9 +161,7 @@
       background-color: rgba(255, 214, 251, 0.4);
       .item {
         flex-direction: column;
-        align-items: normal;
         display: flex;
-        justify-content: flex-end;
 
         .description {
           display: flex;
@@ -217,10 +219,9 @@
             width: auto;
           }
         }
-        .roundButton {
-          display: flex;
-          justify-content: end;
-        }
+        .linkButtons {
+            display: flex;
+          }
       }
     }
     &:not(:hover) {
