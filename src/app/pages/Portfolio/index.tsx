@@ -19,6 +19,7 @@ interface Repository {
   name: String;
   html_url: string;
   description: string;
+  homepage: string;
 }
 interface Props {
   id: string;
@@ -112,6 +113,7 @@ const Portfolio = (props: Props) => {
                       name={repo.name}
                       description={repo.description}
                       html_url={repo.html_url}
+                      page={repo.homepage}
                       cardInView={cardInView}
                       setCardInView={setCardInView}
                     />
