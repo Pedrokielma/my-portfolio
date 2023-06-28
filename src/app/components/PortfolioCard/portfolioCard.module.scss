@@ -5,7 +5,7 @@
   border-right: solid $pink 1px;
   scroll-snap-align: start;
   display: flex;
-  @include respond-to("tablet"){
+  @include respond-to("tablet") {
     border-radius: 8px;
     border-right: none;
     border: solid $pink 1px;
@@ -18,45 +18,61 @@
     justify-content: flex-end;
     flex-grow: 1;
     gap: 20px;
-
     .linkButtons {
-        display: none;
-        gap: 17px;
-        font-size: 16px;
-        color: $black;
-       justify-content: flex-end;
-        width: 100%;
+      display: none;
+      gap: 17px;
+      font-size: 16px;
+      color: $black;
+      justify-content: flex-end;
+      width: 100%;
 
-        a{
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background-color: $green;
-          border-radius: 50%;
-          height: 40px;
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $green;
+        border-radius: 50%;
+        height: 40px;
         width: 40px;
-        }
       }
-    
+    }
   }
   @include respond-to("tablet") {
+    .item {
+      flex-direction: column;
+      width: calc(100vw - 102px);
+      justify-content: space-between;
 
-      .item {
-        flex-direction: column;
-        width: calc(100vw - 102px);
-        justify-content: space-between;
-        
-        @include respond-to("mobile") {
-          width: calc(100vw - 42px);
+      @include respond-to("mobile") {
+        width: calc(100vw - 42px);
+      }
+
+      .description {
+        display: flex;
+        color: $white;
+        font-family: "Crimson Pro", serif;
+        font-size: 16px;
+        font-weight: 400;
+        transform: none;
+        animation: hover-zoom 0.2s linear;
+      }
+      @keyframes hover-zoom {
+        0% {
+          transform: scale(0);
         }
+        100% {
+          transform: scale(1);
+        }
+      }
+      .mainInfo {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
 
-
-        .description {
-          display: flex;
-          color: $white;
-          font-family: "Crimson Pro", serif;
-          font-size: 16px;
+        .number {
           font-weight: 400;
+          font-size: 12px;
+          position: static;
           transform: none;
           animation: hover-zoom 0.2s linear;
         }
@@ -68,51 +84,34 @@
             transform: scale(1);
           }
         }
-        .mainInfo{
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
 
-            .number {
-              font-weight: 400;
-              font-size: 12px;
-              position: static;
-              transform: none;
-              animation: hover-zoom 0.2s linear;
-            }
-            @keyframes hover-zoom {
-              0% {
-                transform: scale(0);
-              }
-              100% {
-                transform: scale(1);
-              }
-            }
-    
-            .name {
-              font-size: 32px;
-              position: static;
-              transform: none;
-              animation: hover-zoom 0.2s ease-in forwards;
-              text-transform: uppercase;
-              @include respond-to("tablet"){
-                font-size: 24px;
-              }
-            }
-            @keyframes hover-zoom {
-              0% {
-                transform: scale(0);
-              }
-              100% {
-                transform: scale(1);
-              }
-            }
-        }
-        
-        .linkButtons {
-            display: flex;
+        .name {
+          font-size: 32px;
+          position: static;
+          transform: none;
+          animation: hover-zoom 0.2s ease-in forwards;
+          text-transform: uppercase;
+          @include respond-to("tablet") {
+            font-size: 24px;
           }
+        }
+        @keyframes hover-zoom {
+          0% {
+            transform: scale(0);
+          }
+          100% {
+            transform: scale(1);
+          }
+        }
       }
+
+      .linkButtons {
+        display: flex;
+        .page{
+            display: none;
+        }
+      }
+    }
 
     &.inView {
       transition: all 0.2s ease-in-out;
@@ -120,42 +119,40 @@
     }
   }
   @media (min-width: 1024px) {
-      .item {
-          width: 400px;
-          height: 100%;
-          padding: 40px;
-          display: flex;
-          align-items: flex-end;
-          position: relative;
-          
-          .mainInfo{
-          .number {
-            transform: rotate(-90deg);
-            font-weight: 400;
-            font-size: 22px;
-            position: absolute;
-            bottom: 33px;
-            left: 40px;
-          }
-          .name {
-            text-transform: uppercase;
-            flex-grow: 1;
-            width: 450px;
-            font-weight: 500;
-            font-size: 44px;
-            transform: rotate(-90deg);
-            position: absolute;
-            bottom: 227px;
-            right: 80px;
-          }
-    }
+    .item {
+      width: 400px;
+      height: 100%;
+      padding: 40px;
+      display: flex;
+      align-items: flex-end;
+      position: relative;
+
+      .mainInfo {
+        .number {
+          transform: rotate(-90deg);
+          font-weight: 400;
+          font-size: 22px;
+          position: absolute;
+          bottom: 33px;
+          left: 40px;
+        }
+        .name {
+          text-transform: uppercase;
+          flex-grow: 1;
+          width: 450px;
+          font-weight: 500;
+          font-size: 44px;
+          transform: rotate(-90deg);
+          position: absolute;
+          bottom: 227px;
+          right: 80px;
+        }
+      }
 
       .description {
         display: none;
       }
-      .roundButton {
-        display: none;
-      }
+      
     }
     &:hover {
       transition: all 0.2s ease-in-out;
@@ -173,39 +170,38 @@
           transform: none;
           animation: hover-zoom 0.2s linear;
         }
-        .mainInfo{
-            width: 100%;
-            @keyframes hover-zoom {
-              0% {
-                transform: scale(0);
-              }
-              100% {
-                transform: scale(1);
-              }
-            }
-            .number {
-              position: static;
-              transform: none;
-              animation: hover-number .2s linear;
-            }
-            @keyframes hover-number {
-              0% {
-                transform: translateX(0px) translateY(173px);
-              }
-              50% {
-                transform: translateX(0%) translateY(50%);
-              }
-              100% {
-                transform: translateX(0%) translateY(0%);
-              }
-            }
+        @keyframes hover-zoom {
+          0% {
+            transform: scale(0);
+          }
+          100% {
+            transform: scale(1);
+          }
         }
-
+        .mainInfo {
+          width: 100%;
+          .number {
+            position: static;
+            transform: none;
+            animation: hover-number 0.2s linear;
+          }
+          @keyframes hover-number {
+            0% {
+              transform: translateX(0px) translateY(173px);
+            }
+            50% {
+              transform: translateX(0%) translateY(50%);
+            }
+            100% {
+              transform: translateX(0%) translateY(0%);
+            }
+          }
+        }
 
         .name {
           position: static;
           transform: none;
-          animation: hover-name .2s ease-in forwards;
+          animation: hover-name 0.2s ease-in forwards;
         }
         @keyframes hover-name {
           0% {
@@ -224,8 +220,8 @@
           }
         }
         .linkButtons {
-            display: flex;
-          }
+          display: flex;
+        }
       }
     }
     &:not(:hover) {
@@ -266,5 +262,4 @@
       }
     }
   }
-  
 }
