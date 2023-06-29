@@ -44,7 +44,7 @@ const Skill = (props: Props) => {
       changeNav(id)
       setHeaderColor({ black: false, transparent: false });
     }
-  }, [inView]);
+  }, [inView, changeNav, id, setHeaderColor]);
 
 
   return (

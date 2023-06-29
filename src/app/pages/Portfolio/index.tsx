@@ -87,7 +87,7 @@ const Portfolio = (props: Props) => {
       changeNav(id);
       setHeaderColor({ black: false, transparent: false });
     }
-  }, [componentInView]);
+  }, [componentInView, changeNav, id, setHeaderColor]);
 
   return (
     <div ref={myRef} id={id} className={style.portfolioBackground}>
@@ -116,6 +116,7 @@ const Portfolio = (props: Props) => {
                       page={repo.homepage}
                       cardInView={cardInView}
                       setCardInView={setCardInView}
+                      key={index}
                     />
                   )
               )}
