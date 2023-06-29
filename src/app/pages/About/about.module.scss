@@ -9,9 +9,8 @@
   background-color: $grey;
   @include respond-to("mobile") {
     height: fit-content;
-    scroll-snap-type: y proximity;
-    overflow-y: none;
-    scroll-snap-align: start;
+    scroll-snap-align: nearest;
+
   }
   .aboutContainer {
     display: flex;
@@ -76,7 +75,7 @@
             font-weight: 400;
             display: flex;
             gap: 20px;
-            max-width: 560px;
+            
             @include respond-to("mobile") {
               font-size: 16px;
             }
