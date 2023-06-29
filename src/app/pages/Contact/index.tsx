@@ -35,7 +35,7 @@ console.log('headerColor', headerColor)
       <section ref={ref} id={id} className={style.contact}>
         <SideNavCounter counter="05" name="Contact" />
         <div className={style.contactSection}>
-        <p className={style.titleSection}>Skills</p>
+        <p className={style.titleSection}>Contact</p>
         <div className={style.contactConteiner}>
           <h2 className={style.contactTitle}>{"Let's talk!"}</h2>
         
@@ -45,7 +45,7 @@ console.log('headerColor', headerColor)
           </div>
         </div>
         <div className={style.counter}>
-          <p className={style.currentPage}>04</p>
+          <p className={style.currentPage}>05</p>
           <p className={style.totalPages}>/5</p>
         </div>
         </div>
