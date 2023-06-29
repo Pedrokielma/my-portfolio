@@ -11,46 +11,92 @@
     padding: 120px 50px 45px 0px;
     flex-grow: 1;
     gap: 40px;
-    .skillContent {
-      display: flex;
+    @include respond-to("tablet") {
+      padding: 120px 50px 20px 50px;
       flex-direction: column;
       justify-content: space-between;
-      gap: 40px;
-      .skillTitle {
-        font-size: 40px;
-        font-weight: 500;
+    }
+    @include respond-to("mobile") {
+        padding: 120px 20px 20px 20px;
+      
+    }
+    
+      .titleSection {
+        display: none;
         color: $pink;
-        max-width: 80%;
+        font-size: 20px;
+        font-weight: 500;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        @include respond-to("tablet") {
+          display: block;
+        }
+        @include respond-to("mobile") {
+          display: none;
+        }
       }
-      .skillTable {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-auto-rows: 1fr;
-        grid-column-gap:90px;
-        max-width: 556px;
+      .skillContent {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 40px;
         flex-grow: 1;
-        // display: flex ;
-        // flex-direction: column;
-        
-        max-width: 100%;
-        .item {
-          display: flex;
-          flex-direction: column;
-          flex-wrap: wrap;
-          max-height: 100px;
-          max-width: 160px;
-          .name {
-            font-size: 22px;
-            font-weight: 300;
-            color: $pink;
-          }
-          .detail {
-            font-size: 17px;
-            color: $darkWhite;
-            font-weight: 400;
-            font-family: 'Crimson Pro', serif;
+        .skillTable {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-auto-rows: 1fr;
+          grid-column-gap:90px;
+          flex-grow: 1;
+          max-width: 100%;
+          @include respond-to("mobile") {
+            grid-column-gap: 20px;
+          
+        }
+          .item {
+            display: flex;
+            flex-direction: column;
+            max-width: 160px;
+            .name {
+              font-size: 22px;
+              font-weight: 300;
+              color: $pink;
+            }
+            .detail {
+              font-size: 17px;
+              color: $darkWhite;
+              font-weight: 400;
+              font-family: 'Crimson Pro', serif;
+              @include respond-to("tablet") {
+                font-size: 16px;
+              
+            }
+            }
+  
           }
         }
+    }
+    .counter {
+      display: none;
+      line-height: 70px;
+      align-items: flex-start;
+      margin-top: 10px;
+      color: $pink;
+      @include respond-to("tablet") {
+        display: flex;
+      }
+      @include respond-to("mobile") {
+        display: none;
+      }
+
+      .currentPage {
+        font-size: 70px;
+        font-weight: 600;
+      }
+      .totalPages {
+        font-size: 18px;
+        font-weight: 400;
+        max-height: 27px;
+        line-height: 35px;
       }
     }
   }
