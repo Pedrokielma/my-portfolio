@@ -1,9 +1,6 @@
 import { BsLinkedin, BsGithub } from "react-icons/bs";
 import { FiMail } from "react-icons/fi";
 import style from "./contactButtons.module.scss";
-// import { useState } from 'react';
-import classNames from "classnames/bind";
-const cx = classNames.bind(style);
 
 interface Props {
   children: string;

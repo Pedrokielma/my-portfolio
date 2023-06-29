@@ -51,10 +51,13 @@
         display: flex;
         color: $white;
         font-family: "Crimson Pro", serif;
-        font-size: 16px;
+        font-size: 17px;
         font-weight: 400;
         transform: none;
         animation: hover-zoom 0.2s linear;
+        @include respond-to("mobile") {
+          font-size: 16px;
+        }
       }
       @keyframes hover-zoom {
         0% {
@@ -71,10 +74,13 @@
 
         .number {
           font-weight: 400;
-          font-size: 12px;
+          font-size: 22px;
           position: static;
           transform: none;
           animation: hover-zoom 0.2s linear;
+          @include respond-to("mobile") {
+            font-size: 12px;
+          }
         }
         @keyframes hover-zoom {
           0% {
@@ -91,7 +97,7 @@
           transform: none;
           animation: hover-zoom 0.2s ease-in forwards;
           text-transform: uppercase;
-          @include respond-to("tablet") {
+          @include respond-to("mobile") {
             font-size: 24px;
           }
         }

@@ -51,7 +51,7 @@ const Skill = (props: Props) => {
     <section ref={ref} id={id} className={style.skill}>
       <SideNavCounter counter="04" name='Skills' />
       <div className={style.skillSection}>
-      <p className={style.titleSection}>About me</p>
+      <p className={style.titleSection}>Skills</p>
         <div className={style.skillContent}>
           <h2 className={style.skillTitle}>My set of skills to bring exceptional ideas to life.</h2>
           <div className={style.skillTable}>
@@ -64,7 +64,7 @@ const Skill = (props: Props) => {
           </div>
         </div>
         <div className={style.counter}>
-          <p className={style.currentPage}>03</p>
+          <p className={style.currentPage}>04</p>
           <p className={style.totalPages}>/5</p>
         </div>
       </div>
