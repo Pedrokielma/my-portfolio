@@ -1,99 +1,157 @@
 @import "@/app/styles/variables.scss";
-@import '@/app/styles/mixins.scss';
+@import "@/app/styles/mixins.scss";
+
 .about {
   // max-width: 1440px;
   // margin: auto;
   display: flex;
   height: 100vh;
   background-color: $grey;
-  .aboutSection {
-    padding: 120px 50px 45px 0px;
-    color: white;
-    flex-grow: 1;
+  @include respond-to("mobile") {
+    height: fit-content;
+    scroll-snap-type: y proximity;
+    overflow-y: none;
+    scroll-snap-align: start;
+  }
+  .aboutContainer {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    gap: 30px;
-          @include respond-to('large-desktop') {
-            max-width: 949px;
-          }
-    
-    
-      .aboutUpper{
+    @include respond-to("tablet") {
+      padding: 120px 50px 20px 50px;
+    }
+    @include respond-to("mobile") {
+      padding: 0px;
+    }
+    .titleSection {
+      display: none;
+      color: $pink;
+      font-size: 20px;
+      font-weight: 500;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      @include respond-to("tablet") {
+        display: block;
+      }
+      @include respond-to("mobile") {
+        display: none;
+      }
+    }
+    .aboutSection {
+      padding: 120px 50px 45px 0px;
+      color: white;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 30px;
+      max-width: 949px;
+
+      @include respond-to("tablet") {
+        padding: 0px;
+      }
+      @include respond-to("mobile") {
+        padding: 120px 20px 20px 20px;
+      }
+
+      .aboutUpper {
         display: flex;
         flex-direction: column;
         gap: 25px;
-        
-        h2{
+
+        h2 {
           max-width: 949px;
         }
-      .aboutContent {
-        color: $darkWhite;
-        display: flex;
-        justify-content: space-between;
-        align-items: end;
-        font-family: 'Crimson Pro', serif;
-        gap: 40px;
-        
-  
-        .aboutText {
-          font-size: 17px;
-          font-weight: 400;
+        .aboutContent {
+          color: $darkWhite;
           display: flex;
-          gap: 20px;
-          max-width: 560px;
-          // flex-grow: 1;
-          // height: 100%;
-          // @include respond-to('large-desktop') {
-          //   height: auto;
-          //   height: none;
-          // }
+          justify-content: space-between;
+          align-items: end;
+          font-family: "Crimson Pro", serif;
+          gap: 40px;
+          @include respond-to("mobile") {
+            flex-direction: column;
+          }
+          .aboutText {
+            font-size: 17px;
+            font-weight: 400;
+            display: flex;
+            gap: 20px;
+            max-width: 560px;
+            @include respond-to("mobile") {
+              font-size: 16px;
+            }
+          }
+        }
+      }
+      .aboutMidia {
+        display: flex;
+        width: 100%;
+        flex-grow: 1;
+        gap: 30px;
+        justify-content: space-between;
+        max-height: 522px;
+        @include respond-to("mobile") {
+          flex-direction: column;
+          max-height: none;
+          margin-bottom: 100px;
+        }
+
+        .aboutImage {
+          background-image: url("../../../../public/images/profile-image.png");
+          background-size: cover;
+          height: 100%;
+          width: 32%;
+          background-repeat: no-repeat;
+
+          @media screen and (min-height: 800px) {
+            background-position: center;
+            width: 40%;
+          }
+          @include respond-to("mobile") {
+            width: 100%;
+            padding-top: 110%;
+          }
+        }
+
+        .aboutVideoWrapper {
+          flex-grow: 1;
+          display: flex;
+          justify-content: end;
+          @include respond-to("mobile") {
+            min-height: 350px;
+          }
+          
+
+          iframe {
+            width: 100%;
+            height: 100%;
+          }
         }
       }
     }
-    .aboutMidia {
-      display: flex;
-      width: 100%;
-      flex-grow: 1;
-      gap: 30px;
-      justify-content: space-between;
-      max-height: 522px ;
-      
-      .aboutImage {
-        background-image: url("../../../../public/images/profile-image.png");
-        background-size: cover;
-        height: 100%;
-        width: 40%;
-        // height: 403px;
-        // width: 362px;
-        background-repeat: no-repeat;
-
-        @include respond-to('large-desktop') {
-          width: 40%
-        }
-      }
-
-      
-      
-      .aboutVideoWrapper {
-        // position: absolute;
-        // top: 0;
-        // left: 35%;
-        
-        flex-grow: 1;
-        height: 100%;
+    .counter {
+      display: none;
+      line-height: 70px;
+      align-items: flex-start;
+      margin-top: 10px;
+      color: $pink;
+      @include respond-to("tablet") {
         display: flex;
-       justify-content: end;
-      
-        
-        iframe {
-          width: 100%;
-          height: 100%;
-        }
       }
-      
-      
-     
+      @include respond-to("mobile") {
+        display: none;
+      }
+
+      .currentPage {
+        font-size: 70px;
+        font-weight: 600;
+      }
+      .totalPages {
+        font-size: 18px;
+        font-weight: 400;
+        max-height: 27px;
+        line-height: 35px;
+      }
     }
   }
 }
