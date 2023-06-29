@@ -22,12 +22,12 @@
     padding: 40px 20px;
   }
   &.transparent {
-    color: $black;
+    color: $pink;
     background-color: transparent;
   }
   &.black{
     background-color: transparent;
-    color: $pink;
+    color: $black;
   }
   .sectionLeft {
     flex: auto;
@@ -84,6 +84,9 @@
     
     &.black {
       background-color: $black;
+    }
+    &.transparent {
+      background-color: $pink;
     }
   }
   

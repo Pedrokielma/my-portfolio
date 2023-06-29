@@ -1,4 +1,3 @@
-import { useState } from "react";
 import classNames from "classnames/bind";
 import style from "./header.module.scss";
 
@@ -65,12 +64,15 @@ const Header = (props: Props) => {
       >
         <div
           className={cx(style.line1, {
-            [style.black]: headerColor.transparent,
+            [style.black]: headerColor.black,
+            [style.transparent]: headerColor.transparent,
+
           })}
         ></div>
         <div
           className={cx(style.line2, {
-            [style.black]: headerColor.transparent,
+            [style.transparent]: headerColor.transparent,
+            [style.black]: headerColor.black,
           })}
         ></div>
       </div>
