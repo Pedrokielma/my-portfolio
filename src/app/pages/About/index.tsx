@@ -31,18 +31,21 @@ const About = (props: Props) => {
   return (
     <section ref={ref} id={id} className={style.about}>
       <SideNavCounter counter="03" name="About me" />
+      <div className={style.aboutContainer}>
+        <p className={style.titleSection}>About me</p>
       <div className={style.aboutSection}>
         <div className={style.aboutUpper}>
           <h2 className={style.aboutTitle}>
-            Love for the surf, coding, and all things outdoors.
+            Love for the coding, surf, and all things outdoors.
           </h2>
           <div className={style.aboutContent}>
             <div className={style.aboutText}>
               <p>
-                Lorem ipsum dolor sit amet consectetur. Vitae laoreet viverra
-                dapibus adipiscing consectetur enim. Facilisis dolor placerat
-                mauris nulla aliquet tempus et. Diam morbi et ut felis et sit
-                massa vivamus.
+                I am a frontend developer passionate about surf and technology.
+                Specializing in frontend, I also enjoy blockchain, economics,
+                and backend technologies. I strive to create seamless user
+                experiences, merging technology with captivating digital
+                solutions
               </p>
             </div>
             <div className={style.buttons}>
@@ -60,6 +63,12 @@ const About = (props: Props) => {
             ></iframe>
           </div>
         </div>
+      </div>
+        <div className={style.counter}>
+          <p className={style.currentPage}>03</p>
+          <p className={style.totalPages}>/5</p>
+        </div>
+
       </div>
     </section>
   );
