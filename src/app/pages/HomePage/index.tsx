@@ -28,7 +28,7 @@ const HomePage = (props: Props) => {
   });
 
   useEffect(() => {
-    setHeaderColor({ ...headerColor, transparent: componentInView });
+    setHeaderColor({transparent: false, black: componentInView });
     if (componentInView) {
       changeNav(id);
     }

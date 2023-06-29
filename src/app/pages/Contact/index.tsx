@@ -26,9 +26,10 @@ const Contact = (props: Props) => {
     if (inView) {
       changeNav(id);
     }
-    setHeaderColor({ ...headerColor, black: inView });
+    setHeaderColor({ black: false, transparent: inView });
   }, [inView]);
 
+console.log('headerColor', headerColor)
   return (
     <div className={style.contactBackground}>
       <section ref={ref} id={id} className={style.contact}>
