@@ -7,8 +7,6 @@ import Portfolio from "./pages/Portfolio/index";
 import About from "./pages/About/index";
 import Skill from "./pages/Skill/index";
 import Contact from "./pages/Contact/index";
-import SEOConfig from "./next-seo.config";
-import { DefaultSeo } from "next-seo";
 
 interface HeaderColor {
   transparent: boolean;
@@ -42,7 +40,6 @@ export default function Home() {
 
   return (
     <> 
-    <DefaultSeo {...SEOConfig} />
       <main
         onClick={() => {
           closeNav();
