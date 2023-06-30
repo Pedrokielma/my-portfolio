@@ -29,7 +29,6 @@ const Contact = (props: Props) => {
     setHeaderColor({ black: false, transparent: inView });
   }, [inView]);
 
-console.log('headerColor', headerColor)
   return (
     <div className={style.contactBackground}>
       <section ref={ref} id={id} className={style.contact}>
