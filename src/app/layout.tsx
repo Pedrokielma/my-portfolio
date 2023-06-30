@@ -1,7 +1,6 @@
 import "./styles/globals.scss";
 
-import SEOConfig from "./next-seo.config";
-import { DefaultSeo } from "next-seo";
+
 
 // export const metadata = {
 //   title: "Pedro Kielma Portfolio",
@@ -15,12 +14,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <>
-      <DefaultSeo {...SEOConfig} />
+    
       <html lang="en">
         <body>{children}</body>
       </html>
-    </>
+ 
   );
 }
 
