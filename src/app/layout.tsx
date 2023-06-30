@@ -1,7 +1,6 @@
 import "./styles/globals.scss";
 
-// import SEOConfig from "./next-seo.config";
-// import { DefaultSeo } from "next-seo";
+
 
 // export const metadata = {
 //   title: "Pedro Kielma Portfolio",
