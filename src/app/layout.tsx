@@ -24,7 +24,7 @@ import "./styles/globals.scss";
 export const metadata = {
   title: "Pedro Kielma - Frontend Developer Portfolio",
   description:
-    "I am a frontend developer experienced in Next.js, TypeScript, JavaScript, React, Node.js, and Express. Check out my portfolio to see my work and skills.",
+    "I am a frontend developer experienced in TypeScript, JavaScript,Next.js, React, Node.js, and Express. Check out my portfolio to see my work and skills.",
   openGraph: {
     type: "website",
     locale: "en_US",
