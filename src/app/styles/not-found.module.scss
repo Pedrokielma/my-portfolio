@@ -1,0 +1,23 @@
+@import "./variables.scss";
+@import "@/app/styles/mixins.scss";
+
+.notFound{
+    height: 100vh;
+    width: 100vw;
+    background-color: $pink;
+    display: flex;
+
+    .notFoundSection{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex-grow: 1;
+        align-items: center;
+    }
+    .notFoundImage{
+        background-image: url("../../../public/images/not-found.png");
+        background-size: cover;
+        height: 100%;
+        width: 50%;
+    }
+}
