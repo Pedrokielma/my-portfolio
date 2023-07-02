@@ -27,10 +27,10 @@ const Skill = (props: Props) => {
   const [mySkill] = useState<Skill[]>([
     {name: "JavaScript", detail: "Object-oriented coding Language"},
     {name: "TypeScript", detail: "Object-oriented coding Language"},
-    {name: "React.js", detail: "Frontend framework to webdevelopment" },
-    {name: "Next.js", detail: "Frontend framework to webdevelopment"},
-    {name: "Express.js", detail: "backend framework to webdevelopment"},
-    {name: "Node.js", detail: "backend framework to webdevelopment"},
+    {name: "React.js", detail: "Frontend framework to web development" },
+    {name: "Next.js", detail: "Frontend framework to web development"},
+    {name: "Express.js", detail: "backend framework to web development"},
+    {name: "Node.js", detail: "backend framework to web development"},
     {name: "SASS", detail: "Style CSS lybrary"},
     {name: "HTML5", detail: "HyperText Markup Language "},
 

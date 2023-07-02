@@ -99,44 +99,44 @@
             line-height: 35px;
           }
         }
-        .indexCounter {
-          position: absolute;
-          width: fit-content;
-          height: fit-content;
-          display: none;
-          align-items: center;
-          gap: 5px;
+        // .indexCounter {
+        //   position: absolute;
+        //   width: fit-content;
+        //   height: fit-content;
+        //   display: none;
+        //   align-items: center;
+        //   gap: 5px;
 
-          @include respond-to("tablet") {
-            display: flex;
-            top: 5%;
-            right: 50%;
-          }
-          @include respond-to("mobile") {
-            display: flex;
-            bottom: 0px;
-            right: auto;
-          }
+        //   @include respond-to("tablet") {
+        //     display: flex;
+        //     top: 5%;
+        //     right: 50%;
+        //   }
+        //   @include respond-to("mobile") {
+        //     display: flex;
+        //     bottom: 0px;
+        //     right: auto;
+        //   }
 
-          .itemCard {
-            height: 10px;
-            width: 10px;
-            border-radius: 50%;
-            border: 1px solid $green;
-            &.inView {
-              background-color: $green;
-              height: 11px;
-              width: 11px;
-            }
-          }
-        }
+        //   .itemCard {
+        //     height: 10px;
+        //     width: 10px;
+        //     border-radius: 50%;
+        //     border: 1px solid $green;
+        //     &.inView {
+        //       background-color: $green;
+        //       height: 11px;
+        //       width: 11px;
+        //     }
+        //   }
+        // }
         .buttonsList {
           display: flex;
           gap: 20px;
           align-items: center;
-          @include respond-to("mobile") {
-            gap: 80px;
-          }
+          // @include respond-to("mobile") {
+          //   gap: 80px;
+          // }
           .leftButton {
             color: $green;
             padding: 12px;

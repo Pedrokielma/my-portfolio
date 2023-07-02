@@ -7,7 +7,7 @@ import Portfolio from "./pages/Portfolio/index";
 import About from "./pages/About/index";
 import Skill from "./pages/Skill/index";
 import Contact from "./pages/Contact/index";
-import BeatLoader from "react-spinners/BeatLoader";
+import PulseLoader from "react-spinners/PulseLoader";
 
 import classNames from "classnames/bind";
 const cx = classNames.bind(style);
@@ -48,23 +48,20 @@ export default function Home() {
     }
   };
 
-  // useEffect(()=>{
-  //   setTimeout(()=>{
-  //     setLoading(false)
-  //   }, 1000)
-  // },[])
-
-  useEffect(() => {
-    setLoading(false);
-  }, []);
+  useEffect(()=>{
+    setTimeout(()=>{
+      setLoading(false)
+    }, 1000)
+  },[])
+ 
 
   return (
     <>
-      <div className={cx(style.loaderContainer, !loading && style.hideLoader)}>
+      <div className={cx(style.loaderContainer, !loading && style.hideLoader)} />
+      
         <div className={style.lottieAnimation}>
-        <BeatLoader color={'#E3F88F'} size={80} loading={loading} />
+        <PulseLoader color={'#ffd6fb'} size={30} loading={loading} />
         </div>
-      </div>
       <main
         onClick={() => {
           closeNav();
