@@ -131,7 +131,7 @@ const Portfolio = (props: Props) => {
               <p className={style.currentPage}>02</p>
               <p className={style.totalPages}>/5</p>
             </div>
-            <div className={style.indexCounter}>
+            {/* <div className={style.indexCounter}>
               {cardInView.map((item, index) => {
                 return (
                   <div
@@ -142,7 +142,7 @@ const Portfolio = (props: Props) => {
                   ></div>
                 );
               })}
-            </div>
+            </div> */}
             <div className={style.buttonsList}>
               <div
                 onClick={() => {

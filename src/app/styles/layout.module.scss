@@ -56,18 +56,19 @@
 .loaderContainer {
   position: fixed;
   z-index: 999;
-  background: $pink;
+  background: $grey;
   opacity: 0.85;
   width: 100vw;
   height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   transition: all 0.175s ease-out;
 
-  .lottieAnimation {
-		opacity: 1;
-  }
+  
+}
+.lottieAnimation {
+  position: fixed;
+  z-index: 1000;
+  top: 50vh;
+  left: calc(50vw - 65px);
 }
 
 .hideLoader {
