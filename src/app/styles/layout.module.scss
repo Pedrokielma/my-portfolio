@@ -51,3 +51,26 @@
     width: 50%;
   }
 }
+
+
+.loaderContainer {
+  position: fixed;
+  z-index: 999;
+  background: $pink;
+  opacity: 0.85;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.175s ease-out;
+
+  .lottieAnimation {
+		opacity: 1;
+  }
+}
+
+.hideLoader {
+  opacity: 0;
+  visibility: hidden;
+}

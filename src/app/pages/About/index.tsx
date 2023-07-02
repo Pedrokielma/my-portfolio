@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import SideNavCounter from "@/app/components/SideNavCounter/index";
 import { useInView } from "react-intersection-observer";
 import ContactButtons from "@/app/components/ContactButtons/index";
+import LazyLoad from 'react-lazyload';
 
 import style from "./about.module.scss";
 
@@ -56,11 +57,13 @@ const About = (props: Props) => {
         <div className={style.aboutMidia}>
           <div className={style.aboutImage}></div>
           <div className={style.aboutVideoWrapper}>
+           <LazyLoad once>
             <iframe
               src="https://www.youtube.com/embed/iIiy3WHA1PM?mute=1"
               title="YouTube video player"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; allowfullscreen;"
             ></iframe>
+           </LazyLoad>
           </div>
         </div>
       </div>
