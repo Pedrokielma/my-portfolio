@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo, useCallback } from "react";
 import SideNavCounter from "@/app/components/SideNavCounter/index";
 import PortfolioCard from "@/app/components/PortfolioCard/index";
 import { fetchRepositories } from "../action";
@@ -25,6 +25,7 @@ interface Props {
   id: string;
   changeNav: (id: string) => void;
   setHeaderColor: (isBlack: HeaderColor) => void;
+  // setLoading: (boolean: boolean) => void;
 }
 
 interface CardInView {
@@ -49,14 +50,14 @@ const Portfolio = (props: Props) => {
     setRepositories(data);
   };
 
-  const handleScroll = (scrollAmount?: number) => {
+  const handleScroll = useCallback((scrollAmount?: number) => {
     let element = projectListRef?.current;
     if (scrollAmount) {
       element?.scrollBy({ left: scrollAmount, behavior: "smooth" });
     }
-  };
+  }, [projectListRef]);
 
-  const validateDisableButton = () => {
+  const validateDisableButton = useCallback(() => {
     let element = projectListRef.current;
     let clientArea = element?.clientWidth;
     let scrollableArea = element?.scrollWidth;
@@ -76,11 +77,12 @@ const Portfolio = (props: Props) => {
         setIsScrollLeftDisabled(false);
       }
     }
-  };
+  }, []);
+
   useEffect(() => {
     fetchRepoData();
     validateDisableButton();
-  }, []);
+  }, [validateDisableButton]);
 
   useEffect(() => {
     if (componentInView) {
@@ -88,6 +90,11 @@ const Portfolio = (props: Props) => {
       setHeaderColor({ black: false, transparent: false });
     }
   }, [componentInView, changeNav, id, setHeaderColor]);
+
+
+  const filteredRepositories = useMemo(() => {
+    return repositories.filter((repo) => repo.stargazers_count !== 0);
+  }, [repositories]);
 
   return (
     <div ref={myRef} id={id} className={style.portfolioBackground}>
@@ -103,9 +110,7 @@ const Portfolio = (props: Props) => {
           <p className={style.titleSection}>Selected works</p>
 
           <div className={style.projectList}>
-            {repositories
-              ?.filter((repo) => repo.stargazers_count !== 0)
-              .map(
+            {filteredRepositories?.map(
                 (repo, index) =>
                   repo.stargazers_count != 0 && (
                     <PortfolioCard

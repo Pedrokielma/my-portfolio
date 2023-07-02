@@ -2,7 +2,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 
-import style from "./styles/not-found.module.scss";
+import style from "./styles/layout.module.scss";
 
 export default function NotFound() {
   const router = useRouter();
