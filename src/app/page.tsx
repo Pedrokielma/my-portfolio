@@ -40,17 +40,23 @@ export default function Home() {
   };
 
   const handleRouteChange = (componentId: string) => {
-    const component = document.getElementById(componentId);
-    if (component) {
-      component.scrollIntoView({ behavior: "smooth" });
+    const yOffset = -80; // Adjust this value as needed to offset the header height
+    const element = document.getElementById(componentId);
+    if (element) {
+      const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
     }
   };
 
-  useEffect(()=>{
-    setTimeout(()=>{
-      setLoading(false)
-    }, 1000)
-  },[])
+  // useEffect(()=>{
+  //   setTimeout(()=>{
+  //     setLoading(false)
+  //   }, 1000)
+  // },[])
+
+  useEffect(() => {
+    setLoading(false);
+  }, []);
 
   return (
     <>
