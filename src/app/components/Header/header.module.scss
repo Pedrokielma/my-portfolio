@@ -30,16 +30,16 @@
     color: $black;
   }
   .sectionLeft {
-    flex: auto;
     max-width: 464px;
-
     .logo {
-      font-size: 25px;
+      font-size: 22px;
       font-weight: 900;
-      line-height: 30px;
-      @include respond-to("mobile") {
+      line-height: 0px;
+      @include respond-to("tablet") {
         font-size: 22px;
-        line-height: 0;
+      }
+      @include respond-to("mobile") {
+        font-size: 16px;
       }
     }
   }
