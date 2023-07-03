@@ -38,6 +38,11 @@
       scroll-snap-type: mandatory;
       scroll-snap-points-x: repeat(3rem);
       scroll-snap-type: x mandatory;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      &.inView {
+        opacity: 1;
+      }
 
       @include respond-to("tablet") {
         margin: 160px 50px 130px 50px;

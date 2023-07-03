@@ -23,24 +23,24 @@
         font-weight: 600;
         line-height: 22px;
       }
-      .notFoundTitle{
+      .notFoundTitle {
         font-weight: 700;
         font-size: 50px;
       }
-      .notFoundText{
+      .notFoundText {
         font-size: 20px;
         margin-bottom: 20px;
       }
-      .buttonSection{
+      .buttonSection {
         display: flex;
         justify-content: flex-end;
-          .buttonHome{
-            font-size: 17px;
-            font-weight: 600;
-            background-color: $green;
-            padding: 20px;
-            border-radius: 8px;
-          }
+        .buttonHome {
+          font-size: 17px;
+          font-weight: 600;
+          background-color: $green;
+          padding: 20px;
+          border-radius: 8px;
+        }
       }
     }
   }
@@ -52,7 +52,6 @@
   }
 }
 
-
 .loaderContainer {
   position: fixed;
   z-index: 999;
@@ -61,8 +60,6 @@
   width: 100vw;
   height: 100vh;
   transition: all 0.175s ease-out;
-
-  
 }
 .lottieAnimation {
   position: fixed;

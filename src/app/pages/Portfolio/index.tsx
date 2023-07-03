@@ -50,12 +50,15 @@ const Portfolio = (props: Props) => {
     setRepositories(data);
   };
 
-  const handleScroll = useCallback((scrollAmount?: number) => {
-    let element = projectListRef?.current;
-    if (scrollAmount) {
-      element?.scrollBy({ left: scrollAmount, behavior: "smooth" });
-    }
-  }, [projectListRef]);
+  const handleScroll = useCallback(
+    (scrollAmount?: number) => {
+      let element = projectListRef?.current;
+      if (scrollAmount) {
+        element?.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      }
+    },
+    [projectListRef]
+  );
 
   const validateDisableButton = useCallback(() => {
     let element = projectListRef.current;
@@ -91,7 +94,6 @@ const Portfolio = (props: Props) => {
     }
   }, [componentInView, changeNav, id, setHeaderColor]);
 
-
   const filteredRepositories = useMemo(() => {
     return repositories.filter((repo) => repo.stargazers_count !== 0);
   }, [repositories]);
@@ -105,26 +107,28 @@ const Portfolio = (props: Props) => {
           onScroll={() => {
             validateDisableButton();
           }}
-          className={style.portfolioSection}
+          className={cx(style.portfolioSection, {
+            [style.inView]: componentInView,
+          })}
         >
           <p className={style.titleSection}>Selected works</p>
 
           <div className={style.projectList}>
             {filteredRepositories?.map(
-                (repo, index) =>
-                  repo.stargazers_count != 0 && (
-                    <PortfolioCard
-                      index={index}
-                      name={repo.name}
-                      description={repo.description}
-                      html_url={repo.html_url}
-                      page={repo.homepage}
-                      cardInView={cardInView}
-                      setCardInView={setCardInView}
-                      key={index}
-                    />
-                  )
-              )}
+              (repo, index) =>
+                repo.stargazers_count != 0 && (
+                  <PortfolioCard
+                    index={index}
+                    name={repo.name}
+                    description={repo.description}
+                    html_url={repo.html_url}
+                    page={repo.homepage}
+                    cardInView={cardInView}
+                    setCardInView={setCardInView}
+                    key={index}
+                  />
+                )
+            )}
           </div>
           <div className={style.bottomSection}>
             <div className={style.counter}>

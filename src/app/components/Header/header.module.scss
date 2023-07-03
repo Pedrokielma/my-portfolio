@@ -1,5 +1,5 @@
 @import "@/app/styles/variables.scss";
-@import '@/app/styles/mixins.scss';
+@import "@/app/styles/mixins.scss";
 
 .header {
   width: 100vw;
@@ -25,18 +25,22 @@
     color: $pink;
     background-color: transparent;
   }
-  &.black{
+  &.black {
     background-color: transparent;
     color: $black;
   }
   .sectionLeft {
     flex: auto;
     max-width: 464px;
-   
+
     .logo {
       font-size: 25px;
       font-weight: 900;
       line-height: 30px;
+      @include respond-to("mobile") {
+        font-size: 22px;
+        line-height: 0;
+      }
     }
   }
   .sectionRight {
@@ -49,8 +53,7 @@
     @include respond-to("tablet") {
       display: none;
     }
-   
-   
+
     .midiaLink {
       display: flex;
       justify-content: space-between;
@@ -81,7 +84,7 @@
     margin: 8px;
     transition: 0.3s ease-in;
     background-color: $pink;
-    
+
     &.black {
       background-color: $black;
     }
@@ -89,7 +92,7 @@
       background-color: $pink;
     }
   }
-  
+
   &.active {
     .line1 {
       transform: rotate(-45deg) translate(5px, 10px);
@@ -102,4 +105,3 @@
     }
   }
 }
-
