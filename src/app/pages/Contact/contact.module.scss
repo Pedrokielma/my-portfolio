@@ -1,91 +1,96 @@
-@import '@/app/styles/variables.scss';
-@import '@/app/styles/mixins.scss';
+@import "@/app/styles/variables.scss";
+@import "@/app/styles/mixins.scss";
 
-.contactBackground{
-    width: 100vw;
-    background-color: $black;
-    .contact{ 
-        display: flex;
-        height: 100vh;
-        
-        .contactSection{
-            padding: 120px 50px 45px 0px;
-            gap: 50px;
-            flex-grow: 1;
-            display: flex;
-            color: $pink;
-            flex-direction: column;
-            justify-content: center;
-            @include respond-to("tablet") {
-                padding: 120px 50px 20px 50px;
-                flex-direction: column;
-                justify-content: space-between;
-              }
-              @include respond-to("mobile") {
-                  padding: 120px 20px 20px 20px;
-                  justify-content: center;
-              }
-            .titleSection {
-                display: none;
-                color: $pink;
-                font-size: 20px;
-                font-weight: 500;
-                text-transform: uppercase;
-                margin-bottom: 20px;
-                @include respond-to("tablet") {
-                  display: block;
-                }
-                @include respond-to("mobile") {
-                  display: none;
-                }
-              }
-              .contactConteiner{
-                gap: 50px;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                  .contactTitle{
-                      font-size: 50px;
-                      font-weight: 500;
-                      min-width: 250px;
-                  }
-              .contactInfo{
-                  display: flex;
-                  flex-direction: column;
-                  gap: 10px;
-                  min-width: 205px;
-                  height: 225px;
-                  .contactText{
-                      font-size: 30px;
-                      font-weight: 300;
-                  }
-              }
-              }
-    
-            .counter {
-                display: none;
-                line-height: 70px;
-                align-items: flex-start;
-                margin-top: 10px;
-                color: $pink;
-                @include respond-to("tablet") {
-                  display: flex;
-                }
-                @include respond-to("mobile") {
-                  display: none;
-                }
-          
-                .currentPage {
-                  font-size: 70px;
-                  font-weight: 600;
-                }
-                .totalPages {
-                  font-size: 18px;
-                  font-weight: 400;
-                  max-height: 27px;
-                  line-height: 35px;
-                }
-              }
-        }
+.contactBackground {
+  width: 100vw;
+  background-color: $black;
+  .contact {
+    display: flex;
+    height: 100vh;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    &.inView {
+      opacity: 1;
     }
+
+    .contactSection {
+      padding: 120px 50px 45px 0px;
+      gap: 50px;
+      flex-grow: 1;
+      display: flex;
+      color: $pink;
+      flex-direction: column;
+      justify-content: center;
+      @include respond-to("tablet") {
+        padding: 120px 50px 20px 50px;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      @include respond-to("mobile") {
+        padding: 120px 20px 20px 20px;
+        justify-content: center;
+      }
+      .titleSection {
+        display: none;
+        color: $pink;
+        font-size: 20px;
+        font-weight: 500;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        @include respond-to("tablet") {
+          display: block;
+        }
+        @include respond-to("mobile") {
+          display: none;
+        }
+      }
+      .contactConteiner {
+        gap: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        .contactTitle {
+          font-size: 50px;
+          font-weight: 500;
+          min-width: 250px;
+        }
+        .contactInfo {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          min-width: 205px;
+          height: 225px;
+          .contactText {
+            font-size: 30px;
+            font-weight: 300;
+          }
+        }
+      }
+
+      .counter {
+        display: none;
+        line-height: 70px;
+        align-items: flex-start;
+        margin-top: 10px;
+        color: $pink;
+        @include respond-to("tablet") {
+          display: flex;
+        }
+        @include respond-to("mobile") {
+          display: none;
+        }
+
+        .currentPage {
+          font-size: 70px;
+          font-weight: 600;
+        }
+        .totalPages {
+          font-size: 18px;
+          font-weight: 400;
+          max-height: 27px;
+          line-height: 35px;
+        }
+      }
+    }
+  }
 }

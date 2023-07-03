@@ -77,7 +77,6 @@ export default function Home() {
         <div className="page">
           <HomePage
             setHeaderColor={setHeaderColor}
-            headerColor={headerColor}
             changeNav={changeNav}
             id="1"
             handleRouteChange={handleRouteChange}
@@ -92,7 +91,6 @@ export default function Home() {
           <Contact
             changeNav={changeNav}
             id="5"
-            headerColor={headerColor}
             setHeaderColor={setHeaderColor}
           />
         </div>

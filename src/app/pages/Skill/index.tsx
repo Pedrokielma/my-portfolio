@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
-import { useInView } from 'react-intersection-observer';
+import { useInView } from "react-intersection-observer";
 import SideNavCounter from "@/app/components/SideNavCounter/index";
+import classNames from "classnames/bind";
+const cx = classNames.bind(style);
+
 import style from "./skill.module.scss";
 
 interface HeaderColor {
@@ -11,56 +14,58 @@ interface Skill {
   name: String;
   detail: String;
 }
-interface Props{
+interface Props {
   id: string;
-  changeNav: (id: string) => void,
+  changeNav: (id: string) => void;
   setHeaderColor: (isBlack: HeaderColor) => void;
 }
 
 const Skill = (props: Props) => {
-  const{ id, changeNav, setHeaderColor } = props;
+  const { id, changeNav, setHeaderColor } = props;
   const { ref, inView } = useInView({
     threshold: 0.5,
   });
 
-
   const [mySkill] = useState<Skill[]>([
-    {name: "JavaScript", detail: "Object-oriented coding Language"},
-    {name: "TypeScript", detail: "Object-oriented coding Language"},
-    {name: "React.js", detail: "Frontend framework to web development" },
-    {name: "Next.js", detail: "Frontend framework to web development"},
-    {name: "Express.js", detail: "backend framework to web development"},
-    {name: "Node.js", detail: "backend framework to web development"},
-    {name: "SASS", detail: "Style CSS lybrary"},
-    {name: "HTML5", detail: "HyperText Markup Language "},
-
+    { name: "JavaScript", detail: "Object-oriented coding Language" },
+    { name: "TypeScript", detail: "Object-oriented coding Language" },
+    { name: "React.js", detail: "Frontend framework to web development" },
+    { name: "Next.js", detail: "Frontend framework to web development" },
+    { name: "Express.js", detail: "backend framework to web development" },
+    { name: "Node.js", detail: "backend framework to web development" },
+    { name: "SASS", detail: "Style CSS lybrary" },
+    { name: "HTML5", detail: "HyperText Markup Language " },
   ]);
 
-
-
-
   useEffect(() => {
-    if(inView){
-      changeNav(id)
+    if (inView) {
+      changeNav(id);
       setHeaderColor({ black: false, transparent: false });
     }
   }, [inView, changeNav, id, setHeaderColor]);
 
-
   return (
-    <section ref={ref} id={id} className={style.skill}>
-      <SideNavCounter counter="04" name='Skills' />
+    <section
+      ref={ref}
+      id={id}
+      className={cx(style.skill, {
+        [style.inView]: inView,
+      })}
+    >
+      <SideNavCounter counter="04" name="Skills" />
       <div className={style.skillSection}>
-      <p className={style.titleSection}>Skills</p>
+        <p className={style.titleSection}>Skills</p>
         <div className={style.skillContent}>
-          <h2 className={style.skillTitle}>My set of skills to bring exceptional ideas to life.</h2>
+          <h2 className={style.skillTitle}>
+            My set of skills to bring exceptional ideas to life.
+          </h2>
           <div className={style.skillTable}>
-          {mySkill?.map((item, index)=>(
+            {mySkill?.map((item, index) => (
               <div key={index} className={style.item}>
                 <p className={style.name}>{item.name}</p>
                 <p className={style.detail}>{item.detail}</p>
               </div>
-          ))}
+            ))}
           </div>
         </div>
         <div className={style.counter}>
