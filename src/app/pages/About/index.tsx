@@ -58,8 +58,8 @@ const About = (props: Props) => {
         >
           <div className={style.aboutUpper}>
             <h2 className={style.aboutTitle}>
-              Dawn`s surf, day`s code: Riding the waves of technology and
-              adventure.
+              {`Dawn's surf, day's code: Riding the waves of technology and
+              adventure.`}
             </h2>
             <div className={style.aboutContent}>
               <div className={style.aboutText}>
