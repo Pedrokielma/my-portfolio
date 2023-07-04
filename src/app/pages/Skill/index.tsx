@@ -28,7 +28,7 @@ const Skill = (props: Props) => {
 
   const [mySkill] = useState<Skill[]>([
     { name: "JavaScript", detail: "Multi-paradigm coding Language" },
-    { name: "TypeScript", detail: "Multi-paradigm coding Language" },
+    { name: "TypeScript", detail: "Statically-typed, coding Language" },
     { name: "React.js", detail: "Frontend framework to web development" },
     { name: "Next.js", detail: "Frontend framework to web development" },
     { name: "Express.js", detail: "Backend framework to web development" },
