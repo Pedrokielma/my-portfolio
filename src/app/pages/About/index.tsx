@@ -58,16 +58,17 @@ const About = (props: Props) => {
         >
           <div className={style.aboutUpper}>
             <h2 className={style.aboutTitle}>
-              Love for the coding, surf, and all things outdoors.
+              Dawn`s surf, day`s code: Riding the waves of technology and
+              adventure.
             </h2>
             <div className={style.aboutContent}>
               <div className={style.aboutText}>
                 <p>
-                  I am a front-end developer striving to create seamless user
-                  experiences, merging technology with captivating digital
-                  solutions My passions extends beyond coding, as I find
-                  inspiration in the realms of surf, blockchain, economics, and
-                  backend technologies.
+                  Surfing teaches me resilience, patience, and the ability to
+                  adapt. These lessons resonate in my coding journey, pushing me
+                  to overcome obstacles and find innovative solutions. I find
+                  harmony in the ever-changing tides of technology: merging
+                  seamless code with thoughtful user experiences.
                 </p>
               </div>
               <div className={style.buttons}>
