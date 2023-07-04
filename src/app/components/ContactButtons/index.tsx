@@ -25,7 +25,7 @@ const ContactButtons = (props: Props) => {
           <BsGithub />
         </a>
       </div>
-      <a href='/PedroResume.pdf' target="_blank"  download='"resume.pdf' className={style.button}>
+      <a href='/PedroResume.pdf' target="_blank"  download='"PedroResume.pdf' className={style.button}>
         {children}
       </a>
     </div>
