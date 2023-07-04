@@ -58,12 +58,17 @@ const About = (props: Props) => {
         >
           <div className={style.aboutUpper}>
             <h2 className={style.aboutTitle}>
-            Dawn's surf, day's code: Riding the waves of technology and adventure.
+              Dawn`s surf, day`s code: Riding the waves of technology and
+              adventure.
             </h2>
             <div className={style.aboutContent}>
               <div className={style.aboutText}>
                 <p>
-                Surfing teaches me resilience, patience, and the ability to adapt. These lessons resonate in my coding journey, pushing me to overcome obstacles and find innovative solutions. I find harmony in the ever-changing tides of technology: merging seamless code with thoughtful user experiences.  
+                  Surfing teaches me resilience, patience, and the ability to
+                  adapt. These lessons resonate in my coding journey, pushing me
+                  to overcome obstacles and find innovative solutions. I find
+                  harmony in the ever-changing tides of technology: merging
+                  seamless code with thoughtful user experiences.
                 </p>
               </div>
               <div className={style.buttons}>
