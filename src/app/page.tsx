@@ -40,7 +40,7 @@ export default function Home() {
   };
 
   const handleRouteChange = (componentId: string) => {
-    const yOffset = -110; // Adjust this value as needed to offset the header height
+    const yOffset = -110; 
     const element = document.getElementById(componentId);
     if (element) {
       const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
