@@ -28,7 +28,7 @@ export default function Home() {
     black: false,
   });
   const [openNav, setOpenNav] = useState(false);
-
+// test
   const changeNav = (id: string) => {
     setActiveLink(id);
   };
