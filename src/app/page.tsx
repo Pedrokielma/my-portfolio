@@ -28,7 +28,7 @@ export default function Home() {
     black: false,
   });
   const [openNav, setOpenNav] = useState(false);
-
+  // test
   const changeNav = (id: string) => {
     setActiveLink(id);
   };
@@ -40,28 +40,29 @@ export default function Home() {
   };
 
   const handleRouteChange = (componentId: string) => {
-    const yOffset = -110; // Adjust this value as needed to offset the header height
+    const yOffset = -110;
     const element = document.getElementById(componentId);
     if (element) {
       const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
-      window.scrollTo({ top: y, behavior: 'smooth' });
+      window.scrollTo({ top: y, behavior: "smooth" });
     }
   };
 
-  useEffect(()=>{
-    setTimeout(()=>{
-      setLoading(false)
-    }, 1000)
-  },[])
- 
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  }, []);
 
   return (
     <>
-      <div className={cx(style.loaderContainer, !loading && style.hideLoader)} />
-      
-        <div className={style.lottieAnimation}>
-        <PulseLoader color={'#ffd6fb'} size={30} loading={loading} />
-        </div>
+      <div
+        className={cx(style.loaderContainer, !loading && style.hideLoader)}
+      />
+
+      <div className={style.lottieAnimation}>
+        <PulseLoader color={"#ffd6fb"} size={30} loading={loading} />
+      </div>
       <main
         onClick={() => {
           closeNav();
@@ -80,7 +81,8 @@ export default function Home() {
             changeNav={changeNav}
             id="1"
             handleRouteChange={handleRouteChange}
-          />0
+          />
+          0
           <Portfolio
             changeNav={changeNav}
             id="2"
