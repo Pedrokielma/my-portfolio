@@ -43,6 +43,8 @@ export default function Home() {
     const component = document.getElementById(componentId);
     if (component) {
       component.scrollIntoView({ behavior: "smooth" });
+    } else{
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
