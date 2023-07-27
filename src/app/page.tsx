@@ -40,11 +40,11 @@ export default function Home() {
   };
 
   const handleRouteChange = (componentId: string) => {
-    const component = document.getElementById(componentId);
-    if (component) {
-      component.scrollIntoView({ behavior: "smooth" });
-    } else{
-      window.scrollTo({ top: 0, behavior: "smooth" });
+    const yOffset = -110;
+    const element = document.getElementById(componentId);
+    if (element) {
+      const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
     }
   };
 
