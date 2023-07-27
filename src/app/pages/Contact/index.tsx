@@ -44,7 +44,7 @@ const Contact = (props: Props) => {
           <h2 className={style.contactTitle}>{"Let's talk!"}</h2>
         
           <div className={style.contactInfo}>
-            <p className={style.contactText}>My contact info</p>
+            <p className={style.contactText}>My contact infoo</p>
             <ContactButtons>Resume</ContactButtons>
           </div>
         </div>
