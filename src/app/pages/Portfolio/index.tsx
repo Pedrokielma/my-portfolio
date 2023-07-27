@@ -85,14 +85,14 @@ const Portfolio = (props: Props) => {
   useEffect(() => {
     fetchRepoData();
     validateDisableButton();
-  }, [validateDisableButton]);
+  }, []);
 
   useEffect(() => {
     if (componentInView) {
       changeNav(id);
       setHeaderColor({ black: false, transparent: false });
     }
-  }, [componentInView, changeNav, id, setHeaderColor]);
+  }, [componentInView, id]);
 
   const filteredRepositories = useMemo(() => {
     return repositories.filter((repo) => repo.stargazers_count !== 0);
