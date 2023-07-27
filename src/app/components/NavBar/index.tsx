@@ -12,6 +12,7 @@ interface Props {
   activeLink: string;
   openNav: boolean;
   setOpenNav: React.Dispatch<React.SetStateAction<boolean>>;
+  handleRouteChange: (id: string) => void;
 }
 
 const navLinks: NavLink[] = [
@@ -23,14 +24,23 @@ const navLinks: NavLink[] = [
 ];
 
 const NavBar = (props: Props) => {
-  const { activeLink, openNav, setOpenNav } = props;
+  const { activeLink, openNav, setOpenNav, handleRouteChange} = props;
 
-  const handleRouteChange = (componentId: string) => {
-    const component = document.getElementById(componentId);
-    if (component) {
-      component.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  // const handleRouteChange = (componentId: string) => {
+  //   const component = document.getElementById(componentId);
+  //   if (component) {
+  //     component.scrollIntoView({ behavior: "smooth" });
+  //   }
+  // };
+
+  // const handleRouteChange = (componentId: string) => {
+  //   const yOffset = -110;
+  //   const element = document.getElementById(componentId);
+  //   if (element) {
+  //     const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+  //     window.scrollTo({ top: y, behavior: "smooth" });
+  //   }
+  // };
 
   return (
    

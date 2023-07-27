@@ -45,9 +45,7 @@ export default function Home() {
     if (element) {
       const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
       window.scrollTo({ top: y, behavior: "smooth" });
-      console.log('epa', y)
     }
-    console.log('epa', element);
   };
 
   useEffect(() => {
@@ -103,6 +101,7 @@ export default function Home() {
         openNav={openNav}
         setOpenNav={setOpenNav}
         activeLink={activeLink}
+        handleRouteChange={handleRouteChange}
       />
     </>
   );
