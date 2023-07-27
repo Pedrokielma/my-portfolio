@@ -42,7 +42,7 @@ const Skill = (props: Props) => {
       changeNav(id);
       setHeaderColor({ black: false, transparent: false });
     }
-  }, [inView, changeNav, id, setHeaderColor]);
+  }, [inView, id]);
 
   return (
     <section
