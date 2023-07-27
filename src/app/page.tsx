@@ -40,14 +40,10 @@ export default function Home() {
   };
 
   const handleRouteChange = (componentId: string) => {
-    const yOffset = -110;
-    const element = document.getElementById(componentId);
-    if (element) {
-      const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
-      window.scrollTo({ top: y, behavior: "smooth" });
-      console.log('epa', y)
+    const component = document.getElementById(componentId);
+    if (component) {
+      component.scrollIntoView({ behavior: "smooth" });
     }
-    console.log('element', element)
   };
 
   useEffect(() => {
