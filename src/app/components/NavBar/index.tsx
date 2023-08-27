@@ -24,7 +24,7 @@ const navLinks: NavLink[] = [
 ];
 
 const NavBar = (props: Props) => {
-  const { activeLink, openNav, setOpenNav, handleRouteChange} = props;
+  const { activeLink, openNav, setOpenNav, handleRouteChange } = props;
 
   // const handleRouteChange = (componentId: string) => {
   //   const component = document.getElementById(componentId);
