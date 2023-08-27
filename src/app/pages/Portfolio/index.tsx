@@ -114,18 +114,28 @@ const Portfolio = (props: Props) => {
           <p className={style.titleSection}>Selected works</p>
 
           <div className={style.projectList}>
+            <PortfolioCard
+              index={0}
+              name="Fuze"
+              description="A profesional project developed for a British car rental company, undertaken in collaboration with Studio Graphene(my current company). I was part of an 8-member developer team tasked with constructing two software solutions. My role specifically revolved around frontend development."
+              html_url="https://www.drivefuze.com/"
+              page="https://www.drivefuze.com/"
+              cardInView={cardInView}
+              setCardInView={setCardInView}
+              key={0}
+            />
             {filteredRepositories?.map(
               (repo, index) =>
                 repo.stargazers_count != 0 && (
                   <PortfolioCard
-                    index={index}
+                    index={index + 1}
                     name={repo.name}
                     description={repo.description}
                     html_url={repo.html_url}
                     page={repo.homepage}
                     cardInView={cardInView}
                     setCardInView={setCardInView}
-                    key={index}
+                    key={index + 1}
                   />
                 )
             )}

@@ -39,13 +39,38 @@ export default function Home() {
     }
   };
 
+  // const handleRouteChange = (componentId: string) => {
+  //   const yOffset = -110;
+  //   const element = document.getElementById(componentId);
+  //   if (element) {
+  //     const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+  //     // window.scrollTo({ top: y, behavior: "smooth" });
+
+  //     window.scrollBy({top: y, left: 0, behavior: 'smooth'})
+  //     console.log('runing', y);
+  //     console.log('top', element.getBoundingClientRect().top);
+  //     console.log('window.scrollY', window.scrollY);
+  //     console.log('yOffset', yOffset);
+  //   }
+  //   console.log('not runing');
+  // };
+
   const handleRouteChange = (componentId: string) => {
     const yOffset = -110;
     const element = document.getElementById(componentId);
+  
     if (element) {
       const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
-      window.scrollTo({ top: y, behavior: "smooth" });
+  
+      // Use smooth scrolling with both window.scrollTo and document.documentElement.scrollTo
+      if ('scrollBehavior' in document.documentElement.style) {
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      } else {
+        document.documentElement.scrollTo({ top: y, behavior: 'smooth' });
+      }
+      document.documentElement.scrollTo({ top: y, behavior: 'smooth' });
     }
+    
   };
 
   useEffect(() => {
