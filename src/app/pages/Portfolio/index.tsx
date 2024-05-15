@@ -23,7 +23,6 @@ interface Repository {
   cardInView: { cardInView: CardInView[] };
   setCardInView?: { setCardInView: Dispatch<SetStateAction<CardInView[]>> };
   key?: number;
-  image?: string;
   isNotRepo?: boolean;
 }
 interface Props {
@@ -66,7 +65,6 @@ const Portfolio = (props: Props) => {
         cardInView: { cardInView },
         setCardInView: { setCardInView },
         key: 0,
-        image: '@/public/images/propusRebijoux.png',
         isNotRepo: true,
       },
       {
@@ -172,7 +170,6 @@ const Portfolio = (props: Props) => {
                     cardInView={cardInView}
                     setCardInView={setCardInView}
                     key={index + 1}
-                    image={repo.image}
                     isNotRepo={repo.isNotRepo}
                   />
                 )
