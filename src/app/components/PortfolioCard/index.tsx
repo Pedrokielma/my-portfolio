@@ -14,7 +14,7 @@ interface Prop {
   page: string;
   cardInView: CardInView[];
   setCardInView: React.Dispatch<React.SetStateAction<CardInView[]>>;
-  // isNotRepo?: boolean;
+  isNotRepo?: boolean;
 }
 
 
@@ -23,9 +23,7 @@ interface CardInView {
 }
 
 const PortfolioCard = (props: Prop) => {
-  const { name, page, html_url, description, index, setCardInView, cardInView
-    // isNotRepo
-   } =
+  const { name, page, html_url, description, index, setCardInView, cardInView, isNotRepo } =
     props;
 
   const { ref, inView } = useInView({
@@ -63,7 +61,7 @@ const PortfolioCard = (props: Prop) => {
         <p className={style.description}>{description}</p>
         <div className={style.linkButtons}>
           <a href={html_url} target="_blank" className={ cx(style.gitHub, {
-        // [style.isNotRepo]: isNotRepo,
+        [style.isNotRepo]: isNotRepo,
       })}>
             <BsGithub />
           </a>
