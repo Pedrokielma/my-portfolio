@@ -23,7 +23,7 @@ interface Repository {
   cardInView: { cardInView: CardInView[] };
   setCardInView?: { setCardInView: Dispatch<SetStateAction<CardInView[]>> };
   key?: number;
-  isNotRepo?: boolean;
+  // isNotRepo?: boolean;
 }
 interface Props {
   id: string;
@@ -113,7 +113,7 @@ const Portfolio = (props: Props) => {
         cardInView: { cardInView },
         setCardInView: { setCardInView },
         key: 0,
-        isNotRepo: true,
+        // isNotRepo: true,
       },
       {
         name: "Aviva Housing",
@@ -124,7 +124,7 @@ const Portfolio = (props: Props) => {
         cardInView: { cardInView },
         setCardInView: { setCardInView },
         key: 0,
-        isNotRepo: true,
+        // isNotRepo: true,
       },
       {
       name: "Fuze",
@@ -135,7 +135,7 @@ const Portfolio = (props: Props) => {
       cardInView: { cardInView },
       setCardInView: { setCardInView },
       key: 0,
-      isNotRepo: true,
+      // isNotRepo: true,
     },
       
     ];
@@ -172,7 +172,7 @@ const Portfolio = (props: Props) => {
                     cardInView={cardInView}
                     setCardInView={setCardInView}
                     key={index + 1}
-                    isNotRepo={repo.isNotRepo}
+                    // isNotRepo={repo.isNotRepo}
                   />
                 )
             )}
