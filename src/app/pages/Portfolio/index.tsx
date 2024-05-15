@@ -20,8 +20,8 @@ interface Repository {
   html_url: string;
   description: string;
   homepage: string;
-  cardInView: { cardInView: CardInView[] };
-  setCardInView?: { setCardInView: Dispatch<SetStateAction<CardInView[]>> };
+  // cardInView: { cardInView: CardInView[] };
+  // setCardInView?: { setCardInView: Dispatch<SetStateAction<CardInView[]>> };
   key?: number;
   isNotRepo?: boolean;
 }
@@ -54,7 +54,7 @@ const Portfolio = (props: Props) => {
     setRepositories(data);
   };
 
-  const metaData: Repository[] = [
+  const metaData = [
    
       {
         name: "Rebijoux",
@@ -136,7 +136,7 @@ const Portfolio = (props: Props) => {
     }
   }, [componentInView, id]);
 
-  const filteredRepositories: Repository[] = useMemo(() => {
+  const filteredRepositories = useMemo(() => {
     const filteredRepos = repositories.filter((repo) => repo.stargazers_count !== 0);
     return [...metaData, ...filteredRepos];
   }, [repositories]);
