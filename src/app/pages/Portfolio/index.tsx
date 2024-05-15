@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useMemo, useCallback } from "react";
+import { useState, useEffect, useRef, useMemo, useCallback, SetStateAction, Dispatch } from "react";
 import SideNavCounter from "@/app/components/SideNavCounter/index";
 import PortfolioCard from "@/app/components/PortfolioCard/index";
 import { fetchRepositories } from "../action";
@@ -14,12 +14,16 @@ interface HeaderColor {
   black: boolean;
 }
 interface Repository {
-  id: number;
-  stargazers_count: number;
-  name: String;
+  id?: number;
+  stargazers_count?: number;
+  name: string;
   html_url: string;
   description: string;
   homepage: string;
+  cardInView: { cardInView: CardInView[] };
+  setCardInView?: { setCardInView: Dispatch<SetStateAction<CardInView[]>> };
+  key?: number;
+  image?: string;
 }
 interface Props {
   id: string;
@@ -49,6 +53,32 @@ const Portfolio = (props: Props) => {
     const data: Repository[] = await fetchRepositories(userName);
     setRepositories(data);
   };
+
+  const metaData: Repository[] = [
+    {
+      name: "Fuze",
+      description:
+        "A profesional project developed for a British car rental company, undertaken in collaboration with Studio Graphene(my current company). I was part of an 8-member developer team tasked with constructing two software solutions. My role specifically revolved around frontend development.",
+      html_url: "https://www.drivefuze.com/",
+      homepage: "https://www.drivefuze.com/",
+      cardInView: { cardInView },
+      setCardInView: { setCardInView },
+      key: 0,
+      image: '../../../../public/images/propusRebijoux.png'
+    },
+    {
+      name: "Rebijoux",
+      description:
+        "Rebijoux is a company in France all about buying, selling, and transforming gold. They use blockchain to make sure their gold is top-notch quality and environmentally friendly.  I'm the one who built their website! From planning how it looks to making it work smoothly, I was behind the scenes making sure it all came together.🌟",
+      html_url: "https://rebijoux.com/",
+      homepage: "https://rebijoux.com/",
+      cardInView: { cardInView },
+      setCardInView: { setCardInView },
+      key: 0,
+      image: '../../../../public/images/propusRebijoux.png',
+    },
+
+  ];
 
   const handleScroll = useCallback(
     (scrollAmount?: number) => {
@@ -94,8 +124,9 @@ const Portfolio = (props: Props) => {
     }
   }, [componentInView, id]);
 
-  const filteredRepositories = useMemo(() => {
-    return repositories.filter((repo) => repo.stargazers_count !== 0);
+  const filteredRepositories: Repository[] = useMemo(() => {
+    const filteredRepos = repositories.filter((repo) => repo.stargazers_count !== 0);
+    return [...metaData, ...filteredRepos];
   }, [repositories]);
 
   return (
@@ -114,21 +145,12 @@ const Portfolio = (props: Props) => {
           <p className={style.titleSection}>Selected works</p>
 
           <div className={style.projectList}>
-            <PortfolioCard
-              index={0}
-              name="Fuze"
-              description="A profesional project developed for a British car rental company, undertaken in collaboration with Studio Graphene(my current company). I was part of an 8-member developer team tasked with constructing two software solutions. My role specifically revolved around frontend development."
-              html_url="https://www.drivefuze.com/"
-              page="https://www.drivefuze.com/"
-              cardInView={cardInView}
-              setCardInView={setCardInView}
-              key={0}
-            />
+           
             {filteredRepositories?.map(
               (repo, index) =>
                 repo.stargazers_count != 0 && (
                   <PortfolioCard
-                    index={index + 1}
+                    index={index}
                     name={repo.name}
                     description={repo.description}
                     html_url={repo.html_url}
@@ -136,6 +158,7 @@ const Portfolio = (props: Props) => {
                     cardInView={cardInView}
                     setCardInView={setCardInView}
                     key={index + 1}
+                    image={repo.image}
                   />
                 )
             )}

@@ -7,7 +7,8 @@ import { useInView } from "react-intersection-observer";
 const cx = classNames.bind(style);
 
 interface Prop {
-  name: String;
+  name: string;
+  image?: string; 
   html_url: string;
   description: string;
   index: number;
@@ -22,7 +23,7 @@ interface CardInView {
 }
 
 const PortfolioCard = (props: Prop) => {
-  const { name, page, html_url, description, index, setCardInView, cardInView } =
+  const { name, page, html_url, description, index, setCardInView, cardInView, image } =
     props;
 
   const { ref, inView } = useInView({
@@ -38,41 +39,34 @@ const PortfolioCard = (props: Prop) => {
         updatedCardInView[index] = { [index]: inView };
         return updatedCardInView;
       });
-     
-      
  }
 
-
   useEffect(() => {
-    hundleCardView()
-    
+    hundleCardView();
   }, [inView]);
 
-  
- 
-
   return (
-    <div ref={ref} key={index} className={cx(style.itemCard, {
+    <div
+      ref={ref}
+      key={index}
+      className={cx(style.itemCard, {
         [style.inView]: cardView,
-      })} >
-      <div className={style.item} >
-        <div className={style.mainInfo} >
-        <p className={style.number}>{String(index + 1).padStart(2, "0")}</p>
-        <p className={style.name}>{name.replace("_", "-")}</p>
+      })}
+      style={{ backgroundImage: `url(${image})` }}
+    >
+      <div className={style.item}>
+        <div className={style.mainInfo}>
+          <p className={style.number}>{String(index + 1).padStart(2, "0")}</p>
+          <p className={style.name}>{name.replace("_", "-")}</p>
         </div>
         <p className={style.description}>{description}</p>
         <div className={style.linkButtons}>
-          {/* <RoundButton size="small" content="VIEW" /> */}
-        <a href={html_url} target="_blank" className={style.gitHub}>
-          <BsGithub />
-        </a>
-          <a
-          href={page}
-          target="_blank"
-          className={style.page}
-        >
-          <IoMdOpen />
-        </a>
+          <a href={html_url} target="_blank" className={style.gitHub}>
+            <BsGithub />
+          </a>
+          <a href={page} target="_blank" className={style.page}>
+            <IoMdOpen />
+          </a>
         </div>
       </div>
     </div>
