@@ -113,8 +113,11 @@
 
       .linkButtons {
         display: flex;
-        .page {
-          display: none;
+        .gitHub{
+
+          &.isNotRepo {
+            display: none;
+          }
         }
       }
     }
@@ -226,6 +229,13 @@
         }
         .linkButtons {
           display: flex;
+          .gitHub{
+
+            &.isNotRepo {
+              display: none;
+            }
+          }
+        
         }
       }
     }
