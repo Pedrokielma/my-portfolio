@@ -54,7 +54,7 @@ const HomePage = (props: Props) => {
             </h1>
             <div className={style.subTitle}>
               <div className={style.pinkLine} />
-              <p className={style.subTitleText}>Front-end developer</p>
+              <p className={style.subTitleText}>Web developer</p>
             </div>
             <div
               className={cx(style.roundButtonResponsive, {

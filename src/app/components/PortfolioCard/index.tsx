@@ -15,7 +15,7 @@ interface Prop {
   page: string;
   cardInView: CardInView[];
   setCardInView: React.Dispatch<React.SetStateAction<CardInView[]>>;
-  isNotRepo: boolean;
+  isNotRepo?: boolean;
 }
 
 

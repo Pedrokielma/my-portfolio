@@ -100,7 +100,8 @@
         width: 100%;
         flex-grow: 1;
         gap: 30px;
-        justify-content: space-between;
+        justify-content: center;
+        align-items: center;
         max-height: 522px;
         @include respond-to("mobile") {
           flex-direction: column;
@@ -108,22 +109,22 @@
           margin-bottom: 100px;
         }
 
-        .aboutImage {
-          background-image: url("../../../../public/images/profile-image.png");
-          background-size: cover;
-          height: 100%;
-          width: 32%;
-          background-repeat: no-repeat;
+        // .aboutImage {
+        //   background-image: url("../../../../public/images/profile-image.png");
+        //   background-size: cover;
+        //   height: 100%;
+        //   width: 32%;
+        //   background-repeat: no-repeat;
 
-          @media screen and (min-height: 800px) {
-            background-position: center;
-            width: 40%;
-          }
-          @include respond-to("mobile") {
-            width: 100%;
-            padding-top: 110%;
-          }
-        }
+        //   @media screen and (min-height: 800px) {
+        //     background-position: center;
+        //     width: 40%;
+        //   }
+        //   @include respond-to("mobile") {
+        //     width: 100%;
+        //     padding-top: 110%;
+        //   }
+        // }
 
         .aboutVideoWrapper {
           flex-grow: 1;
@@ -131,6 +132,8 @@
           justify-content: end;
           opacity: 0;
           transition: opacity 1s ease-in-out;
+          height: 100%;
+          width: 100%;
           &.inView {
             opacity: 1;
           }

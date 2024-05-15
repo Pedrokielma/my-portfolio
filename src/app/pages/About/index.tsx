@@ -58,17 +58,12 @@ const About = (props: Props) => {
         >
           <div className={style.aboutUpper}>
             <h2 className={style.aboutTitle}>
-              {`Dawn's surf, day's code: Riding the waves of technology and
-              adventure.`}
+              {`Let's Build Your Digital Dreams Together!.`}
             </h2>
             <div className={style.aboutContent}>
               <div className={style.aboutText}>
                 <p>
-                  Surfing teaches me resilience, patience, and the ability to
-                  adapt. These lessons resonate in my coding journey, pushing me
-                  to overcome obstacles and find innovative solutions. I find
-                  harmony in the ever-changing tides of technology: merging
-                  seamless code with thoughtful user experiences.
+                Hey there! Thanks for stopping by. I'm all about turning digital dreams into reality. With a knack for understanding your needs, I deliver tailor-made solutions that work wonders for businesses of all sizes. From WordPress to JavaScript and beyond, I've got the tools and expertise to make it happen. Plus, I've got you covered on design, SEO, and analytics. Let's chat and make your vision a reality!
                 </p>
               </div>
               <div className={style.buttons}>
@@ -77,7 +72,6 @@ const About = (props: Props) => {
             </div>
           </div>
           <div className={style.aboutMidia}>
-            <div className={style.aboutImage}></div>
             <div
               ref={videoRef}
               className={cx(style.aboutVideoWrapper, {
@@ -85,11 +79,7 @@ const About = (props: Props) => {
               })}
             >
               <LazyLoad once>
-                <iframe
-                  src="https://www.youtube.com/embed/iIiy3WHA1PM?mute=1"
-                  title="YouTube video player"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; allowfullscreen;"
-                ></iframe>
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/fORod00uhAc?si=bqmZ3DPgvjDAhlHt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
               </LazyLoad>
             </div>
           </div>

@@ -61,8 +61,8 @@ const Portfolio = (props: Props) => {
         name: "Rebijoux",
         description:
         "Rebijoux, a French company specializing in gold trade and transformation, prioritizes quality and sustainability by leveraging blockchain technology. As the website developer, I orchestrated the seamless integration of design and functionality, ensuring a polished online presence.",
-        html_url: "https://rebijoux.com/",
-        homepage: "https://rebijoux.com/",
+        html_url: "https://rebijoux.fr",
+        homepage: "https://rebijoux.fr",
         cardInView: { cardInView },
         setCardInView: { setCardInView },
         key: 0,
