@@ -1,5 +1,6 @@
 import { BsLinkedin, BsGithub } from "react-icons/bs";
 import { FiMail } from "react-icons/fi";
+import { FaWhatsapp } from "react-icons/fa";
 import style from "./contactButtons.module.scss";
 
 interface Props {
@@ -21,8 +22,8 @@ const ContactButtons = (props: Props) => {
         >
           <BsLinkedin />
         </a>
-        <a href="https://github.com/Pedrokielma" target="_blank">
-          <BsGithub />
+        <a href="whatsapp://send?phone=+34635077704" target="_blank">
+          <FaWhatsapp />
         </a>
       </div>
       <a href='/PedroResume.pdf' target="_blank"  download='"PedroResume.pdf' className={style.button}>

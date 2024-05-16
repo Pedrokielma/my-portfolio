@@ -1,4 +1,7 @@
 import classNames from "classnames/bind";
+import { BsLinkedin, BsGithub } from "react-icons/bs";
+import { FiMail } from "react-icons/fi";
+import { FaWhatsapp } from "react-icons/fa";
 import style from "./navBar.module.scss";
 
 const cx = classNames.bind(style);
@@ -61,6 +64,23 @@ const NavBar = (props: Props) => {
             );
           })}
         </ul>
+        <div className={style.iconLinks}>
+        <a href="mailto:peterkielma@gmail.com">
+          <FiMail />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/pedro-kielmanowicz/"
+          target="_blank"
+        >
+          <BsLinkedin />
+        </a>
+        <a href="whatsapp://send?phone=+34635077704" target="_blank">
+          <FaWhatsapp />
+        </a>
+        <a href="https://github.com/Pedrokielma" target="_blank">
+          <BsGithub />
+        </a>
+      </div>
       </div>
   );
 };

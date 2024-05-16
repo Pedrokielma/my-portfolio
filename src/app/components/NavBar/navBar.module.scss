@@ -13,6 +13,9 @@
   top: 0;
   padding: 147px 100px 70px 147px;
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
   &.active {
     right: -80%;
   }
@@ -68,4 +71,10 @@
       }
     }
   }
+  .iconLinks{
+    display: flex;
+    gap: 20px;
+    font-size: 21px;
+    color: $green;
+}
 }

@@ -48,8 +48,8 @@ const Header = (props: Props) => {
               </a>
             </li>
             <li>
-              <a href="https://github.com/Pedrokielma" target="_blank">
-                Github
+              <a href="whatsapp://send?phone=+34635077704" target="_blank">
+                Whatsapp
               </a>
             </li>
           </ul>
@@ -66,7 +66,6 @@ const Header = (props: Props) => {
           className={cx(style.line1, {
             [style.black]: headerColor.black,
             [style.transparent]: headerColor.transparent,
-
           })}
         ></div>
         <div
