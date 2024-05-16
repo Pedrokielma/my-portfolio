@@ -23,7 +23,7 @@ interface Repository {
   cardInView: { cardInView: CardInView[] };
   setCardInView?: { setCardInView: Dispatch<SetStateAction<CardInView[]>> };
   key?: number;
-  isNotRepo?: boolean;
+  image?: string;
 }
 interface Props {
   id: string;
@@ -35,7 +35,6 @@ interface Props {
 interface CardInView {
   [key: number]: boolean;
 }
-
 
 const Portfolio = (props: Props) => {
   const { id, changeNav, setHeaderColor } = props;
@@ -54,47 +53,34 @@ const Portfolio = (props: Props) => {
     const data: Repository[] = await fetchRepositories(userName);
     setRepositories(data);
   };
+
   const metaData: Repository[] = [
- 
+    {
+      name: "Fuze",
+      description:
+        "A profesional project developed for a British car rental company, undertaken in collaboration with Studio Graphene(my current company). I was part of an 8-member developer team tasked with constructing two software solutions. My role specifically revolved around frontend development.",
+      html_url: "https://www.drivefuze.com/",
+      homepage: "https://www.drivefuze.com/",
+      cardInView: { cardInView },
+      setCardInView: { setCardInView },
+      key: 0,
+      image: '../../../../public/images/propusRebijoux.png'
+    },
     {
       name: "Rebijoux",
       description:
-      "Rebijoux, a French company specializing in gold trade and transformation, prioritizes quality and sustainability by leveraging blockchain technology. As the website developer, I orchestrated the seamless integration of design and functionality, ensuring a polished online presence.",
-      html_url: "https://rebijoux.fr",
-      homepage: "https://rebijoux.fr",
+        "Rebijoux is a company in France all about buying, selling, and transforming gold. They use blockchain to make sure their gold is top-notch quality and environmentally friendly.  I'm the one who built their website! From planning how it looks to making it work smoothly, I was behind the scenes making sure it all came together.🌟",
+      html_url: "https://rebijoux.com/",
+      homepage: "https://rebijoux.com/",
       cardInView: { cardInView },
       setCardInView: { setCardInView },
       key: 0,
-      isNotRepo: true,
+      image: '../../../../public/images/propusRebijoux.png',
     },
-    {
-      name: "Aviva Housing",
-      description:'Aviva Housing, based in Portugal, specializes in developing and selling residential properties. As the developer and designer of their website, I ensured a seamless user experience from design to functionality.'
-        ,
-      html_url: "https://www.avivahousing.com/",
-      homepage: "https://www.avivahousing.com/",
-      cardInView: { cardInView },
-      setCardInView: { setCardInView },
-      key: 0,
-      isNotRepo: true,
-    },
-    {
-    name: "Fuze",
-    description:
-      "A profesional project developed for a British car rental company, undertaken in collaboration with Studio Graphene(my current company). I was part of an 8-member developer team tasked with constructing two software solutions. My role specifically revolved around frontend development.",
-    html_url: "https://www.drivefuze.com/",
-    homepage: "https://www.drivefuze.com/",
-    cardInView: { cardInView },
-    setCardInView: { setCardInView },
-    key: 0,
-    isNotRepo: true,
-  },
-    
+
   ];
 
-  
-    
-    const handleScroll = useCallback(
+  const handleScroll = useCallback(
     (scrollAmount?: number) => {
       let element = projectListRef?.current;
       if (scrollAmount) {
@@ -138,7 +124,6 @@ const Portfolio = (props: Props) => {
     }
   }, [componentInView, id]);
 
-  
   const filteredRepositories: Repository[] = useMemo(() => {
     const filteredRepos = repositories.filter((repo) => repo.stargazers_count !== 0);
     return [...metaData, ...filteredRepos];
@@ -173,7 +158,7 @@ const Portfolio = (props: Props) => {
                     cardInView={cardInView}
                     setCardInView={setCardInView}
                     key={index + 1}
-                    isNotRepo={repo.isNotRepo}
+                    image={repo.image}
                   />
                 )
             )}
