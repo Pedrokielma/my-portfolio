@@ -8,13 +8,13 @@ const cx = classNames.bind(style);
 
 interface Prop {
   name: string;
-  image?: string; 
   html_url: string;
   description: string;
   index: number;
   page: string;
   cardInView: CardInView[];
   setCardInView: React.Dispatch<React.SetStateAction<CardInView[]>>;
+  isNotRepo?: boolean;
 }
 
 
@@ -23,7 +23,7 @@ interface CardInView {
 }
 
 const PortfolioCard = (props: Prop) => {
-  const { name, page, html_url, description, index, setCardInView, cardInView, image } =
+  const { name, page, html_url, description, index, setCardInView, cardInView, isNotRepo } =
     props;
 
   const { ref, inView } = useInView({
@@ -52,7 +52,6 @@ const PortfolioCard = (props: Prop) => {
       className={cx(style.itemCard, {
         [style.inView]: cardView,
       })}
-      style={{ backgroundImage: `url(${image})` }}
     >
       <div className={style.item}>
         <div className={style.mainInfo}>
@@ -61,7 +60,9 @@ const PortfolioCard = (props: Prop) => {
         </div>
         <p className={style.description}>{description}</p>
         <div className={style.linkButtons}>
-          <a href={html_url} target="_blank" className={style.gitHub}>
+          <a href={html_url} target="_blank" className={ cx(style.gitHub, {
+        [style.isNotRepo]: isNotRepo,
+      })}>
             <BsGithub />
           </a>
           <a href={page} target="_blank" className={style.page}>
