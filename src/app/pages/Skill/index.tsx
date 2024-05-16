@@ -33,8 +33,8 @@ const Skill = (props: Props) => {
     { name: "Next.js", detail: "Frontend framework to web development" },
     { name: "Express.js", detail: "Backend framework to web development" },
     { name: "Node.js", detail: "Backend framework to web development" },
-    { name: "SASS", detail: "Style CSS lybrary" },
-    { name: "HTML5", detail: "HyperText Markup Language " },
+    { name: "Wordpress", detail: "Web development framework" },
+    { name: "HTML & CSS", detail: "HyperText Markup Language " },
   ]);
 
   useEffect(() => {
