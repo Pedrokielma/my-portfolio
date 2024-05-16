@@ -17,7 +17,6 @@ interface Prop {
   isNotRepo?: boolean;
 }
 
-
 interface CardInView {
   [key: number]: boolean;
 }
