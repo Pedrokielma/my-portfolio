@@ -1,5 +1,6 @@
 import classNames from "classnames/bind";
 import { BsLinkedin, BsGithub } from "react-icons/bs";
+import { IoCalendarNumber } from "react-icons/io5";
 import { FiMail } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
 import style from "./navBar.module.scss";
@@ -79,6 +80,9 @@ const NavBar = (props: Props) => {
         </a>
         <a href="https://github.com/Pedrokielma" target="_blank">
           <BsGithub />
+        </a>
+        <a href="https://calendly.com/peterkielma/30min" target="_blank">
+          <IoCalendarNumber />
         </a>
       </div>
       </div>

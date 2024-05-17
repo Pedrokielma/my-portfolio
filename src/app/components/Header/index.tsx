@@ -39,17 +39,18 @@ const Header = (props: Props) => {
         </div>
         <div className={style.sectionRight}>
           <ul className={style.midiaLink}>
-            <li>
-              <a
-                href="https://www.linkedin.com/in/pedro-kielmanowicz/"
-                target="_blank"
-              >
-                Linkedin
-              </a>
-            </li>
+           
             <li>
               <a href="whatsapp://send?phone=+34635077704" target="_blank">
                 Whatsapp
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://calendly.com/peterkielma/30min"
+                target="_blank"
+              >
+                Calendly
               </a>
             </li>
           </ul>

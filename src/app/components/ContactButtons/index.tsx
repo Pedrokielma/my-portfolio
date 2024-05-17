@@ -1,4 +1,4 @@
-import { BsLinkedin, BsGithub } from "react-icons/bs";
+import { IoCalendarNumber } from "react-icons/io5";
 import { FiMail } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
 import style from "./contactButtons.module.scss";
@@ -16,11 +16,8 @@ const ContactButtons = (props: Props) => {
         <a href="mailto:peterkielma@gmail.com">
           <FiMail />
         </a>
-        <a
-          href="https://www.linkedin.com/in/pedro-kielmanowicz/"
-          target="_blank"
-        >
-          <BsLinkedin />
+        <a href="https://calendly.com/peterkielma/30min" target="_blank">
+          <IoCalendarNumber />
         </a>
         <a href="whatsapp://send?phone=+34635077704" target="_blank">
           <FaWhatsapp />
