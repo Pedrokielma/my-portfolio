@@ -55,7 +55,16 @@ const Portfolio = (props: Props) => {
     setRepositories(data);
   };
   const metaData: Repository[] = [
- 
+    {
+      name: "HD Capital",
+      description: "HD Capital, a UK-based company, helps clients find profitable property investments and negotiate deals. I developed a clean, user-friendly website that enhances lead generation and showcases HD Capital’s expertise.",
+      html_url: "https://hdcapital.uk/",
+      homepage: "https://hdcapital.uk/",
+      cardInView: { cardInView },
+      setCardInView: { setCardInView },
+      key: 0,
+      isNotRepo: true,
+    },
     {
       name: "Rebijoux",
       description:
