@@ -27,14 +27,14 @@ const Skill = (props: Props) => {
   });
 
   const [mySkill] = useState<Skill[]>([
-    { name: "JavaScript", detail: "Multi-paradigm coding Language" },
-    { name: "TypeScript", detail: "Statically-typed, coding Language" },
-    { name: "React.js", detail: "Frontend framework to web development" },
-    { name: "Next.js", detail: "Frontend framework to web development" },
-    { name: "Express.js", detail: "Backend framework to web development" },
-    { name: "Node.js", detail: "Backend framework to web development" },
-    { name: "Wordpress", detail: "Web development framework" },
-    { name: "HTML & CSS", detail: "HyperText Markup Language " },
+    { name: "WordPress", detail: "Robust CMS for developing conversion-focused websites" },
+  { name: "HTML & CSS", detail: "Core web development languages for building responsive layouts" },
+  { name: "JavaScript", detail: "Versatile scripting language for interactive web experiences" },
+  { name: "Figma", detail: "UX/UI design tool for wireframes and visual prototypes" },
+  { name: "SEO Tools", detail: "SEMrush, Google Analytics for optimizing search engine performance" },
+  { name: "Google Analytics", detail: "Tracking and measuring website traffic and user behavior" },
+  { name: "Branding Strategy", detail: "Aligning design and content with business goals for impact" },
+  { name: "UX/UI Research", detail: "Designing user-centered experiences that drive conversions" }
   ]);
 
   useEffect(() => {

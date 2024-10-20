@@ -58,12 +58,12 @@ const About = (props: Props) => {
         >
           <div className={style.aboutUpper}>
             <h2 className={style.aboutTitle}>
-              {`Let's Build Your Digital Dreams Together!.`}
+              {`Transform Your Website into a Revenue-Generating Machine`}
             </h2>
             <div className={style.aboutContent}>
               <div className={style.aboutText}>
                 <p>
-                {`Hey there! Thanks for stopping by. I'm all about turning digital dreams into reality. With a knack for understanding your needs, I deliver tailor-made solutions that work wonders for businesses of all sizes. From WordPress to JavaScript and beyond, I've got the tools and expertise to make it happen. Plus, I've got you covered on design, SEO, and analytics. Let's chat and make your vision a reality!`}
+                {`I specialize in helping service businesses turn their websites into high-converting tools that generate leads, build trust, and grow revenue. If you’re still trying to get your digital presence right—or you need a site that actually drives results—let's talk!`}
                 
                 </p>
               </div>
