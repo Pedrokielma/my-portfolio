@@ -46,7 +46,7 @@
   .sectionRight {
     display: flex;
     flex: auto;
-    max-width: 400px;
+    max-width: 490px;
     justify-content: space-between;
     margin-left: 50px;
     align-items: center;
@@ -57,7 +57,7 @@
     .midiaLink {
       display: flex;
       justify-content: space-between;
-      max-width: 184px;
+      // max-width: 184px;
       font-size: 17px;
       font-weight: 500;
       gap: 50px;

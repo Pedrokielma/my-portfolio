@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import SideNavCounter from "@/app/components/SideNavCounter/index";
 import RoundButton from "@/app/components/RoundButton/index";
 import { useInView } from "react-intersection-observer";
+import ContactButtons from "@/app/components/ContactButtons/index";
 import classNames from "classnames/bind";
 const cx = classNames.bind(style);
 
@@ -49,39 +50,25 @@ const HomePage = (props: Props) => {
             })}
           >
             <h1>
-              <span className={style.hi}>Hi, I’m</span>{" "}
-              <span className={style.name}>Pedro Kielma</span>{" "}
+  
+              <span className={style.name}>Almost 2025… Still No Online Presence?</span>
             </h1>
             <div className={style.subTitle}>
               <div className={style.pinkLine} />
-              <p className={style.subTitleText}>Web developer</p>
+              <p className={style.subTitleText}>I help business owners like you create a digital presence that attracts customers and drives revenue.</p>
             </div>
-            <div
-              className={cx(style.roundButtonResponsive, {
-                [style.inView]: componentInView,
-              })}
-              onClick={() => {
-                handleRouteChange("5");
-              }}
-            >
-              <RoundButton size="big" content="LET'S TALK" />
-            </div>
+            <a href='https://calendly.com/peterkielma/30min' target="_blank"  download='"PedroResume.pdf' className={style.button}>
+            Book your 15 minute discovery call
+      </a>
+           
           </div>
           <div className={style.counter}>
             <p className={style.currentPage}>01</p>
             <p className={style.totalPages}>/5</p>
           </div>
         </div>
-        <div
-          className={cx(style.roundButton, {
-            [style.inView]: componentInView,
-          })}
-          onClick={() => {
-            handleRouteChange("5");
-          }}
-        >
-          <RoundButton size="big" content="LET'S TALK" />
-        </div>
+      
+       
       </section>
     </div>
   );

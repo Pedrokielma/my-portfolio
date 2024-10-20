@@ -50,7 +50,7 @@ const Header = (props: Props) => {
                 href="https://calendly.com/peterkielma/30min"
                 target="_blank"
               >
-                Calendly
+                Book your 15 minute discovery call
               </a>
             </li>
           </ul>
