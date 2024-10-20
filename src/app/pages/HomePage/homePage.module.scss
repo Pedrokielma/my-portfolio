@@ -9,13 +9,13 @@ $animation-duration: 10s;
   width: 100vw;
   height: 100vh;
   position: relative;
-  background-image: url("../../../../public/images/tie-dye.png");
+  background-image: url("../../../../public/images/sitOnDark.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   z-index: 0;
 
   .backgroundImage {
-    background-image: url("../../../../public/images/tie-dye.png");
+    background-image: url("../../../../public/images/sitOnDark.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 
@@ -30,17 +30,17 @@ $animation-duration: 10s;
       backface-visibility: hidden;
     }
 
-    @keyframes zoom {
-      0% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1.2);
-      }
-      100% {
-        transform: scale(1);
-      }
-    }
+    // @keyframes zoom {
+    //   0% {
+    //     transform: scale(1);
+    //   }
+    //   50% {
+    //     transform: scale(1.2);
+    //   }
+    //   100% {
+    //     transform: scale(1);
+    //   }
+    // }
   }
   section {
     display: flex;

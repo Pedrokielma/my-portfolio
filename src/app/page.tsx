@@ -86,7 +86,7 @@ export default function Home() {
       />
 
       <div className={style.lottieAnimation}>
-        <PulseLoader color={"#ffd6fb"} size={30} loading={loading} />
+        <PulseLoader color={"#1C6663"} size={30} loading={loading} />
       </div>
       <main
         onClick={() => {
