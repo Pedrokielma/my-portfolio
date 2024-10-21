@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import SideNavCounter from "@/app/components/SideNavCounter/index";
 import classNames from "classnames/bind";
+import { IoMdOpen } from "react-icons/io";
+import Image from "next/image";
 const cx = classNames.bind(style);
 
 import style from "./skill.module.scss";
@@ -11,8 +13,10 @@ interface HeaderColor {
   black: boolean;
 }
 interface Skill {
-  name: String;
-  detail: String;
+  name: string;
+  detail: string;
+  image: string;
+  link: string;
 }
 interface Props {
   id: string;
@@ -27,14 +31,25 @@ const Skill = (props: Props) => {
   });
 
   const [mySkill] = useState<Skill[]>([
-    { name: "WordPress", detail: "Robust CMS for developing conversion-focused websites" },
-  { name: "HTML & CSS", detail: "Core web development languages for building responsive layouts" },
-  { name: "JavaScript", detail: "Versatile scripting language for interactive web experiences" },
-  { name: "Figma", detail: "UX/UI design tool for wireframes and visual prototypes" },
-  { name: "SEO Tools", detail: "SEMrush, Google Analytics for optimizing search engine performance" },
-  { name: "Google Analytics", detail: "Tracking and measuring website traffic and user behavior" },
-  { name: "Branding Strategy", detail: "Aligning design and content with business goals for impact" },
-  { name: "UX/UI Research", detail: "Designing user-centered experiences that drive conversions" }
+    {
+      name: "Local SEO & Google Maps Setup",
+      detail: "Optimize local search visibility to attract nearby clients.",
+      link: "https://calendly.com/peterkielma/30min?month=2024-10",
+      image: "/images/website.jpg", // Replace with the relevant image for this service
+    },
+    {
+      name: "Website & Landing Page Creation",
+      detail: "Build a website or landing page that’s designed to convert visitors into leads.",
+      link: "https://calendly.com/peterkielma/30min?month=2024-10",
+      image: "/images/strategy.jpg", // Replace with the relevant image for this service
+    },
+    {
+      name: "Ongoing SEO & Performance Improvement",
+      detail: "Provide ongoing SEO strategy and regular audits to ensure long-term growth and optimal performance.",
+      link: "https://calendly.com/peterkielma/30min?month=2024-10",
+      image: "/images/service.jpg", // Replace with the relevant image for this service
+    },
+   
   ]);
 
   useEffect(() => {
@@ -52,18 +67,37 @@ const Skill = (props: Props) => {
         [style.inView]: inView,
       })}
     >
-      <SideNavCounter counter="04" name="Skills" />
+      <SideNavCounter counter="04" name="Services" />
       <div className={style.skillSection}>
-        <p className={style.titleSection}>Skills</p>
+        <p className={style.titleSection}>Services</p>
         <div className={style.skillContent}>
           <h2 className={style.skillTitle}>
-            My set of skills to bring exceptional ideas to life.
+          Your Growth Starts Here: Explore Our Solutions
           </h2>
           <div className={style.skillTable}>
             {mySkill?.map((item, index) => (
-              <div key={index} className={style.item}>
-                <p className={style.name}>{item.name}</p>
-                <p className={style.detail}>{item.detail}</p>
+              // <div key={index} className={style.item}>
+              //   <p className={style.name}>{item.name}</p>
+              //   <p className={style.detail}>{item.detail}</p>
+              // </div>
+              <div key={index} className={style.card}>
+                <div className={style.cardContent}>
+                <Image
+                  src={item.image}
+                  alt={item.name}
+                  className={style.cardImage}
+
+                  width={400} // You can adjust the width/height based on your layout
+                  height={300}
+                  layout="responsive" // Automatically adjusts for responsiveness
+                />
+                  <h3 className={style.cardTitle}>{item.name}</h3>
+                  <p className={style.cardDetail}>{item.detail}</p>
+                </div>
+                <a href='https://calendly.com/peterkielma/30min' target="_blank"  download='"PedroResume.pdf' className={style.button}>
+            <span>Get Your Free Consult</span>
+            <IoMdOpen />
+      </a>
               </div>
             ))}
           </div>

@@ -46,35 +46,88 @@
       gap: 40px;
       flex-grow: 1;
       .skillTable {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-auto-rows: 1fr;
-        grid-column-gap: 90px;
-        flex-grow: 1;
-        max-width: 100%;
-        @include respond-to("mobile") {
-          grid-column-gap: 20px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        gap: 30px;
+      
+        // For responsiveness, when the screen size is smaller, it switches to column layout
+        @media (max-width: 768px) {
+          flex-direction: column;
+          align-items: center;
         }
-        .item {
+      
+        .card {
+          flex: 1;
+          padding: 1.5rem;
+          background-color: $white;
+          border-radius: 16px;
           display: flex;
           flex-direction: column;
-          max-width: 160px;
-          .name {
-            font-size: 22px;
-            font-weight: 300;
-            color: $pink;
+          justify-content: space-between;
+          align-items: center;
+          flex-grow: 1;
+          gap: 40px;
+          // border: 2px solid $green;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          transition: transform 0.3s ease, background-color 0.3s ease;
+      
+          &:hover {
+            transform: translateY(-5px);
           }
-          .detail {
-            font-size: 17px;
-            color: $darkWhite;
-            font-weight: 400;
-            font-family: "Crimson Pro", serif;
-            @include respond-to("tablet") {
-              font-size: 16px;
+      
+         
+         
+          .cardContent {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            gap: 20px;
+
+            .cardImage {
+              border-radius: 8px; // Adjust the radius as needed
+              overflow: hidden; // Ensures the border radius is applied correctly
+            }
+      
+            .cardTitle {
+               font-size: 22px;
+                font-weight: 300;
+                color: $pink;
+
+            }
+      
+            .cardDetail {              
+                font-size: 17px;
+                color: $darkWhite;
+                font-weight: 400;
+                @include respond-to("tablet") {
+                  font-size: 16px;
+                }
+              
+              
             }
           }
+          .button {
+            background-color: $green;
+            border-radius: 8px;
+            color: $black;
+            cursor: pointer;
+            flex-shrink: 0;
+            padding: 15px 20px;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 135%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: fit-content;
+            gap: 20px;
+        }
+          // Card content styling
+        
         }
       }
+      
     }
     .counter {
       display: none;
