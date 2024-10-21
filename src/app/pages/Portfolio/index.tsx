@@ -156,7 +156,7 @@ const Portfolio = (props: Props) => {
   return (
     <div ref={myRef} id={id} className={style.portfolioBackground}>
       <section className={style.portfolio}>
-        <SideNavCounter counter="02" name="Selected works" />
+        <SideNavCounter counter="02" name="Success Cases" />
         <div
           ref={projectListRef}
           onScroll={() => {
@@ -166,7 +166,7 @@ const Portfolio = (props: Props) => {
             [style.inView]: componentInView,
           })}
         >
-          <p className={style.titleSection}>Selected works</p>
+          <p className={style.titleSection}>Success Cases</p>
 
           <div className={style.projectList}>
            
